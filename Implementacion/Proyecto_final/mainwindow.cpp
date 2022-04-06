@@ -23,14 +23,11 @@ MainWindow::~MainWindow()
 }
 void MainWindow::keyPressEvent(QKeyEvent *event) //Teclas
 {
-    if (event->key()==Qt::Key_Space){
+    if (event->key()==Qt::Key_Space && !movY_timer->isActive()){
         movY_timer->stop();
         connect(movY_timer,SIGNAL(timeout()),this,SLOT(tico_actualizar()));
         movY_timer->start(10);
-        if (tico->getPosY()>800-tico->getTamanoY()){
-            movY_timer->stop();
-
-        }
+        tico->setVelY(100);
     }
     if (event->key()==Qt::Key_D){
         if (tico->getPosX()<(600-tico->getTamanoX())){
@@ -50,4 +47,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event) //Teclas
 void MainWindow::tico_actualizar()
 {
     tico->movY();
+    if (tico->getPosY()==800-tico->getTamanoY()){
+        movY_timer->stop();
+    }
 }

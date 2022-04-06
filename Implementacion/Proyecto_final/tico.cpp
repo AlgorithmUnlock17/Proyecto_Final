@@ -6,7 +6,6 @@ Tico::Tico(float posX_, float posY_):
     setPixmap(QPixmap(":/Sprites/OPEN.png"));
     posicion();
 }
-
 float Tico::getPosX() const
 {
     return posX;
@@ -67,11 +66,11 @@ int Tico::getTamanoY() const
 }
 void Tico::movY()
 {
-    velY = velY+(DT*-G);
-    posY +=-velY*DT+-G*DT*DT*0.5;
+    velY = velY+(DT*(-G));
+    posY +=-velY*DT+(-G)*DT*DT*0.5;
     if (posY>800-tamanoY){
         posicion(posX,800-tamanoY);
-        velY=100;
+        velY=0;
     }
     posicion();
 }
