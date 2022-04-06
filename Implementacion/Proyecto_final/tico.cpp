@@ -68,9 +68,9 @@ void Tico::movY()
 {
     velY = velY+(DT*(-G));
     posY +=-velY*DT+(-G)*DT*DT*0.5;
+    posicion();
     if (posY>800-tamanoY){
         posicion(posX,800-tamanoY);
         velY=0;
     }
-    posicion();
 }

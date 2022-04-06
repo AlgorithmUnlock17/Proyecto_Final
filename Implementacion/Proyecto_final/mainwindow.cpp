@@ -13,7 +13,8 @@ MainWindow::MainWindow(QWidget *parent)
     tico=new Tico(50,700);
     scene->addItem(tico);
     movY_timer=new QTimer(this);
-}
+    connect(movY_timer,SIGNAL(timeout()),this,SLOT(tico_actualizar()));
+   }
 
 MainWindow::~MainWindow()
 {
@@ -24,10 +25,9 @@ MainWindow::~MainWindow()
 void MainWindow::keyPressEvent(QKeyEvent *event) //Teclas
 {
     if (event->key()==Qt::Key_Space && !movY_timer->isActive()){
+        tico->setVelY(50);
         movY_timer->stop();
-        connect(movY_timer,SIGNAL(timeout()),this,SLOT(tico_actualizar()));
         movY_timer->start(10);
-        tico->setVelY(100);
     }
     if (event->key()==Qt::Key_D){
         if (tico->getPosX()<(600-tico->getTamanoX())){
@@ -47,7 +47,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event) //Teclas
 void MainWindow::tico_actualizar()
 {
     tico->movY();
-    if (tico->getPosY()==800-tico->getTamanoY()){
+    if (tico->getPosY()>=800-tico->getTamanoY()){
         movY_timer->stop();
     }
 }

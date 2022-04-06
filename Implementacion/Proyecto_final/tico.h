@@ -1,6 +1,6 @@
 #ifndef TICO_H
 #define TICO_H
-#define G 10
+#define G 5
 #define DT 0.1 //cada cuantos milisegundos se actualiza
 #include <QObject>
 #include <QGraphicsPixmapItem>
