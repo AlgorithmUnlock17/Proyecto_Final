@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>Sprites/OPEN.png</file>
+        <file>Sprites/Tico.png</file>
     </qresource>
 </RCC>

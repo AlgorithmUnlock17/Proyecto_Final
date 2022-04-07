@@ -29,8 +29,8 @@ public:
     void movY(); //En este se hace lo del movimiento parabolico
 private:
     //Cambiar tamano cuando se cambie el sprite
-    const int tamanoX=32;
-    const int tamanoY=32;
+    const int tamanoX=50;
+    const int tamanoY=50;
     float posX;
     float posY;
     float velX=10;

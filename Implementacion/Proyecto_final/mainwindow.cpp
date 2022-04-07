@@ -7,12 +7,12 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     scene = new QGraphicsScene(this);
-    scene->setSceneRect(0,0,600,800);//define tamaño escena, hay que arreglarlo, aparece un scroll
-    ui->graphicsView->setScene(scene);
+    scene->setSceneRect(0,0,580,680);//define tamaño escena, hay que arreglarlo, aparece un scroll
+    ui->graphicsView->setScene(scene); // Llamado escena
     scene->addRect(scene->sceneRect());
-    tico=new Tico(50,700);
-    scene->addItem(tico);
-    movY_timer=new QTimer(this);
+    tico=new Tico(50,630); //Instanciamiento personaje
+    scene->addItem(tico); //Añado el personaje a la escena
+    movY_timer=new QTimer(this); //Timer para salto
     connect(movY_timer,SIGNAL(timeout()),this,SLOT(tico_actualizar()));
    }
 
@@ -30,10 +30,10 @@ void MainWindow::keyPressEvent(QKeyEvent *event) //Teclas
         movY_timer->start(10);
     }
     if (event->key()==Qt::Key_D){
-        if (tico->getPosX()<(600-tico->getTamanoX())){
+        if (tico->getPosX()<(580-tico->getTamanoX())){
             tico->setPosX(tico->getPosX()+tico->getVelX());
         }
-        else tico->posicion(600-tico->getTamanoX(),tico->getPosY());
+        else tico->posicion(580-tico->getTamanoX(),tico->getPosY());
     }
     if (event->key()==Qt::Key_A){
         if (tico->getPosX()>(0)){
@@ -47,7 +47,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event) //Teclas
 void MainWindow::tico_actualizar()
 {
     tico->movY();
-    if (tico->getPosY()>=800-tico->getTamanoY()){
+    if (tico->getPosY()>=680-tico->getTamanoY()){
         movY_timer->stop();
     }
 }

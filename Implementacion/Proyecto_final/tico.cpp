@@ -1,32 +1,32 @@
 #include "tico.h"
 
 Tico::Tico(float posX_, float posY_):
-    posX(posX_),posY(posY_)
+    posX(posX_),posY(posY_) // Inicialización de variables heredadas con el constructor de la clase base
 {
-    setPixmap(QPixmap(":/Sprites/OPEN.png"));
-    posicion();
+    setPixmap(QPixmap(":/Sprites/Tico.png")); // Lectura de sprite
+    posicion(); // con posX y posY definidas en el constructor posiciono el personaje
 }
-float Tico::getPosX() const
+float Tico::getPosX() const //metodo para retornar el valor de posX
 {
     return posX;
 }
-void Tico::setPosX(float newPosX)
+void Tico::setPosX(float newPosX) //metodo para actualizar valos de posX
 {
     posX = newPosX;
 }
-float Tico::getPosY() const
+float Tico::getPosY() const //metodo para retornar valor de posY
 {
     return posY;
 }
-void Tico::setPosY(float newPosY)
+void Tico::setPosY(float newPosY) //metodo para actualizar valos de posY
 {
     posY = newPosY;
 }
-float Tico::getVelX() const
+float Tico::getVelX() const //Retorar VelX
 {
     return velX;
 }
-void Tico::setVelX(float newVelX)
+void Tico::setVelX(float newVelX) //ActualizarVelX
 {
     velX = newVelX;
 }
@@ -46,31 +46,31 @@ void Tico::setVidas(int newVidas)
 {
     vidas = newVidas;
 }
-void Tico::posicion()
+void Tico::posicion() //metodo llamado en el constructor para posicionar personaje
 {
     setPos(posX,posY);
 }
-void Tico::posicion(int newX,int newY)
+void Tico::posicion(int newX,int newY) // Actualizar posición con parametros
 {
     posX=newX;
     posY=newY;
     setPos(posX,posY);
 }
-int Tico::getTamanoX() const
+int Tico::getTamanoX() const //Tamaño personaje en x(width)
 {
     return tamanoX;
 }
-int Tico::getTamanoY() const
+int Tico::getTamanoY() const // Tamaño personaje en y (high)
 {
     return tamanoY;
 }
-void Tico::movY()
+void Tico::movY() // salto con gravedad
 {
     velY = velY+(DT*(-G));
     posY +=-velY*DT+(-G)*DT*DT*0.5;
     posicion();
-    if (posY>800-tamanoY){
-        posicion(posX,800-tamanoY);
+    if (posY>700-tamanoY){
+        posicion(posX,700-tamanoY);
         velY=0;
     }
 }
