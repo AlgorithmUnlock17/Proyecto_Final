@@ -7,13 +7,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     scene = new QGraphicsScene(this);
-    scene->setSceneRect(0,0,580,680);//define tamaño escena, hay que arreglarlo, aparece un scroll
+    scene->setSceneRect(0,0,580,680);//define tamaño escena, hay que arreglarlo, aparece un scrol
     ui->graphicsView->setScene(scene); // Llamado escena
     scene->addRect(scene->sceneRect());
     tico=new Tico(50,630); //Instanciamiento personaje
     scene->addItem(tico); //Añado el personaje a la escena
     movY_timer=new QTimer(this); //Timer para salto
-    connect(movY_timer,SIGNAL(timeout()),this,SLOT(tico_actualizar()));
+    connect(movY_timer,SIGNAL(timeout()),this,SLOT(tico_actualizar())); //conexion del timer con la funcion tico_actualizar
    }
 
 MainWindow::~MainWindow()
@@ -22,7 +22,7 @@ MainWindow::~MainWindow()
     delete tico;
     delete scene;
 }
-void MainWindow::keyPressEvent(QKeyEvent *event) //Teclas
+/*void MainWindow::keyPressEvent(QKeyEvent *event) //Teclas
 {
     if (event->key()==Qt::Key_Space && !movY_timer->isActive()){
         tico->setVelY(50);
@@ -42,7 +42,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event) //Teclas
         else tico->posicion(0,tico->getPosY());
     }
     tico->posicion();
-}
+}*/
 
 void MainWindow::tico_actualizar()
 {

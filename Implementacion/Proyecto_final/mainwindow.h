@@ -22,7 +22,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void keyPressEvent(QKeyEvent *event);
+    //void keyPressEvent(QKeyEvent *event);
     QGraphicsScene *getScene() const;
     void setScene(QGraphicsScene *newScene);
 private slots:
@@ -32,5 +32,8 @@ private:
     QGraphicsScene *scene;
     Tico *tico;
     QTimer *movY_timer;
+    bool juego; //esta variable servirá para notar si se está en sesión o no
+    int level; //nivel donde está el jugador, se guardara
+
 };
 #endif // MAINWINDOW_H

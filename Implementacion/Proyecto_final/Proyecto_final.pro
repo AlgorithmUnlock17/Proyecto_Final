@@ -9,16 +9,17 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    button.cpp \
+    game.cpp \
     main.cpp \
-    mainwindow.cpp \
     tico.cpp
 
 HEADERS += \
-    mainwindow.h \
+    button.h \
+    game.h \
     tico.h
 
-FORMS += \
-    mainwindow.ui
+FORMS +=
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
