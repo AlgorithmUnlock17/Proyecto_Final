@@ -42,12 +42,30 @@ void Tico::movY() // salto con gravedad
 {
     velY = velY+(DT*(-G));
     posY +=-velY*DT+(-G)*DT*DT*0.5;
-    posicion();
-    if (posY>700-tamanoY){
+    if (posY>700-tamanoY){ //Esto se va a tener que cambiar cuando se haga lo del piso
         posicion(posX,700-tamanoY);
         velY=0;
         movY_timer->stop();
     }
+    QList<QGraphicsItem *> list = collidingItems() ;
+    foreach(QGraphicsItem * i , list) //es probable que tenga que mover esto a la parte de las plataformas, para que el mov de tico varie por plataforma
+    {
+        platform * item= dynamic_cast<platform *>(i); //Con esto se hace la colision con cada plataforma
+        if (item)
+        {
+            if (posY<item->getPosy()+(item->getSizey()/2)){
+                posY=item->getPosy()-tamanoY;
+                velY=0;
+                movY_timer->stop();
+            }
+            if (posY>item->getPosy()+(item->getSizey()/2)){
+                posY=item->getPosy()+item->getSizey();
+                velY=0;
+            }
+        }
+        //Aqui se van agregando los otros tipos de reacciones
+    }
+    posicion();
 }
 void Tico::posicion() //metodo (sobrecargado) llamado en el constructor para posicionar personaje
 {

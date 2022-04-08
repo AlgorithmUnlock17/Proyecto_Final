@@ -10,6 +10,7 @@ class Button: public QObject, public QGraphicsRectItem{
 
 public:
     Button(QString name, QGraphicsItem * parent = 0);
+    Button(int sizex, int sizey, QString name, QGraphicsItem * parent = 0);
     void mousePressEvent(QGraphicsSceneMouseEvent * event);
     void hoverEnterEvent(QGraphicsSceneHoverEvent * event);
     void hoverLeaveEvent(QGraphicsSceneHoverEvent * event);

@@ -55,17 +55,21 @@ OBJECTS_DIR   = ./
 SOURCES       = ../Proyecto_final/button.cpp \
 		../Proyecto_final/game.cpp \
 		../Proyecto_final/main.cpp \
+		../Proyecto_final/platform.cpp \
 		../Proyecto_final/tico.cpp qrc_Resources.cpp \
 		moc_button.cpp \
 		moc_game.cpp \
+		moc_platform.cpp \
 		moc_tico.cpp
 OBJECTS       = button.o \
 		game.o \
 		main.o \
+		platform.o \
 		tico.o \
 		qrc_Resources.o \
 		moc_button.o \
 		moc_game.o \
+		moc_platform.o \
 		moc_tico.o
 DIST          = /Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/spec_pre.prf \
 		/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/device_config.prf \
@@ -209,9 +213,11 @@ DIST          = /Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/spec_pre.prf 
 		/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/lex.prf \
 		../Proyecto_final/Proyecto_final.pro ../Proyecto_final/button.h \
 		../Proyecto_final/game.h \
+		../Proyecto_final/platform.h \
 		../Proyecto_final/tico.h ../Proyecto_final/button.cpp \
 		../Proyecto_final/game.cpp \
 		../Proyecto_final/main.cpp \
+		../Proyecto_final/platform.cpp \
 		../Proyecto_final/tico.cpp
 QMAKE_TARGET  = Proyecto_final
 DESTDIR       = 
@@ -558,8 +564,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../Proyecto_final/Resources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../Proyecto_final/button.h ../Proyecto_final/game.h ../Proyecto_final/tico.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Proyecto_final/button.cpp ../Proyecto_final/game.cpp ../Proyecto_final/main.cpp ../Proyecto_final/tico.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Proyecto_final/button.h ../Proyecto_final/game.h ../Proyecto_final/platform.h ../Proyecto_final/tico.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Proyecto_final/button.cpp ../Proyecto_final/game.cpp ../Proyecto_final/main.cpp ../Proyecto_final/platform.cpp ../Proyecto_final/tico.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -591,13 +597,15 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_Resources.cpp
 qrc_Resources.cpp: ../Proyecto_final/Resources.qrc \
 		/Users/mariadelmar/Qt/6.2.1/macos/libexec/rcc \
-		../Proyecto_final/Sprites/OPEN.png \
-		../Proyecto_final/Sprites/Tico.png
+		../Proyecto_final/Sprites/Tico.png \
+		../Proyecto_final/Sprites/Tico2.png \
+		../Proyecto_final/Sprites/Sprite_Tico.png \
+		../Proyecto_final/Sprites/fondo.png
 	/Users/mariadelmar/Qt/6.2.1/macos/libexec/rcc -name Resources ../Proyecto_final/Resources.qrc -o qrc_Resources.cpp
 
-compiler_moc_header_make_all: moc_button.cpp moc_game.cpp moc_tico.cpp
+compiler_moc_header_make_all: moc_button.cpp moc_game.cpp moc_platform.cpp moc_tico.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_button.cpp moc_game.cpp moc_tico.cpp
+	-$(DEL_FILE) moc_button.cpp moc_game.cpp moc_platform.cpp moc_tico.cpp
 moc_button.cpp: ../Proyecto_final/button.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
@@ -621,12 +629,30 @@ moc_game.cpp: ../Proyecto_final/game.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTimer \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QPainter \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qpainter.h \
 		../Proyecto_final/button.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneMouseEvent \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
+		../Proyecto_final/platform.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/libexec/moc
 	/Users/mariadelmar/Qt/6.2.1/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=13 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/macx-clang -I/Users/mariadelmar/Desktop/UdeA/SegundoSemestre/Info2/Proyecto_Final/Proyecto_Final/Implementacion/Proyecto_final -I/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers -I/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers -I/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/mariadelmar/Qt/6.2.1/macos/lib ../Proyecto_final/game.h -o moc_game.cpp
+
+moc_platform.cpp: ../Proyecto_final/platform.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qobject.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTimer \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QPainter \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qpainter.h \
+		../Proyecto_final/tico.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
+		/Users/mariadelmar/Qt/6.2.1/macos/libexec/moc
+	/Users/mariadelmar/Qt/6.2.1/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=13 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/macx-clang -I/Users/mariadelmar/Desktop/UdeA/SegundoSemestre/Info2/Proyecto_Final/Proyecto_Final/Implementacion/Proyecto_final -I/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers -I/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers -I/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/mariadelmar/Qt/6.2.1/macos/lib ../Proyecto_final/platform.h -o moc_platform.cpp
 
 moc_tico.cpp: ../Proyecto_final/tico.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QObject \
@@ -636,6 +662,8 @@ moc_tico.cpp: ../Proyecto_final/tico.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTimer \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QPainter \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qpainter.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/libexec/moc
 	/Users/mariadelmar/Qt/6.2.1/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=13 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/macx-clang -I/Users/mariadelmar/Desktop/UdeA/SegundoSemestre/Info2/Proyecto_Final/Proyecto_Final/Implementacion/Proyecto_final -I/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers -I/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers -I/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/mariadelmar/Qt/6.2.1/macos/lib ../Proyecto_final/tico.h -o moc_tico.cpp
 
@@ -682,10 +710,13 @@ game.o: ../Proyecto_final/game.cpp ../Proyecto_final/game.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTimer \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QPainter \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qpainter.h \
 		../Proyecto_final/button.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneMouseEvent \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
+		../Proyecto_final/platform.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QBrush \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qbrush.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QImage \
@@ -707,6 +738,8 @@ main.o: ../Proyecto_final/main.cpp ../Proyecto_final/mainwindow.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTimer \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QPainter \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qpainter.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QString \
@@ -719,9 +752,24 @@ main.o: ../Proyecto_final/main.cpp ../Proyecto_final/mainwindow.h \
 		../Proyecto_final/button.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneMouseEvent \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
+		../Proyecto_final/platform.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Proyecto_final/main.cpp
+
+platform.o: ../Proyecto_final/platform.cpp ../Proyecto_final/platform.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qobject.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTimer \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QPainter \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qpainter.h \
+		../Proyecto_final/tico.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o platform.o ../Proyecto_final/platform.cpp
 
 tico.o: ../Proyecto_final/tico.cpp ../Proyecto_final/tico.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QObject \
@@ -731,10 +779,24 @@ tico.o: ../Proyecto_final/tico.cpp ../Proyecto_final/tico.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTimer \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QPainter \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qpainter.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QKeyEvent \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qevent.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QDebug \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qdebug.h
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qdebug.h \
+		../Proyecto_final/game.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsView \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsview.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../Proyecto_final/button.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneMouseEvent \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
+		../Proyecto_final/platform.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tico.o ../Proyecto_final/tico.cpp
 
 qrc_Resources.o: qrc_Resources.cpp 
@@ -745,6 +807,9 @@ moc_button.o: moc_button.cpp
 
 moc_game.o: moc_game.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_game.o moc_game.cpp
+
+moc_platform.o: moc_platform.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_platform.o moc_platform.cpp
 
 moc_tico.o: moc_tico.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_tico.o moc_tico.cpp

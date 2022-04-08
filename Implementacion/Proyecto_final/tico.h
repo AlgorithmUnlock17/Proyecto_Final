@@ -7,6 +7,7 @@
 #include <QGraphicsItem>
 #include <QTimer>
 #include <QPainter>
+#include <QList>
 
 class Tico: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT

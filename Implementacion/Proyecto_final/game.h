@@ -4,8 +4,12 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QWidget>
+#include <stdlib.h>
+#include <stdio.h>
 #include "tico.h"
 #include "button.h"
+#include "platform.h"
+
 class Game: public QGraphicsView{
     Q_OBJECT
 public:

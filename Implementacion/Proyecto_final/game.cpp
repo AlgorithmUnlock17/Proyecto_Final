@@ -4,7 +4,6 @@
 #include <QImage>
 #include "button.h"
 
-
 Game::Game(QWidget *parent)
 {
     // crear la scena
@@ -14,7 +13,6 @@ Game::Game(QWidget *parent)
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(600,700); //Estoy medianamente segura que esto es lo que hace que quede todo perfecto sin scroll,
-    //Si es que te sale tambien sin scroll, creo que es compatibilidad del s.o
 
 }
 
@@ -60,9 +58,9 @@ void Game::start()
 
     //scene->clear();
     clearscene(scene);
-    Button *Bmenu = new Button(QString("Menu principal"));
-    int mxPos=400;
-    int myPos=50;
+    Button *Bmenu = new Button(40,40,QString("Menu"));
+    int mxPos=560;
+    int myPos=0;
     Bmenu->setPos(mxPos,myPos);
     connect(Bmenu,SIGNAL(clicked()),this,SLOT(backMenu()));
     scene->addItem(Bmenu);
@@ -76,6 +74,9 @@ void Game::start()
     tico->setFlag(QGraphicsItem::ItemIsFocusable); //esto es para que el key press event se lea desde la misma clase (porque tiene focus)
     tico->setFocus(); //Estos dos de focus son muy importantes porque sin ellos no lee el teclado
     scene->addItem(tico);
+
+    platform *uno=new platform(30,500);
+    scene->addItem(uno);
     /* Lo siguente viene del otro código pero nos puede informar como llamar enemigos y demás
     // crear puntaje
 
@@ -96,7 +97,6 @@ void Game::start()
 // slot para salir
 void Game::close()
 {
-  //scene->clear();
     clearscene(scene);
     exit(0);
 }

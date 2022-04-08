@@ -12,11 +12,13 @@ SOURCES += \
     button.cpp \
     game.cpp \
     main.cpp \
+    platform.cpp \
     tico.cpp
 
 HEADERS += \
     button.h \
     game.h \
+    platform.h \
     tico.h
 
 FORMS +=
