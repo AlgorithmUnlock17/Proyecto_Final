@@ -6,10 +6,13 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsItem>
 #include <QTimer>
+#include <QPainter>
+
 class Tico: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     Tico(float x, float y);
+
     void keyPressEvent(QKeyEvent *event);
     /*// Es probable que estos métodos no se necesiten porque se trabaja el movimiento en la misma clase, se dejan por si acaso
     float getPosX() const;

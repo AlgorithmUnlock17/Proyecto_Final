@@ -19,21 +19,23 @@ void Tico::keyPressEvent(QKeyEvent *event) //Teclas
         movY_timer->start(10);
     }
     if (event->key()==Qt::Key_D){
+        setPixmap(QPixmap(":/Sprites/Tico.png")); //Mirando a la derecha
         if (posX<(600-tamanoX)){
             posX=posX+velX;
         }
         else posicion(600-tamanoX,posY);
     }
     if (event->key()==Qt::Key_A){
+        setPixmap(QPixmap(":/Sprites/Tico2.png")); // mirando a la izquierda
         if (posX>(0)){
             posX=posX-velX;
         }
         else posicion(0,posY);
     }
-    if (event->key()==Qt::Key_E){ //vuelve al menu con e, muy inestable, revisar estabilidad, tal vez sirva crear una funcion de limpiar escena
-        movY_timer->stop();
-        game->menu();
-    }
+    //if (event->key()==Qt::Key_E){ //vuelve al menu con e, muy inestable, revisar estabilidad, tal vez sirva crear una funcion de limpiar escena
+     //   movY_timer->stop();
+      //  game->menu();
+   // }
     posicion();
 }
 void Tico::movY() // salto con gravedad
@@ -57,6 +59,8 @@ void Tico::posicion(int newX,int newY) // Actualizar posición con parametros
     posY=newY;
     setPos(posX,posY);
 }
+
+
 /*
 float Tico::getPosX() const //metodo para retornar el valor de posX
 {

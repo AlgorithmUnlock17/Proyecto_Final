@@ -12,8 +12,9 @@ public:
     Game(QWidget *parent = 0);
     QGraphicsScene *scene;
     Tico *tico;
+    void clearscene(QGraphicsScene *scene);
     void menu();
-    void clean_scene();
+    void clean_scene(); //metodo para limpiar escena
     //Aquí se van agregando escenarios (o en slots, dependiendo de lo que se necesite)
 private:
     //bool juego; //esta variable servirá para notar si se está en sesión o no
@@ -21,6 +22,8 @@ private:
 
 public slots:
     void start();
+    void close();
+    void backMenu();
 };
 
 #endif // GAME_H

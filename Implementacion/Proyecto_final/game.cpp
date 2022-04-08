@@ -4,6 +4,7 @@
 #include <QImage>
 #include "button.h"
 
+
 Game::Game(QWidget *parent)
 {
     // crear la scena
@@ -16,9 +17,15 @@ Game::Game(QWidget *parent)
     //Si es que te sale tambien sin scroll, creo que es compatibilidad del s.o
 
 }
-void Game::menu()
+
+void Game::clearscene(QGraphicsScene *scene)
 {
     scene->clear();
+}
+void Game::menu()
+{
+    //scene->clear();
+    clearscene(scene);
     QGraphicsTextItem * titleText = new QGraphicsTextItem(QString("Tico's Adventure"));
     QFont titleFont("Times New Roman",50);
     titleText->setFont(titleFont);
@@ -43,14 +50,22 @@ void Game::menu()
     int qxPos = this->width()/2 -quitButton->boundingRect().width()/2;
     int qyPos = 350;
     quitButton->setPos(qxPos,qyPos);
-    connect(playButton,SIGNAL(clicked()),this,SLOT(close())); //Esta linea de codigo NO funciona, no estoy segura por que, preguntar
+    connect(quitButton,SIGNAL(clicked()),this,SLOT(close())); //Esta linea de codigo NO funciona, no estoy segura por que, preguntar
     scene->addItem(quitButton);
     //Se puede crear un boton de reanudar, o algo así play funcionaría como empezar desde cero, ahi habria que especificar
 }
 
 void Game::start()
 {
-    scene->clear();
+
+    //scene->clear();
+    clearscene(scene);
+    Button *Bmenu = new Button(QString("Menu principal"));
+    int mxPos=400;
+    int myPos=50;
+    Bmenu->setPos(mxPos,myPos);
+    connect(Bmenu,SIGNAL(clicked()),this,SLOT(backMenu()));
+    scene->addItem(Bmenu);
     //Se hace puede hacer un switch case para cada escenario: tipo 1,2,3...
     //Cada escenario tiene una funcion/metodo aparte en el juego, al final se vuelve a llamar esta funcion para que se decida
     //A donde va a ir despues, asi se vuelve mas facil volver a ingresar al nivel porque ya de por si hay un valor para
@@ -77,5 +92,43 @@ void Game::start()
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000);*/
 
+}
+// slot para salir
+void Game::close()
+{
+  //scene->clear();
+    clearscene(scene);
+    exit(0);
+}
+// volver al menu principal
+void Game::backMenu()
+{
+    clearscene(scene);
+    QGraphicsTextItem * titleText = new QGraphicsTextItem(QString("Tico's Adventure"));
+    QFont titleFont("Times New Roman",50);
+    titleText->setFont(titleFont);
+
+    int txPos = this->width()/2 - titleText->boundingRect().width()/2;
+    int tyPos = 150;
+    titleText->setPos(txPos,tyPos);
+    scene->addItem(titleText);
+
+    // crear boton play
+
+    Button *playButton = new Button(QString("Jugar"));
+    int bxPos = this->width()/2 -playButton->boundingRect().width()/2;
+    int byPos = 275;
+    playButton->setPos(bxPos,byPos);
+    connect(playButton,SIGNAL(clicked()),this,SLOT(start()));
+    scene->addItem(playButton);
+
+    // crear boton salir
+
+    Button *quitButton = new Button(QString("Salir"));
+    int qxPos = this->width()/2 -quitButton->boundingRect().width()/2;
+    int qyPos = 350;
+    quitButton->setPos(qxPos,qyPos);
+    connect(quitButton,SIGNAL(clicked()),this,SLOT(close())); //Esta linea de codigo NO funciona, no estoy segura por que, preguntar
+    scene->addItem(quitButton);
 }
 
