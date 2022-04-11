@@ -25,6 +25,7 @@ public:
 
 private:
     QTimer *mov_timer=new QTimer();
+    QTimer *mov_timer2=new QTimer();
     const int sizex=100;
     const int sizey=20 ;
     float posx;
