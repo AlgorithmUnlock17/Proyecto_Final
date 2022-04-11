@@ -14,8 +14,7 @@ class Tico: public QObject, public QGraphicsPixmapItem{
 public:
     Tico(float x, float y);
 
-    void keyPressEvent(QKeyEvent *event);
-    // Es probable que estos métodos no se necesiten porque se trabaja el movimiento en la misma clase, se dejan por si acaso
+    //void keyPressEvent(QKeyEvent *event); // por definición el metodo debe ir protegido
     float getPosX() const;
     void setPosX(float newPosX);
     float getPosY() const;
@@ -35,6 +34,9 @@ public:
     bool getSalto() const;
     void setSalto(bool newSalto);
 
+protected:
+     void keyPressEvent(QKeyEvent *event); //Protegido para no generar conflictos
+
 public slots:
     void movY(); //En este se hace lo del movimiento parabolico
 private:
@@ -44,7 +46,7 @@ private:
     float posX;
     float posY;
     float velX=10;
-    float velY=100;
+    float velY=50;
     int vidas=5;
     QTimer *movY_timer;
     bool encima=false;

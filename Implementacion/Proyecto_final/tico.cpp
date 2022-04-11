@@ -16,9 +16,13 @@ void Tico::keyPressEvent(QKeyEvent *event) //Teclas
     salto=false;
     if (posY>=700-tamanoY) //Esto va por ahora
         encima=true;
+    if (posY<0){
+        game->scene->clear(); // diferenciar que ya supere el primer nivel
+        game->setLevel(game->getLevel()+1); // si el salto supera el escenario pasa de nivel
+    }                                       // Hay que activar un slot que me verifique constantemente en que nivel estoy
     if (event->key()==Qt::Key_Space && encima){
         salto=true;
-        velY=50;
+        velY=40;
         movY_timer->stop();
         movY_timer->start(10);
     }
@@ -35,11 +39,7 @@ void Tico::keyPressEvent(QKeyEvent *event) //Teclas
             posX=posX-velX;
         }
         else posicion(0,posY);
-    }
-    //if (event->key()==Qt::Key_E){ //vuelve al menu con e, muy inestable, revisar estabilidad, tal vez sirva crear una funcion de limpiar escena
-     //   movY_timer->stop();
-      //  game->menu();
-   // }
+    }    
     posicion();
 }
 void Tico::movY() // salto con gravedad
