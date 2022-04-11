@@ -7,9 +7,12 @@
 Game::Game(QWidget *parent)
 {
     // crear la scena
+    QImage fondo(":/Sprites/fondo.png"); // ruta con imagen de fondo
+    QBrush Bfondo(fondo); // brush de fondo
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,600,700);
     setScene(scene);
+    scene->setBackgroundBrush(Bfondo); //Coloco fondo a la scene
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(600,700); //Estoy medianamente segura que esto es lo que hace que quede todo perfecto sin scroll,
@@ -22,7 +25,7 @@ void Game::clearscene(QGraphicsScene *scene)
 void Game::menu()
 {
     //scene->clear();
-    clearscene(scene);
+    clearscene(scene);    
     QGraphicsTextItem * titleText = new QGraphicsTextItem(QString("Tico's Adventure"));
     QFont titleFont("Times New Roman",50);
     titleText->setFont(titleFont);
@@ -62,7 +65,7 @@ void Game::menu()
 }
 void Game::save_game()
 {
-    QFile save("./save.txt"); //Se le da la ubicación a una variable qfile
+    QFile save(":/save.txt"); //Se le da la ubicación a una variable qfile
     if (!save.exists()) { //parte del debug, cuando tenia problemas, revisa si existe el archivo donde se declara
         qDebug() <<"no ex";
     }
@@ -82,7 +85,7 @@ void Game::save_game()
 void Game::load_game()
 {
     qDebug()<<level; //para revisar el nivel que se tiene desde antes, suele ser un 0
-    QFile save("./save.txt"); //Se le pone una variable Qfile al archivo
+    QFile save(":/save.txt"); //Se le pone una variable Qfile al archivo
     if (!save.exists()) { //parte del debug, para revisar si esta el archivo en la ubicacion puesta
         qDebug() <<"no ex";
     }
@@ -98,6 +101,16 @@ void Game::load_game()
     lvl>>level; //se le asigna a level lo que aparece en lvl
     qDebug()<<level; //se muestra en la consola para validar que esté funcionando bien
     save.close(); //se cierra el archivo
+}
+
+int Game::getLevel() const
+{
+    return level;
+}
+
+void Game::setLevel(int newLevel)
+{
+    level = newLevel;
 }
 void Game::start()
 {
@@ -121,12 +134,26 @@ void Game::start()
     tico->setFocus(); //Estos dos de focus son muy importantes porque sin ellos no lee el teclado
     scene->addItem(tico);
 
-    platform *uno=new platform(30,600,30,300);
-    scene->addItem(uno);
+    platform *uno= new platform(20,550);
+    platform *uno0= new platform(400,570);
+    platform *uno1= new platform(220,450);
+    platform *uno2= new platform(420,350);
+    platform *uno3= new platform(200,230);
+    platform *uno4= new platform(30,130);
+    platform *dos=new platform(30,600,30,300);
+
+    //scene->addItem(uno);
     switch(level){ //Aqui se agregan los niveles
-    case 0:
+    case 0:        
+        scene->addItem(uno);
+        scene->addItem(uno0);
+        scene->addItem(uno1);
+        scene->addItem(uno2);
+        scene->addItem(uno3);
+        scene->addItem(uno4);
         break;
-    case 1:
+    case 1:        
+        scene->addItem(dos);
         break;
     }
     /* Lo siguente viene del otro código pero nos puede informar como llamar enemigos y demás
