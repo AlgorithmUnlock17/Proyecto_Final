@@ -30,16 +30,12 @@ Button::Button(int sizex,int sizey,QString name, QGraphicsItem *parent)
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(Qt::darkRed);
     setBrush(brush);
-
     // dibujar el texto
-
     text = new QGraphicsTextItem(name,this);
     int xPos = rect().width()/2 -text->boundingRect().width()/2;
     int yPos = rect().height()/2 - text->boundingRect().height()/2;
     text->setPos(xPos,yPos);
-
     // habilitamos evento hover
-
     setAcceptHoverEvents(true);
 }
 void Button::mousePressEvent(QGraphicsSceneMouseEvent *event)

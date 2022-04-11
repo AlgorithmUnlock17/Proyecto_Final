@@ -52,7 +52,7 @@ void Tico::movY() // salto con gravedad
         velY=0;
         //movY_timer->stop();
     }
-    QList<QGraphicsItem *> list = collidingItems() ;
+    /*QList<QGraphicsItem *> list = collidingItems() ; //se deja para otras colisiones
     foreach(QGraphicsItem * i , list) //es probable que tenga que mover esto a la parte de las plataformas, para que el mov de tico varie por plataforma
     {
         platform * item= dynamic_cast<platform *>(i); //Con esto se hace la colision con cada plataforma
@@ -71,11 +71,28 @@ void Tico::movY() // salto con gravedad
             }
         }
         //Aqui se van agregando los otros tipos de reacciones
-    }
+    }*/
+    QList<QGraphicsItem *> list = collidingItems() ;
     if (list.size()==0){
         encima=false;
     }
     posicion();
+}
+bool Tico::getSalto() const
+{
+    return salto;
+}
+void Tico::setSalto(bool newSalto)
+{
+    salto = newSalto;
+}
+bool Tico::getEncima() const
+{
+    return encima;
+}
+void Tico::setEncima(bool newEncima)
+{
+    encima = newEncima;
 }
 void Tico::posicion() //metodo (sobrecargado) llamado en el constructor para posicionar personaje
 {
@@ -87,7 +104,6 @@ void Tico::posicion(int newX,int newY) // Actualizar posición con parametros
     posY=newY;
     setPos(posX,posY);
 }
-/*
 float Tico::getPosX() const //metodo para retornar el valor de posX
 {
     return posX;
@@ -135,4 +151,4 @@ int Tico::getTamanoX() const //Tamaño personaje en x(width)
 int Tico::getTamanoY() const // Tamaño personaje en y (high)
 {
     return tamanoY;
-}*/
+}

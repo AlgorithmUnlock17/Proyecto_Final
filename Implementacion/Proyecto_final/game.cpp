@@ -62,43 +62,42 @@ void Game::menu()
 }
 void Game::save_game()
 {
-    QFile save("./save.txt"); //Se declara como escritura
-    if (!save.exists()) {
+    QFile save("./save.txt"); //Se le da la ubicación a una variable qfile
+    if (!save.exists()) { //parte del debug, cuando tenia problemas, revisa si existe el archivo donde se declara
         qDebug() <<"no ex";
     }
-    QString errMsg;
-    QFileDevice::FileError err = QFileDevice::NoError;
-    if (!save.open(QIODevice::WriteOnly | QIODevice::Text)){
-        errMsg = save.errorString();
+    QString errMsg; //parte del debug
+    QFileDevice::FileError err = QFileDevice::NoError; //parte del debug
+    if (!save.open(QIODevice::WriteOnly | QIODevice::Text)){ //aqui se abre el archivo como write only y forma parte de un debug en caso de no poder abrir el archivo
+        errMsg = save.errorString(); //muestra el tipo de error que está pasando, solo cuando no abre
         err = save.error();
-        qDebug() << "could not open it" << err << errMsg;
-        return;
+        qDebug() << "could not open it" << err << errMsg; //muestra en la consola lo que pasa
+        return; // con esta parte, si no se puede abrir, no se genera un error ni problemas de continuidad
     }
-    QTextStream lvl(&save);
-    lvl<<level;
-    qDebug() <<level;
-    save.close();
-
+    QTextStream lvl(&save); //Se vincula un escritor de stream (string) con save, que es el archivo
+    lvl<<level; //se le indica a lvl escribir el nivel
+    qDebug() <<level; //debug para ver que este escribiendo bien lo que es
+    save.close(); //se cierra el archivo
 }
 void Game::load_game()
 {
-    qDebug()<<level;
-    QFile save("./save.txt"); //Se declara como escritura
-    if (!save.exists()) {
+    qDebug()<<level; //para revisar el nivel que se tiene desde antes, suele ser un 0
+    QFile save("./save.txt"); //Se le pone una variable Qfile al archivo
+    if (!save.exists()) { //parte del debug, para revisar si esta el archivo en la ubicacion puesta
         qDebug() <<"no ex";
     }
-    QString errMsg;
-    QFileDevice::FileError err = QFileDevice::NoError;
-    if (!save.open(QIODevice::ReadOnly | QIODevice::Text)){
-        errMsg = save.errorString();
+    QString errMsg; //parte de un debug
+    QFileDevice::FileError err = QFileDevice::NoError; //parte de un debug
+    if (!save.open(QIODevice::ReadOnly | QIODevice::Text)){ //se abre el archivo como read only, si no se puede abrir se sigue el siguiente debug
+        errMsg = save.errorString(); //se guarda el tipo de error generado
         err = save.error();
-        qDebug() << "could not open it" << err << errMsg;
+        qDebug() << "could not open it" << err << errMsg; //se muestra el error en la consola
         return;
     }
-    QTextStream lvl(&save);
-    lvl>>level; //level;
-    qDebug()<<level;
-    save.close();
+    QTextStream lvl(&save); //se guarda la informacion del archivo en lvl
+    lvl>>level; //se le asigna a level lo que aparece en lvl
+    qDebug()<<level; //se muestra en la consola para validar que esté funcionando bien
+    save.close(); //se cierra el archivo
 }
 void Game::start()
 {
@@ -122,9 +121,9 @@ void Game::start()
     tico->setFocus(); //Estos dos de focus son muy importantes porque sin ellos no lee el teclado
     scene->addItem(tico);
 
-    platform *uno=new platform(30,500);
+    platform *uno=new platform(30,600,30,300);
     scene->addItem(uno);
-    switch(level){
+    switch(level){ //Aqui se agregan los niveles
     case 0:
         break;
     case 1:

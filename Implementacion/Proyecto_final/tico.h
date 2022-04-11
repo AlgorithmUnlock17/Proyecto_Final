@@ -15,7 +15,7 @@ public:
     Tico(float x, float y);
 
     void keyPressEvent(QKeyEvent *event);
-    /*// Es probable que estos métodos no se necesiten porque se trabaja el movimiento en la misma clase, se dejan por si acaso
+    // Es probable que estos métodos no se necesiten porque se trabaja el movimiento en la misma clase, se dejan por si acaso
     float getPosX() const;
     void setPosX(float newPosX);
     float getPosY() const;
@@ -27,9 +27,13 @@ public:
     int getVidas() const;
     void setVidas(int newVidas);
     int getTamanoX() const;
-    int getTamanoY() const;*/
+    int getTamanoY() const;
     void posicion();
     void posicion(int newX,int newY);
+    bool getEncima() const;
+    void setEncima(bool newEncima);
+    bool getSalto() const;
+    void setSalto(bool newSalto);
 
 public slots:
     void movY(); //En este se hace lo del movimiento parabolico
