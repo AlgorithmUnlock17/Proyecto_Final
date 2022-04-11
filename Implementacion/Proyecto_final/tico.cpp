@@ -17,9 +17,10 @@ void Tico::keyPressEvent(QKeyEvent *event) //Teclas
     if (posY>=700-tamanoY) //Esto va por ahora
         encima=true;
     if (posY<0){
-        game->scene->clear(); // diferenciar que ya supere el primer nivel
+        //game->scene->clear(); // diferenciar que ya supere el primer nivel
         game->setLevel(game->getLevel()+1); // si el salto supera el escenario pasa de nivel
-    }                                       // Hay que activar un slot que me verifique constantemente en que nivel estoy
+        game->start();
+    }
     if (event->key()==Qt::Key_Space && encima){
         salto=true;
         velY=40;
