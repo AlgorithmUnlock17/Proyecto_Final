@@ -15,7 +15,6 @@ Game::Game(QWidget *parent)
     setFixedSize(600,700); //Estoy medianamente segura que esto es lo que hace que quede todo perfecto sin scroll,
 
 }
-
 void Game::clearscene(QGraphicsScene *scene)
 {
     scene->clear();
@@ -35,24 +34,72 @@ void Game::menu()
 
     // crear boton play
 
-    Button *playButton = new Button(QString("Jugar"));
+    Button *playButton = new Button(QString("Jugar de cero"));
     int bxPos = this->width()/2 -playButton->boundingRect().width()/2;
     int byPos = 275;
     playButton->setPos(bxPos,byPos);
-    connect(playButton,SIGNAL(clicked()),this,SLOT(start()));
+    connect(playButton,SIGNAL(clicked()),this,SLOT(decero()));
     scene->addItem(playButton);
+
+    // crear boton reanudar desde carga
+
+    Button *saveButton = new Button(QString("Reanudar"));
+    int sxPos = this->width()/2-saveButton->boundingRect().width()/2;
+    int syPos = 350;
+    saveButton->setPos(sxPos,syPos);
+    connect(saveButton,SIGNAL(clicked()),this,SLOT(reanudar()));
+    scene->addItem(saveButton);
 
     // crear boton salir
 
     Button *quitButton = new Button(QString("Salir"));
     int qxPos = this->width()/2 -quitButton->boundingRect().width()/2;
-    int qyPos = 350;
+    int qyPos = 425;
     quitButton->setPos(qxPos,qyPos);
-    connect(quitButton,SIGNAL(clicked()),this,SLOT(close())); //Esta linea de codigo NO funciona, no estoy segura por que, preguntar
+    connect(quitButton,SIGNAL(clicked()),this,SLOT(close()));
     scene->addItem(quitButton);
-    //Se puede crear un boton de reanudar, o algo así play funcionaría como empezar desde cero, ahi habria que especificar
-}
 
+}
+void Game::save_game()
+{
+    QFile save("./save.txt"); //Se declara como escritura
+    if (!save.exists()) {
+        qDebug() <<"no ex";
+    }
+    QString errMsg;
+    QFileDevice::FileError err = QFileDevice::NoError;
+    if (!save.open(QIODevice::WriteOnly | QIODevice::Text)){
+        errMsg = save.errorString();
+        err = save.error();
+        qDebug() << "could not open it" << err << errMsg;
+        return;
+    }
+    QTextStream lvl(&save);
+    lvl<<level;
+    qDebug() <<level;
+    save.close();
+
+}
+void Game::load_game()
+{
+    qDebug()<<level;
+    QFile save("./save.txt"); //Se declara como escritura
+    if (!save.exists()) {
+        qDebug() <<"no ex";
+    }
+    QString errMsg;
+    QFileDevice::FileError err = QFileDevice::NoError;
+    if (!save.open(QIODevice::ReadOnly | QIODevice::Text)){
+        errMsg = save.errorString();
+        err = save.error();
+        qDebug() << "could not open it" << err << errMsg;
+        return;
+    }
+    QTextStream lvl(&save);
+    lvl>>level; //level;
+    qDebug()<<level;
+    save.close();
+}
 void Game::start()
 {
 
@@ -77,6 +124,12 @@ void Game::start()
 
     platform *uno=new platform(30,500);
     scene->addItem(uno);
+    switch(level){
+    case 0:
+        break;
+    case 1:
+        break;
+    }
     /* Lo siguente viene del otro código pero nos puede informar como llamar enemigos y demás
     // crear puntaje
 
@@ -94,15 +147,27 @@ void Game::start()
     timer->start(2000);*/
 
 }
+void Game::reanudar()
+{
+    load_game(); //Se carga que level sea lo que se leyo en el archivo
+    start();
+}
+void Game::decero()
+{
+    level=0; //para reiniciar el juego
+    start();
+}
 // slot para salir
 void Game::close()
 {
     clearscene(scene);
+    save_game();
     exit(0);
 }
 // volver al menu principal
 void Game::backMenu()
 {
+    //scene->clear();
     clearscene(scene);
     QGraphicsTextItem * titleText = new QGraphicsTextItem(QString("Tico's Adventure"));
     QFont titleFont("Times New Roman",50);
@@ -115,20 +180,29 @@ void Game::backMenu()
 
     // crear boton play
 
-    Button *playButton = new Button(QString("Jugar"));
+    Button *playButton = new Button(QString("Jugar de cero"));
     int bxPos = this->width()/2 -playButton->boundingRect().width()/2;
     int byPos = 275;
     playButton->setPos(bxPos,byPos);
-    connect(playButton,SIGNAL(clicked()),this,SLOT(start()));
+    connect(playButton,SIGNAL(clicked()),this,SLOT(decero()));
     scene->addItem(playButton);
+
+    // crear boton reanudar desde carga
+
+    Button *saveButton = new Button(QString("Reanudar"));
+    int sxPos = this->width()/2-saveButton->boundingRect().width()/2;
+    int syPos = 350;
+    saveButton->setPos(sxPos,syPos);
+    connect(saveButton,SIGNAL(clicked()),this,SLOT(reanudar()));
+    scene->addItem(saveButton);
 
     // crear boton salir
 
     Button *quitButton = new Button(QString("Salir"));
     int qxPos = this->width()/2 -quitButton->boundingRect().width()/2;
-    int qyPos = 350;
+    int qyPos = 425;
     quitButton->setPos(qxPos,qyPos);
-    connect(quitButton,SIGNAL(clicked()),this,SLOT(close())); //Esta linea de codigo NO funciona, no estoy segura por que, preguntar
+    connect(quitButton,SIGNAL(clicked()),this,SLOT(close()));
     scene->addItem(quitButton);
 }
 

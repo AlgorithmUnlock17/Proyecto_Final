@@ -13,7 +13,11 @@ Tico::Tico(float posX_, float posY_):
 }
 void Tico::keyPressEvent(QKeyEvent *event) //Teclas
 {
-    if (event->key()==Qt::Key_Space && !movY_timer->isActive()){
+    salto=false;
+    if (posY>=700-tamanoY) //Esto va por ahora
+        encima=true;
+    if (event->key()==Qt::Key_Space && encima){
+        salto=true;
         velY=50;
         movY_timer->stop();
         movY_timer->start(10);
@@ -43,9 +47,10 @@ void Tico::movY() // salto con gravedad
     velY = velY+(DT*(-G));
     posY +=-velY*DT+(-G)*DT*DT*0.5;
     if (posY>700-tamanoY){ //Esto se va a tener que cambiar cuando se haga lo del piso
+        encima=true;
         posicion(posX,700-tamanoY);
         velY=0;
-        movY_timer->stop();
+        //movY_timer->stop();
     }
     QList<QGraphicsItem *> list = collidingItems() ;
     foreach(QGraphicsItem * i , list) //es probable que tenga que mover esto a la parte de las plataformas, para que el mov de tico varie por plataforma
@@ -54,9 +59,11 @@ void Tico::movY() // salto con gravedad
         if (item)
         {
             if (posY<item->getPosy()+(item->getSizey()/2)){
-                posY=item->getPosy()-tamanoY;
+                encima=true;
+                if (!salto){
+                posY=item->getPosy()-(tamanoY-5);
                 velY=0;
-                movY_timer->stop();
+                }
             }
             if (posY>item->getPosy()+(item->getSizey()/2)){
                 posY=item->getPosy()+item->getSizey();
@@ -64,6 +71,9 @@ void Tico::movY() // salto con gravedad
             }
         }
         //Aqui se van agregando los otros tipos de reacciones
+    }
+    if (list.size()==0){
+        encima=false;
     }
     posicion();
 }
@@ -77,8 +87,6 @@ void Tico::posicion(int newX,int newY) // Actualizar posición con parametros
     posY=newY;
     setPos(posX,posY);
 }
-
-
 /*
 float Tico::getPosX() const //metodo para retornar el valor de posX
 {

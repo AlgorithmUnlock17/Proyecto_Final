@@ -6,6 +6,8 @@
 #include <QWidget>
 #include <stdlib.h>
 #include <stdio.h>
+#include <QFile>
+#include <QTextStream>
 #include "tico.h"
 #include "button.h"
 #include "platform.h"
@@ -19,6 +21,8 @@ public:
     void clearscene(QGraphicsScene *scene);
     void menu();
     void clean_scene(); //metodo para limpiar escena
+    void save_game();
+    void load_game();
     //Aquí se van agregando escenarios (o en slots, dependiendo de lo que se necesite)
 private:
     //bool juego; //esta variable servirá para notar si se está en sesión o no
@@ -26,6 +30,8 @@ private:
 
 public slots:
     void start();
+    void reanudar();
+    void decero();
     void close();
     void backMenu();
 };

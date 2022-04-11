@@ -43,6 +43,8 @@ private:
     float velY=100;
     int vidas=5;
     QTimer *movY_timer;
+    bool encima=false;
+    bool salto;
 };
 
 #endif // TICO_H
