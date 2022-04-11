@@ -24,6 +24,9 @@ public:
     void save_game();
     void load_game();
     //Aquí se van agregando escenarios (o en slots, dependiendo de lo que se necesite)
+    int getLevel() const;
+    void setLevel(int newLevel);
+
 private:
     //bool juego; //esta variable servirá para notar si se está en sesión o no
     int level=0; //nivel donde está el jugador, se guardara

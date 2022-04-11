@@ -22,8 +22,8 @@ posx(x),posy(y),ix(x),iy(y),fx(xf),fy(yf) // Inicialización de variables hereda
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(Qt::green);
     setBrush(brush);
-    connect(mov_timer,SIGNAL(timeout()),this,SLOT(conectlin())); // esta no se conecta porque es estática
-    mov_timer->start(10);
+    connect(mov_timer2,SIGNAL(timeout()),this,SLOT(conectlin())); // esta no se conecta porque es estática
+    mov_timer2->start(10);
 }
 void platform::posicion() //metodo (sobrecargado) llamado en el constructor para posicionar personaje
 {
