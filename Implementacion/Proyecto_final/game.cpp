@@ -102,19 +102,16 @@ void Game::load_game()
     qDebug()<<level; //se muestra en la consola para validar que esté funcionando bien
     save.close(); //se cierra el archivo
 }
-
 int Game::getLevel() const
 {
     return level;
 }
-
 void Game::setLevel(int newLevel)
 {
     level = newLevel;
 }
 void Game::start()
 {
-
     //scene->clear();
     clearscene(scene);
     Button *Bmenu = new Button(40,40,QString("Menu"));

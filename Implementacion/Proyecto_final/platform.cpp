@@ -10,8 +10,8 @@ posx(x),posy(y) // Inicialización de variables heredadas con el constructor de 
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(Qt::yellow);
     setBrush(brush);
-    connect(mov_timer,SIGNAL(timeout()),this,SLOT(mov())); // esta no se conecta porque es estática
-    mov_timer->start(1);
+    connect(mov_timer1,SIGNAL(timeout()),this,SLOT(mov())); // esta no se conecta porque es estática
+    mov_timer1->start(1);
 }
 platform::platform(int x, int y, int xf, int yf): //plataforma de mov simple
 posx(x),posy(y),ix(x),iy(y),fx(xf),fy(yf) // Inicialización de variables heredadas con el constructor de la clase base
@@ -53,7 +53,7 @@ int platform::getSizey() const
 }
 void platform::mov()
 {
-    QList<QGraphicsItem *> list = collidingItems() ;
+    QList<QGraphicsItem *> list = collidingItems();
     foreach(QGraphicsItem * i , list) //es probable que tenga que mover esto a la parte de las plataformas, para que el mov de tico varie por plataforma
     {
         Tico * item= dynamic_cast<Tico *>(i); //Con esto se hace la colision con cada plataforma

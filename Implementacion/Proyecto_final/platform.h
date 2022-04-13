@@ -24,7 +24,7 @@ public:
     void mov(int fpox,int fpoy, int ix,int iy);
 
 private:
-    QTimer *mov_timer=new QTimer();
+    QTimer *mov_timer1=new QTimer();
     QTimer *mov_timer2=new QTimer();
     const int sizex=100;
     const int sizey=20 ;

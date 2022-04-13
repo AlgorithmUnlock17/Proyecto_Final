@@ -10,6 +10,7 @@ Tico::Tico(float posX_, float posY_):
     posicion(); // con posX y posY definidas en el constructor posiciono el personaje
     movY_timer=new QTimer(this); //Timer para salto
     connect(movY_timer,SIGNAL(timeout()),this,SLOT(movY()));
+    //movY_timer->start(10);
 }
 void Tico::keyPressEvent(QKeyEvent *event) //Teclas
 {
@@ -75,6 +76,7 @@ void Tico::movY() // salto con gravedad
     }*/
     QList<QGraphicsItem *> list = collidingItems() ;
     if (list.size()==0){
+        salto=false;
         encima=false;
     }
     posicion();
