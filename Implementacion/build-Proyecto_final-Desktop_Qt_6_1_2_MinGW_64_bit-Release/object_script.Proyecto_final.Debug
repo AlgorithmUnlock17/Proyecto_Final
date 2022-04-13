@@ -1,0 +1,10 @@
+debug/button.o
+debug/game.o
+debug/main.o
+debug/platform.o
+debug/tico.o
+debug/qrc_Resources.o
+debug/moc_button.o
+debug/moc_game.o
+debug/moc_platform.o
+debug/moc_tico.o

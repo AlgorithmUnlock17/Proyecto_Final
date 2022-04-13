@@ -1,0 +1,10 @@
+release/button.o
+release/game.o
+release/main.o
+release/platform.o
+release/tico.o
+release/qrc_Resources.o
+release/moc_button.o
+release/moc_game.o
+release/moc_platform.o
+release/moc_tico.o

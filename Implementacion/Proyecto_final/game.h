@@ -30,7 +30,13 @@ public:
 private:
     //bool juego; //esta variable servirá para notar si se está en sesión o no
     int level=0; //nivel donde está el jugador, se guardara
-
+    QGraphicsTextItem * titleText; // Asigno un apuntador a item de texto para titulo de menu
+    // botones del menu principal
+    Button *playButton,*saveButton,*quitButton;
+    //boton para volver al menu
+    Button *Bmenu;
+    //plataformas level 1
+    platform *uno,*uno0,*uno1,*uno2,*uno3,*uno4;
 public slots:
     void start();
     void reanudar();

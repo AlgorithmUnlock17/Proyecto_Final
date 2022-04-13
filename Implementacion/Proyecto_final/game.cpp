@@ -23,12 +23,12 @@ void Game::clearscene(QGraphicsScene *scene)
     scene->clear();
 }
 void Game::menu()
-{
-    //scene->clear();
-    clearscene(scene);    
-    QGraphicsTextItem * titleText = new QGraphicsTextItem(QString("Tico's Adventure"));
+{    
+    //delete Bmenu;
+    clearscene(scene);
+    titleText = new QGraphicsTextItem(QString("Tico's Adventure")); // instancio la clase para poner titulo en el menu principal
     QFont titleFont("Times New Roman",50);
-    titleText->setFont(titleFont);
+    titleText->setFont(titleFont);    
 
     int txPos = this->width()/2 - titleText->boundingRect().width()/2;
     int tyPos = 150;
@@ -37,16 +37,16 @@ void Game::menu()
 
     // crear boton play
 
-    Button *playButton = new Button(QString("Jugar de cero"));
+    //Button *playButton = new Button(QString("Jugar de cero"));
+    playButton = new Button(QString("Jugar de cero"));
     int bxPos = this->width()/2 -playButton->boundingRect().width()/2;
     int byPos = 275;
     playButton->setPos(bxPos,byPos);
-    connect(playButton,SIGNAL(clicked()),this,SLOT(decero()));
     scene->addItem(playButton);
+    connect(playButton,SIGNAL(clicked()),this,SLOT(decero()));
 
     // crear boton reanudar desde carga
-
-    Button *saveButton = new Button(QString("Reanudar"));
+    saveButton = new Button(QString("Reanudar"));
     int sxPos = this->width()/2-saveButton->boundingRect().width()/2;
     int syPos = 350;
     saveButton->setPos(sxPos,syPos);
@@ -54,8 +54,7 @@ void Game::menu()
     scene->addItem(saveButton);
 
     // crear boton salir
-
-    Button *quitButton = new Button(QString("Salir"));
+    quitButton = new Button(QString("Salir"));
     int qxPos = this->width()/2 -quitButton->boundingRect().width()/2;
     int qyPos = 425;
     quitButton->setPos(qxPos,qyPos);
@@ -85,22 +84,22 @@ void Game::save_game()
 void Game::load_game()
 {
     qDebug()<<level; //para revisar el nivel que se tiene desde antes, suele ser un 0
-    QFile save(":/save.txt"); //Se le pone una variable Qfile al archivo
-    if (!save.exists()) { //parte del debug, para revisar si esta el archivo en la ubicacion puesta
+    QFile load(":/save.txt"); //Se le pone una variable Qfile al archivo
+    if (!load.exists()) { //parte del debug, para revisar si esta el archivo en la ubicacion puesta
         qDebug() <<"no ex";
     }
     QString errMsg; //parte de un debug
     QFileDevice::FileError err = QFileDevice::NoError; //parte de un debug
-    if (!save.open(QIODevice::ReadOnly | QIODevice::Text)){ //se abre el archivo como read only, si no se puede abrir se sigue el siguiente debug
-        errMsg = save.errorString(); //se guarda el tipo de error generado
-        err = save.error();
+    if (!load.open(QIODevice::ReadOnly | QIODevice::Text)){ //se abre el archivo como read only, si no se puede abrir se sigue el siguiente debug
+        errMsg = load.errorString(); //se guarda el tipo de error generado
+        err = load.error();
         qDebug() << "could not open it" << err << errMsg; //se muestra el error en la consola
         return;
     }
-    QTextStream lvl(&save); //se guarda la informacion del archivo en lvl
+    QTextStream lvl(&load); //se guarda la informacion del archivo en lvl
     lvl>>level; //se le asigna a level lo que aparece en lvl
     qDebug()<<level; //se muestra en la consola para validar que esté funcionando bien
-    save.close(); //se cierra el archivo
+    load.close(); //se cierra el archivo
 }
 int Game::getLevel() const
 {
@@ -113,17 +112,15 @@ void Game::setLevel(int newLevel)
 void Game::start()
 {
     //scene->clear();
+
     clearscene(scene);
-    Button *Bmenu = new Button(40,40,QString("Menu"));
+    Bmenu = new Button(40,40,QString("Menu"));
     int mxPos=560;
     int myPos=0;
     Bmenu->setPos(mxPos,myPos);
     connect(Bmenu,SIGNAL(clicked()),this,SLOT(backMenu()));
     scene->addItem(Bmenu);
-    //Se hace puede hacer un switch case para cada escenario: tipo 1,2,3...
-    //Cada escenario tiene una funcion/metodo aparte en el juego, al final se vuelve a llamar esta funcion para que se decida
-    //A donde va a ir despues, asi se vuelve mas facil volver a ingresar al nivel porque ya de por si hay un valor para
-    //El switch case
+
 
     // crear el jugador
     tico = new Tico(50,650);
@@ -131,15 +128,16 @@ void Game::start()
     tico->setFocus(); //Estos dos de focus son muy importantes porque sin ellos no lee el teclado
     scene->addItem(tico);
 
-    platform *uno= new platform(20,550);
-    platform *uno0= new platform(400,570);
-    platform *uno1= new platform(220,450);
-    platform *uno2= new platform(420,350);
-    platform *uno3= new platform(200,230);
-    platform *uno4= new platform(30,130);
+    uno= new platform(20,550);
+    uno0= new platform(400,570);
+    uno1= new platform(220,450);
+    uno2= new platform(420,350);
+    uno3= new platform(200,230);
+    uno4= new platform(30,130);
+
     platform *dos=new platform(30,600,30,300);
 
-    //scene->addItem(uno);
+
     switch(level){ //Aqui se agregan los niveles
     case 0:        
         scene->addItem(uno);
@@ -148,6 +146,8 @@ void Game::start()
         scene->addItem(uno2);
         scene->addItem(uno3);
         scene->addItem(uno4);
+        //for(unsigned int i=0;i<6;i++){
+           // scene->addItem(platformlevel1[i]);}
         break;
     case 1:        
         scene->addItem(dos);
@@ -172,17 +172,29 @@ void Game::start()
 }
 void Game::reanudar()
 {
+    delete titleText;
+    delete playButton;
+    delete quitButton;
+    delete saveButton;
     load_game(); //Se carga que level sea lo que se leyo en el archivo
     start();
 }
 void Game::decero()
 {
+    delete titleText;
+    delete playButton;
+    delete quitButton;
+    delete saveButton;
     level=0; //para reiniciar el juego
     start();
 }
 // slot para salir
 void Game::close()
 {
+    delete titleText;
+    delete playButton;
+    delete quitButton;
+    delete saveButton;
     clearscene(scene);
     save_game();
     exit(0);
@@ -190,42 +202,7 @@ void Game::close()
 // volver al menu principal
 void Game::backMenu()
 {
-    //scene->clear();
-    clearscene(scene);
-    QGraphicsTextItem * titleText = new QGraphicsTextItem(QString("Tico's Adventure"));
-    QFont titleFont("Times New Roman",50);
-    titleText->setFont(titleFont);
-
-    int txPos = this->width()/2 - titleText->boundingRect().width()/2;
-    int tyPos = 150;
-    titleText->setPos(txPos,tyPos);
-    scene->addItem(titleText);
-
-    // crear boton play
-
-    Button *playButton = new Button(QString("Jugar de cero"));
-    int bxPos = this->width()/2 -playButton->boundingRect().width()/2;
-    int byPos = 275;
-    playButton->setPos(bxPos,byPos);
-    connect(playButton,SIGNAL(clicked()),this,SLOT(decero()));
-    scene->addItem(playButton);
-
-    // crear boton reanudar desde carga
-
-    Button *saveButton = new Button(QString("Reanudar"));
-    int sxPos = this->width()/2-saveButton->boundingRect().width()/2;
-    int syPos = 350;
-    saveButton->setPos(sxPos,syPos);
-    connect(saveButton,SIGNAL(clicked()),this,SLOT(reanudar()));
-    scene->addItem(saveButton);
-
-    // crear boton salir
-
-    Button *quitButton = new Button(QString("Salir"));
-    int qxPos = this->width()/2 -quitButton->boundingRect().width()/2;
-    int qyPos = 425;
-    quitButton->setPos(qxPos,qyPos);
-    connect(quitButton,SIGNAL(clicked()),this,SLOT(close()));
-    scene->addItem(quitButton);
+    save_game();
+    menu();
 }
 
