@@ -112,7 +112,6 @@ void Game::setLevel(int newLevel)
 void Game::start()
 {
     //scene->clear();
-
     clearscene(scene);
     Bmenu = new Button(40,40,QString("Menu"));
     int mxPos=560;
@@ -121,36 +120,23 @@ void Game::start()
     connect(Bmenu,SIGNAL(clicked()),this,SLOT(backMenu()));
     scene->addItem(Bmenu);
 
-
     // crear el jugador
     tico = new Tico(50,650);
     tico->setFlag(QGraphicsItem::ItemIsFocusable); //esto es para que el key press event se lea desde la misma clase (porque tiene focus)
     tico->setFocus(); //Estos dos de focus son muy importantes porque sin ellos no lee el teclado
     scene->addItem(tico);
-
-    uno= new platform(20,550);
-    uno0= new platform(400,570);
-    uno1= new platform(220,450);
-    uno2= new platform(420,350);
-    uno3= new platform(200,230);
-    uno4= new platform(30,130);
-
-    platform *dos=new platform(30,600,30,300);
-
-
+    //se crea una label del nivel
+    QFont levelText("Times New Roman",20);
+    level_display=scene->addText("Nivel: ",levelText);
+    level_display->setPos(5,0);
+    number=scene->addText(QString::number(level+1),levelText);
+    number->setPos(56,0);
     switch(level){ //Aqui se agregan los niveles
-    case 0:        
-        scene->addItem(uno);
-        scene->addItem(uno0);
-        scene->addItem(uno1);
-        scene->addItem(uno2);
-        scene->addItem(uno3);
-        scene->addItem(uno4);
-        //for(unsigned int i=0;i<6;i++){
-           // scene->addItem(platformlevel1[i]);}
+    case 0:
+        lev1();
         break;
-    case 1:        
-        scene->addItem(dos);
+    case 1:
+        lev2();
         break;
     }
     /* Lo siguente viene del otro código pero nos puede informar como llamar enemigos y demás
@@ -188,8 +174,7 @@ void Game::decero()
     level=0; //para reiniciar el juego
     start();
 }
-// slot para salir
-void Game::close()
+void Game::close() //slot para salir
 {
     delete titleText;
     delete playButton;
@@ -199,10 +184,47 @@ void Game::close()
     save_game();
     exit(0);
 }
-// volver al menu principal
-void Game::backMenu()
+void Game::backMenu() //volver al menu pricipal
 {
     save_game();
     menu();
 }
+void Game::lev1()
+{
+    tico->posicion(50,650);
+    platform *uno= new platform(20,550);
+    platform *uno0= new platform(400,570);
+    platform *uno1= new platform(220,450);
+    platform *uno2= new platform(420,350);
+    platform *uno3= new platform(200,230);
+    platform *uno4= new platform(30,130);
+    platform *base1=new platform(0,700);
+    platform *base2=new platform(100,700);
+    platform *base3=new platform(200,700);
+    platform *base4=new platform(300,700);
+    platform *base5=new platform(400,700);
+    platform *base6=new platform(500,700);
 
+    scene->addItem(uno);
+    scene->addItem(uno0);
+    scene->addItem(uno1);
+    scene->addItem(uno2);
+    scene->addItem(uno3);
+    scene->addItem(uno4);
+    scene->addItem(base1);
+    scene->addItem(base2);
+    scene->addItem(base3);
+    scene->addItem(base4);
+    scene->addItem(base5);
+    scene->addItem(base6);
+}
+void Game::lev2()
+{
+    tico->posicion(220,525);
+    platform *uno0= new platform(200,570);
+    platform *dos=new platform(30,600,30,300);
+    Bacteria *enemy=new Bacteria(300,300,100);
+    scene->addItem(uno0);
+    scene->addItem(dos);
+    scene->addItem(enemy);
+}

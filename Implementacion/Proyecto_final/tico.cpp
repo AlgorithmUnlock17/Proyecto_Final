@@ -10,23 +10,15 @@ Tico::Tico(float posX_, float posY_):
     posicion(); // con posX y posY definidas en el constructor posiciono el personaje
     movY_timer=new QTimer(this); //Timer para salto
     connect(movY_timer,SIGNAL(timeout()),this,SLOT(movY()));
+    movY_timer->start(10);
     //movY_timer->start(10);
 }
 void Tico::keyPressEvent(QKeyEvent *event) //Teclas
 {
     salto=false;
-    if (posY>=700-tamanoY) //Esto va por ahora
-        encima=true;
-    if (posY<0){
-        //game->scene->clear(); // diferenciar que ya supere el primer nivel
-        game->setLevel(game->getLevel()+1); // si el salto supera el escenario pasa de nivel
-        game->start();
-    }
     if (event->key()==Qt::Key_Space && encima){
         salto=true;
         velY=40;
-        movY_timer->stop();
-        movY_timer->start(10);
     }
     if (event->key()==Qt::Key_D){
         setPixmap(QPixmap(":/Sprites/Tico.png")); //Mirando a la derecha
@@ -48,11 +40,14 @@ void Tico::movY() // salto con gravedad
 {
     velY = velY+(DT*(-G));
     posY +=-velY*DT+(-G)*DT*DT*0.5;
-    if (posY>700-tamanoY){ //Esto se va a tener que cambiar cuando se haga lo del piso
-        encima=true;
-        posicion(posX,700-tamanoY);
-        velY=0;
+    if (posY>710-tamanoY){ //Esto se va a tener que cambiar cuando se haga lo del piso
+        game->start();
         //movY_timer->stop();
+    }
+    if (posY<0){
+        //game->scene->clear(); // diferenciar que ya supere el primer nivel
+        game->setLevel(game->getLevel()+1); // si el salto supera el escenario pasa de nivel
+        game->start();
     }
     /*QList<QGraphicsItem *> list = collidingItems() ; //se deja para otras colisiones
     foreach(QGraphicsItem * i , list) //es probable que tenga que mover esto a la parte de las plataformas, para que el mov de tico varie por plataforma

@@ -42,7 +42,6 @@ void Button::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     emit clicked();
 }
-
 void Button::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 {
     QBrush brush;
@@ -50,7 +49,6 @@ void Button::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
     brush.setColor(Qt::red);
     setBrush(brush);
 }
-
 void Button::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
 {
     QBrush brush;

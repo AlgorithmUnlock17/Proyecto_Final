@@ -13,7 +13,6 @@ class Tico: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     Tico(float x, float y);
-
     //void keyPressEvent(QKeyEvent *event); // por definición el metodo debe ir protegido
     float getPosX() const;
     void setPosX(float newPosX);
@@ -45,11 +44,11 @@ private:
     const int tamanoY=50;
     float posX;
     float posY;
-    float velX=10;
-    float velY=50;
+    float velX=14;
+    float velY=0;
     int vidas=5;
     QTimer *movY_timer;
-    bool encima=false;
+    bool encima=true;
     bool salto;
 };
 

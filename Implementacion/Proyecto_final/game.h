@@ -11,7 +11,8 @@
 #include "tico.h"
 #include "button.h"
 #include "platform.h"
-
+#include "bacteria.h"
+#include <QGraphicsTextItem>
 class Game: public QGraphicsView{
     Q_OBJECT
 public:
@@ -26,6 +27,8 @@ public:
     //Aquí se van agregando escenarios (o en slots, dependiendo de lo que se necesite)
     int getLevel() const;
     void setLevel(int newLevel);
+    void lev1();
+    void lev2();
 
 private:
     //bool juego; //esta variable servirá para notar si se está en sesión o no
@@ -35,8 +38,9 @@ private:
     Button *playButton,*saveButton,*quitButton;
     //boton para volver al menu
     Button *Bmenu;
-    //plataformas level 1
-    platform *uno,*uno0,*uno1,*uno2,*uno3,*uno4;
+    QGraphicsTextItem *number;
+    QGraphicsTextItem *level_display;
+
 public slots:
     void start();
     void reanudar();
