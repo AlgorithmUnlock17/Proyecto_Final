@@ -38,6 +38,7 @@ void Tico::keyPressEvent(QKeyEvent *event) //Teclas
 }
 void Tico::movY() // salto con gravedad
 {
+    setFocus();
     velY = velY+(DT*(-G));
     posY +=-velY*DT+(-G)*DT*DT*0.5;
     if (posY>710-tamanoY){ //Esto se va a tener que cambiar cuando se haga lo del piso

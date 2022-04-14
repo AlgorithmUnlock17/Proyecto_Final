@@ -25,7 +25,7 @@ posx(x),posy(y),ix(x),iy(y),fx(xf),fy(yf) // Inicialización de variables hereda
     connect(mov_timer2,SIGNAL(timeout()),this,SLOT(mov3())); // esta no se conecta porque es estática
     mov_timer2->start(10);
 }
-platform::platform(float x, float y,bool flag): //plataforma de mov simple
+platform::platform(float x, float y,bool flag): //plataforma de mov de resorte
 posx(x),posy(y) // Inicialización de variables heredadas con el constructor de la clase base
 {
     setRect(0,0,sizex,sizey);
@@ -112,7 +112,7 @@ void platform::mov2() //movimiento de resortes, la verdad, no tengo ni idea como
     }
     setPos(posx,posy);
 }
-void platform::mov3()
+void platform::mov3() //movimiento de un lado a otro
 {
     int finalx;
     int finaly;

@@ -2,8 +2,11 @@
 #include <QTimer>
 #include <QBrush>
 #include <QImage>
+#include <QDir>
+#include <iostream>
+#include <fstream>
+#include <string>
 #include "button.h"
-
 Game::Game(QWidget *parent)
 {
     // crear la scena
@@ -63,43 +66,57 @@ void Game::menu()
 
 }
 void Game::save_game()
-{
-    QFile save(":/save.txt"); //Se le da la ubicación a una variable qfile
-    if (!save.exists()) { //parte del debug, cuando tenia problemas, revisa si existe el archivo donde se declara
+{   
+    /*
+    QFile file(":/save.txt"); //Se le da la ubicación a una variable qfile
+    qDebug()<<file.isWritable();
+    if (!file.exists()) { //parte del debug, cuando tenia problemas, revisa si existe el archivo donde se declara
         qDebug() <<"no ex";
     }
     QString errMsg; //parte del debug
     QFileDevice::FileError err = QFileDevice::NoError; //parte del debug
-    if (!save.open(QIODevice::WriteOnly | QIODevice::Text)){ //aqui se abre el archivo como write only y forma parte de un debug en caso de no poder abrir el archivo
-        errMsg = save.errorString(); //muestra el tipo de error que está pasando, solo cuando no abre
-        err = save.error();
+    if (!file.open(QIODevice::ReadWrite | QIODevice::Text)){
+        errMsg = file.errorString(); //muestra el tipo de error que está pasando, solo cuando no abre
+        err = file.error();
         qDebug() << "could not open it" << err << errMsg; //muestra en la consola lo que pasa
         return; // con esta parte, si no se puede abrir, no se genera un error ni problemas de continuidad
     }
-    QTextStream lvl(&save); //Se vincula un escritor de stream (string) con save, que es el archivo
+    QTextStream lvl(&file); //Se vincula un escritor de stream (string) con save, que es el archivo
     lvl<<level; //se le indica a lvl escribir el nivel
     qDebug() <<level; //debug para ver que este escribiendo bien lo que es
-    save.close(); //se cierra el archivo
+    file.close(); //se cierra el archivo
+    */
+    std::ofstream file;
+    file.open("save.txt");
+    file<<level;
+    file.close();
 }
 void Game::load_game()
 {
+    /*
     qDebug()<<level; //para revisar el nivel que se tiene desde antes, suele ser un 0
-    QFile load(":/save.txt"); //Se le pone una variable Qfile al archivo
-    if (!load.exists()) { //parte del debug, para revisar si esta el archivo en la ubicacion puesta
+    QFile file(":/save.txt"); //Se le pone una variable Qfile al archivo
+    if (!file.exists()) { //parte del debug, para revisar si esta el archivo en la ubicacion puesta
         qDebug() <<"no ex";
     }
     QString errMsg; //parte de un debug
     QFileDevice::FileError err = QFileDevice::NoError; //parte de un debug
-    if (!load.open(QIODevice::ReadOnly | QIODevice::Text)){ //se abre el archivo como read only, si no se puede abrir se sigue el siguiente debug
-        errMsg = load.errorString(); //se guarda el tipo de error generado
-        err = load.error();
+    if (!file.open(QIODevice::ReadWrite | QIODevice::Text)){ //se abre el archivo como read only, si no se puede abrir se sigue el siguiente debug
+        errMsg = file.errorString(); //se guarda el tipo de error generado
+        err = file.error();
         qDebug() << "could not open it" << err << errMsg; //se muestra el error en la consola
         return;
     }
-    QTextStream lvl(&load); //se guarda la informacion del archivo en lvl
+    QTextStream lvl(&file); //se guarda la informacion del archivo en lvl
     lvl>>level; //se le asigna a level lo que aparece en lvl
     qDebug()<<level; //se muestra en la consola para validar que esté funcionando bien
-    load.close(); //se cierra el archivo
+    file.close(); //se cierra el archivo
+    */
+    std::string line;
+    std::ifstream file ("save.txt");
+    getline (file,line);
+    level=std::stoi(line);
+    file.close();
 }
 int Game::getLevel() const
 {
@@ -139,22 +156,6 @@ void Game::start()
         lev2();
         break;
     }
-    /* Lo siguente viene del otro código pero nos puede informar como llamar enemigos y demás
-    // crear puntaje
-
-    score = new Score();
-    scene->addItem(score);
-    // creamos la vida
-
-    health =new Health();
-    health->setPos(health->x(),health->y()+25);
-    scene->addItem(health);
-
-    //mostrar enemigos
-    QTimer *timer = new QTimer();
-    QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
-    timer->start(2000);*/
-
 }
 void Game::reanudar()
 {
