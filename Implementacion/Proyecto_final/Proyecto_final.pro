@@ -13,14 +13,18 @@ SOURCES += \
     button.cpp \
     game.cpp \
     main.cpp \
+    pajaro.cpp \
     platform.cpp \
+    semilla.cpp \
     tico.cpp
 
 HEADERS += \
     bacteria.h \
     button.h \
     game.h \
+    pajaro.h \
     platform.h \
+    semilla.h \
     tico.h
 
 FORMS +=
