@@ -85,13 +85,8 @@ void platform::mov()
         }
     }
 }
-void platform::mov2() //movimiento de resortes, la verdad, no tengo ni idea como hacerlo
+void platform::mov2() //mov de "resorte"
 {
-    //F=ma
-    //F=-kx
-    //x=const creo (NO)
-    //k=conste, estoy segura
-
     QList<QGraphicsItem *> list = collidingItems() ;
     foreach(QGraphicsItem * i , list) //es probable que tenga que mover esto a la parte de las plataformas, para que el mov de tico varie por plataforma
     {
@@ -101,7 +96,7 @@ void platform::mov2() //movimiento de resortes, la verdad, no tengo ni idea como
             if (item->getPosY()<posy+sizey/2){
                 if (!item->getSalto()){
                 item->setPosY(posy-item->getTamanoY()+5);
-                item->setVelY(0);
+                item->setVelY(item->getVelY()*-1);
                 }
             }
             if (item->getPosY()>posy+sizey-5){

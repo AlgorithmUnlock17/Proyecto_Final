@@ -224,8 +224,9 @@ void Game::lev2()
     tico->posicion(220,525);
     platform *uno0= new platform(200,570);
     platform *dos=new platform(30,600,30,300);
-    Bacteria *enemy=new Bacteria(300,300,100);
+    platform *tres=new platform(300,570,false);
+    //Bacteria *enemy=new Bacteria(300,300,100);
     scene->addItem(uno0);
     scene->addItem(dos);
-    scene->addItem(enemy);
+    scene->addItem(tres);
 }
