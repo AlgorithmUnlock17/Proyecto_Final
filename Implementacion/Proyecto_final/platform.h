@@ -3,11 +3,11 @@
 
 #include <QObject>
 #include <QObject>
-//#include <QGraphicsPixmapItem>
 #include <QGraphicsRectItem>
 #include <QGraphicsItem>
 #include <QTimer>
 #include <QPainter>
+#include <QImage>
 #include "tico.h"
 
 class platform: public QObject, public QGraphicsRectItem{

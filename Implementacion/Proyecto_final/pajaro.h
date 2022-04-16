@@ -26,7 +26,7 @@ private:
     bool dir=0;
 public slots:
     void mov(); //movimiento de un lado a otro
-    void pew(); //disparar semilla
+    //void pew(); //disparar semilla
 };
 
 #endif // PAJARO_H

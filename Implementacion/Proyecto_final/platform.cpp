@@ -1,6 +1,7 @@
 #include "platform.h"
 #include <QBrush>
 
+
 platform::platform(float x, float y):
 posx(x),posy(y) // Inicialización de variables heredadas con el constructor de la clase base
 {
@@ -30,10 +31,13 @@ posx(x),posy(y) // Inicialización de variables heredadas con el constructor de 
 {
     setRect(0,0,sizex,sizey);
     posicion(); // con posX y posY definidas en el constructor posiciono el personaje
-    QBrush brush;
-    brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::darkRed);
+    QImage trampolin(":/Sprites/trampolin.png");
+    QBrush brush(trampolin);
+    QPen pen3(Qt::transparent, 0, Qt::SolidLine, Qt::SquareCap, Qt::RoundJoin);
+    //brush.setStyle(Qt::SolidPattern);
+    //brush.setColor(Qt::darkRed);
     setBrush(brush);
+    setPen(pen3);
     connect(mov_timer2,SIGNAL(timeout()),this,SLOT(mov2())); // esta no se conecta porque es estática
     mov_timer2->start(10);
 }

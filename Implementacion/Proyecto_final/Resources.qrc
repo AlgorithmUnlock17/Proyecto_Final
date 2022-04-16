@@ -5,5 +5,7 @@
         <file>Sprites/Tico2.png</file>
         <file>Sprites/fondo.png</file>
         <file>save.txt</file>
+        <file>Sprites/bacteria.png</file>
+        <file>Sprites/trampolin.png</file>
     </qresource>
 </RCC>

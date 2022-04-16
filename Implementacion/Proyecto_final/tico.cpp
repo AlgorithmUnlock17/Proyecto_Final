@@ -49,27 +49,7 @@ void Tico::movY() // salto con gravedad
         //game->scene->clear(); // diferenciar que ya supere el primer nivel
         game->setLevel(game->getLevel()+1); // si el salto supera el escenario pasa de nivel
         game->start();
-    }
-    /*QList<QGraphicsItem *> list = collidingItems() ; //se deja para otras colisiones
-    foreach(QGraphicsItem * i , list) //es probable que tenga que mover esto a la parte de las plataformas, para que el mov de tico varie por plataforma
-    {
-        platform * item= dynamic_cast<platform *>(i); //Con esto se hace la colision con cada plataforma
-        if (item)
-        {
-            if (posY<item->getPosy()+(item->getSizey()/2)){
-                encima=true;
-                if (!salto){
-                posY=item->getPosy()-(tamanoY-5);
-                velY=0;
-                }
-            }
-            if (posY>item->getPosy()+(item->getSizey()/2)){
-                posY=item->getPosy()+item->getSizey();
-                velY=0;
-            }
-        }
-        //Aqui se van agregando los otros tipos de reacciones
-    }*/
+    }    
     QList<QGraphicsItem *> list = collidingItems() ;
     if (list.size()==0){
         salto=false;

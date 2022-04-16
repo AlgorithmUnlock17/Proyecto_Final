@@ -5,7 +5,7 @@ extern Game * game;
 Bacteria::Bacteria(float x, float y, float rad):
     cx(x),cy(y),rad(rad)
 {
-    setPixmap(QPixmap(":/Sprites/Tico.png")); // Lectura de sprite
+    setPixmap(QPixmap(":/Sprites/bacteria.png")); // Lectura de sprite
     posx=rad+cx;
     posy=cy;
     posicion(); // con posX y posY definidas en el constructor posiciono el personaje
@@ -15,7 +15,7 @@ Bacteria::Bacteria(float x, float y, float rad):
 Bacteria::Bacteria(float x,float y,float xf,float yf): //plataforma de mov simple
 posx(x),posy(y),ix(x),iy(y),fx(xf),fy(yf) // Inicialización de variables heredadas con el constructor de la clase base
 {
-    setPixmap(QPixmap(":/Sprites/Tico.png")); // Lectura de sprite
+    setPixmap(QPixmap(":/Sprites/bacteria.png")); // Lectura de sprite
     posicion(); // con posX y posY definidas en el constructor posiciono el personaje
     connect(movi2_timer,SIGNAL(timeout()),this,SLOT(mov3())); // esta no se conecta porque es estática
     movi2_timer->start(10);

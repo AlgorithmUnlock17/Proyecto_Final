@@ -130,6 +130,7 @@ void Game::start()
 {
     //scene->clear();
     clearscene(scene);
+    Vplataformas.clear();
     Bmenu = new Button(40,40,QString("Menu"));
     int mxPos=560;
     int myPos=0;
@@ -172,7 +173,7 @@ void Game::decero()
     delete playButton;
     delete quitButton;
     delete saveButton;
-    level=0; //para reiniciar el juego
+    level=1; //para reiniciar el juego
     start();
 }
 void Game::close() //slot para salir
@@ -193,7 +194,7 @@ void Game::backMenu() //volver al menu pricipal
 void Game::lev1()
 {
     tico->posicion(50,650);
-    platform *uno= new platform(20,550);
+    /*platform *uno= new platform(20,550);
     platform *uno0= new platform(400,570);
     platform *uno1= new platform(220,450);
     platform *uno2= new platform(420,350);
@@ -217,16 +218,50 @@ void Game::lev1()
     scene->addItem(base3);
     scene->addItem(base4);
     scene->addItem(base5);
-    scene->addItem(base6);
+    scene->addItem(base6);*/
+    int Py=0;
+    for(int i=0;i<15;i++){
+        int Px=0;
+    for(int j=0;j<12;j++){
+    if(MapLevel1[i][j]==1){
+        Vplataformas.push_back(new platform(Px,Py));
+        Px+=50;}
+    else Px+=50;
+    }
+    Py+=50;
+    }
+
+    int VPsize=Vplataformas.size();
+    for(int k=0;k<VPsize;k++)scene->addItem(Vplataformas[k]);
 }
 void Game::lev2()
 {
     tico->posicion(220,525);
-    platform *uno0= new platform(200,570);
-    platform *dos=new platform(30,600,30,300);
-    platform *tres=new platform(300,570,false);
-    //Bacteria *enemy=new Bacteria(300,300,100);
-    scene->addItem(uno0);
-    scene->addItem(dos);
-    scene->addItem(tres);
+    //platform *uno0= new platform(200,570);
+    //platform *dos=new platform(30,600,30,300);
+    //platform *tres=new platform(300,570,false);
+    Bacteria *enemy=new Bacteria(300,300,100);
+    int Py=0;
+    for(int i=0;i<15;i++){
+        int Px=0;
+    for(int j=0;j<12;j++){
+    if(MapLevel2[i][j]==1){
+        Vplataformas.push_back(new platform(Px,Py));
+        Px+=50;}
+    if(MapLevel2[i][j]==2){
+        Vplataformas.push_back(new platform(Px,Py,Px,Py-300));
+        Px+=50;}
+    if(MapLevel2[i][j]==3){
+        Vplataformas.push_back(new platform(Px,Py,false));
+        Px+=50;}
+    else Px+=50;
+    }
+    Py+=50;
+    }
+    int VPsize=Vplataformas.size();
+    for(int k=0;k<VPsize;k++)scene->addItem(Vplataformas[k]);
+    //scene->addItem(uno0);
+    //scene->addItem(dos);
+    //scene->addItem(tres);
+    scene->addItem(enemy);
 }
