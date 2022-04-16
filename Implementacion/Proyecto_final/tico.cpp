@@ -45,15 +45,15 @@ void Tico::movY() // salto con gravedad
         game->start();
         //movY_timer->stop();
     }
-    if (posY<0){
-        //game->scene->clear(); // diferenciar que ya supere el primer nivel
+   if (posY<0){
+        game->scene->clear(); // diferenciar que ya supere el primer nivel
         game->setLevel(game->getLevel()+1); // si el salto supera el escenario pasa de nivel
         game->start();
-    }    
+    }
     QList<QGraphicsItem *> list = collidingItems() ;
     if (list.size()==0){
         salto=false;
-        encima=false;
+        encima=false;        
     }
     posicion();
 }

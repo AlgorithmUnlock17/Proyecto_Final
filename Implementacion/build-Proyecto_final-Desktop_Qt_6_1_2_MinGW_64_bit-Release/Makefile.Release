@@ -141,6 +141,7 @@ compiler_rcc_clean:
 release/qrc_Resources.cpp: ../Proyecto_final/Resources.qrc \
 		C:/Qt/6.1.2/mingw81_64/bin/rcc.exe \
 		../Proyecto_final/save.txt \
+		../Proyecto_final/Sprites/pajaro.png \
 		../Proyecto_final/Sprites/Tico.png \
 		../Proyecto_final/Sprites/Tico2.png \
 		../Proyecto_final/Sprites/trampolin.png \
@@ -567,11 +568,14 @@ release/moc_game.cpp: ../Proyecto_final/game.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qgraphicssceneevent.h \
 		../Proyecto_final/platform.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/bacteria.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qmainwindow.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qicon.h \
+		../Proyecto_final/pajaro.h \
+		../Proyecto_final/game.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsTextItem \
 		release/moc_predefs.h \
 		C:/Qt/6.1.2/mingw81_64/bin/moc.exe
@@ -737,7 +741,9 @@ release/moc_pajaro.cpp: ../Proyecto_final/pajaro.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qgraphicssceneevent.h \
 		../Proyecto_final/platform.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/bacteria.h \
+		../Proyecto_final/pajaro.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsTextItem \
 		release/moc_predefs.h \
 		C:/Qt/6.1.2/mingw81_64/bin/moc.exe
@@ -859,6 +865,7 @@ release/moc_platform.cpp: ../Proyecto_final/platform.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qfontinfo.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qfont.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qfontmetrics.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/tico.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/QList \
@@ -1026,7 +1033,9 @@ release/moc_semilla.cpp: ../Proyecto_final/semilla.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qgraphicssceneevent.h \
 		../Proyecto_final/platform.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/bacteria.h \
+		../Proyecto_final/pajaro.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsTextItem \
 		release/moc_predefs.h \
 		C:/Qt/6.1.2/mingw81_64/bin/moc.exe
@@ -1331,6 +1340,8 @@ release/bacteria.o: ../Proyecto_final/bacteria.cpp ../Proyecto_final/bacteria.h 
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qgraphicssceneevent.h \
 		../Proyecto_final/platform.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
+		../Proyecto_final/pajaro.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsTextItem \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\bacteria.o ..\Proyecto_final\bacteria.cpp
@@ -1600,14 +1611,15 @@ release/game.o: ../Proyecto_final/game.cpp ../Proyecto_final/game.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qgraphicssceneevent.h \
 		../Proyecto_final/platform.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/bacteria.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qmainwindow.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qicon.h \
+		../Proyecto_final/pajaro.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsTextItem \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/QBrush \
-		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/QDir \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/qdir.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/qfileinfo.h \
@@ -1779,7 +1791,9 @@ release/main.o: ../Proyecto_final/main.cpp ../Proyecto_final/mainwindow.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qgraphicssceneevent.h \
 		../Proyecto_final/platform.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/bacteria.h \
+		../Proyecto_final/pajaro.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QApplication \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qapplication.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/qcoreapplication.h \
@@ -1949,6 +1963,7 @@ release/pajaro.o: ../Proyecto_final/pajaro.cpp ../Proyecto_final/pajaro.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qgraphicssceneevent.h \
 		../Proyecto_final/platform.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/bacteria.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsTextItem \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/QDebug
@@ -2070,6 +2085,7 @@ release/platform.o: ../Proyecto_final/platform.cpp ../Proyecto_final/platform.h 
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qfontinfo.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qfont.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qfontmetrics.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/tico.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/QList \
@@ -2236,7 +2252,9 @@ release/semilla.o: ../Proyecto_final/semilla.cpp ../Proyecto_final/semilla.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qgraphicssceneevent.h \
 		../Proyecto_final/platform.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/bacteria.h \
+		../Proyecto_final/pajaro.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\semilla.o ..\Proyecto_final\semilla.cpp
 
@@ -2397,11 +2415,13 @@ release/tico.o: ../Proyecto_final/tico.cpp ../Proyecto_final/tico.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qgraphicssceneevent.h \
 		../Proyecto_final/platform.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/bacteria.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qmainwindow.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qicon.h \
+		../Proyecto_final/pajaro.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\tico.o ..\Proyecto_final\tico.cpp
 

@@ -12,8 +12,10 @@
 #include "button.h"
 #include "platform.h"
 #include "bacteria.h"
+#include "pajaro.h"
 #include <QGraphicsTextItem>
 #include <vector>
+#include <QLCDNumber>
 using namespace std;
 class Game: public QGraphicsView{
     Q_OBJECT
@@ -31,7 +33,9 @@ public:
     void setLevel(int newLevel);
     void lev1();
     void lev2();
-
+    vector <platform *> Vplataformas;
+    vector <platform *> Vplataformas2;
+    QLCDNumber *levelnumber,*livesnumber;
 private:
     //bool juego; //esta variable servirá para notar si se está en sesión o no
     int level=0; //nivel donde está el jugador, se guardara
@@ -42,7 +46,13 @@ private:
     Button *Bmenu;
     QGraphicsTextItem *number;
     QGraphicsTextItem *level_display;
-    vector <QGraphicsRectItem *> Vplataformas;
+    //vector <QGraphicsRectItem *> Vplataformas;
+    //vector <platform *> Vplataformas;
+
+    // mapas de cada level, divido la scena en cuadros de 50x50 px
+    // el 1 representa plataforma inmovil, el 2 representa plataforma con movimiento
+    // el 3 representa plataforma tipo resorte, como las plataformas son de 100 de ancho, es necesario dejar minimo un espacio
+    // entre plataforma y plataforma
     int MapLevel1[15][12]={
         {0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0},
@@ -65,15 +75,15 @@ private:
         {0,1,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0},
-        {0,0,0,0,1,0,0,0,0,0,0,0},
+        {0,0,0,0,0,0,0,1,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,1,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0},
-        {0,0,0,0,1,0,3,0,0,0,0,0},
-        {0,2,0,0,0,0,0,0,0,0,0,0},
+        {0,2,0,0,0,0,3,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,1,0,0,1,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0}};
 public slots:
     void start();

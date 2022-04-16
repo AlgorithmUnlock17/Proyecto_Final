@@ -8,6 +8,8 @@
 #include <QList>
 #include <QMainWindow>
 #include "game.h"
+#include <QtQuick/QQuickItem>
+
 
 class pajaro: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT

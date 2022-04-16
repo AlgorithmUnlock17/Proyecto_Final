@@ -7,5 +7,6 @@
         <file>save.txt</file>
         <file>Sprites/bacteria.png</file>
         <file>Sprites/trampolin.png</file>
+        <file>Sprites/pajaro.png</file>
     </qresource>
 </RCC>
