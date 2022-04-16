@@ -17,6 +17,7 @@ public:
     void posicion(int newX,int newY);
 private:
     QTimer *movi_timer=new QTimer();
+    QTimer *pew_timer=new QTimer();
     float posx;
     float posy;
     float iy;
@@ -24,9 +25,10 @@ private:
     float fy;
     float fx;
     bool dir=0;
+    int vidas=2;
 public slots:
     void mov(); //movimiento de un lado a otro
-    //void pew(); //disparar semilla
+    void pew(); //disparar semilla
 };
 
 #endif // PAJARO_H

@@ -2,6 +2,7 @@
 #include <QKeyEvent>
 #include <QDebug>
 #include "game.h"
+#include "semilla.h"
 extern Game * game;
 Tico::Tico(float posX_, float posY_):
     posX(posX_),posY(posY_) // Inicialización de variables heredadas con el constructor de la clase base
@@ -11,7 +12,6 @@ Tico::Tico(float posX_, float posY_):
     movY_timer=new QTimer(this); //Timer para salto
     connect(movY_timer,SIGNAL(timeout()),this,SLOT(movY()));
     movY_timer->start(10);
-    //movY_timer->start(10);
 }
 void Tico::keyPressEvent(QKeyEvent *event) //Teclas
 {
@@ -20,14 +20,18 @@ void Tico::keyPressEvent(QKeyEvent *event) //Teclas
         salto=true;
         velY=40;
     }
-    if (event->key()==Qt::Key_D){
+    if (event->key()==Qt::Key_W || event->key()==Qt::Key_Up){
+        semilla* pew=new semilla(posX+tamanoX/2,posY-70,1);
+        game->scene->addItem(pew);
+    }
+    if (event->key()==Qt::Key_D || event->key()==Qt::Key_Right){
         setPixmap(QPixmap(":/Sprites/Tico.png")); //Mirando a la derecha
         if (posX<(600-tamanoX)){
             posX=posX+velX;
         }
         else posicion(600-tamanoX,posY);
     }
-    if (event->key()==Qt::Key_A){
+    if (event->key()==Qt::Key_A || event->key()==Qt::Key_Left){
         setPixmap(QPixmap(":/Sprites/Tico2.png")); // mirando a la izquierda
         if (posX>(0)){
             posX=posX-velX;
@@ -41,9 +45,14 @@ void Tico::movY() // salto con gravedad
     setFocus();
     velY = velY+(DT*(-G));
     posY +=-velY*DT+(-G)*DT*DT*0.5;
-    if (posY>710-tamanoY){ //Esto se va a tener que cambiar cuando se haga lo del piso
-        game->start();
-        //movY_timer->stop();
+    if (posY>710-tamanoY){
+        vidas--;
+        if (vidas<=0){
+            game->setLevel(0);
+            game->backMenu();
+        }
+        else
+            game->start();
     }
     if (posY<0){
         //game->scene->clear(); // diferenciar que ya supere el primer nivel
@@ -54,6 +63,20 @@ void Tico::movY() // salto con gravedad
     if (list.size()==0){
         salto=false;
         encima=false;
+    }
+    foreach(QGraphicsItem * i , list) //es probable que tenga que mover esto a la parte de las plataformas, para que el mov de tico varie por plataforma
+    {
+        semilla * item2= dynamic_cast<semilla *>(i); //Con esto se hace la colision con cada plataforma
+        if (item2)
+        {
+            vidas--;
+            game->scene->removeItem(item2);
+            delete item2;
+        }
+    }
+    if (vidas<=0){
+        game->setLevel(0);
+        game->menu();
     }
     posicion();
 }

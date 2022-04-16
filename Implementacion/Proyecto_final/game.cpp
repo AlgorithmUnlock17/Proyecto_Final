@@ -28,15 +28,30 @@ void Game::clearscene(QGraphicsScene *scene)
         first=false;
     }
     else{
-      scene->clear();
+        try {
+            QList<QGraphicsItem*> itemsList = scene->items();
+            QList<QGraphicsItem*>::iterator iter = itemsList.begin();
+            QList<QGraphicsItem*>::iterator end = itemsList.end();
+            while(iter != end){
+               QGraphicsItem* item = (*iter); scene->removeItem(item);
+               delete(item);
+               iter++;
+            }
+            Vplataformas.clear();
+        }
+        catch (...) {
+          clearscene(scene);
+        }
       /*QList<QGraphicsItem*> itemsList = scene->items();
       QList<QGraphicsItem*>::iterator iter = itemsList.begin();
       QList<QGraphicsItem*>::iterator end = itemsList.end();
       while(iter != end){
          QGraphicsItem* item = (*iter); scene->removeItem(item);
+         delete(item);
          iter++;
-      }*/
-      Vplataformas.clear();
+      }
+      //scene->clear();
+      Vplataformas.clear();*/
     }
 }
 void Game::menu()

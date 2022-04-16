@@ -33,7 +33,13 @@ void Bacteria::mov() //me esta funcionando jeje
         Tico * item= dynamic_cast<Tico *>(i); //Con esto se hace la colision con cada plataforma
         if (item)
         {
-            game->start();
+            item->setVidas(item->getVidas()-1);
+            if (item->getVidas()<=0){
+                game->setLevel(0);
+                game->menu();
+            }
+            else
+                game->start();
         }
     }
 }
@@ -78,7 +84,13 @@ void Bacteria::mov2()
         Tico * item= dynamic_cast<Tico *>(i); //Con esto se hace la colision con cada plataforma
         if (item)
         {
-            game->start();
+            item->setVidas(item->getVidas()-1);
+            if (item->getVidas()<=0){
+                game->setLevel(0);
+                game->menu();
+            }
+            else
+                game->start();
         }
     }
     posicion();

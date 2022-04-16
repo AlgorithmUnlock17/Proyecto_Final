@@ -1,4 +1,5 @@
 #include "pajaro.h"
+#include "semilla.h"
 #include <QDebug>
 
 extern Game * game;
@@ -8,6 +9,8 @@ posx(x),posy(y),ix(x),iy(y),fx(xf),fy(yf) // Inicialización de variables hereda
     posicion(); // con posX y posY definidas en el constructor posiciono el personaje
     connect(movi_timer,SIGNAL(timeout()),this,SLOT(mov())); // esta no se conecta porque es estática
     movi_timer->start(10);
+    connect(pew_timer,SIGNAL(timeout()),this,SLOT(pew()));
+    pew_timer->start(50);
 }
 void pajaro::mov()
 {
@@ -50,10 +53,33 @@ void pajaro::mov()
         Tico * item= dynamic_cast<Tico *>(i); //Con esto se hace la colision con cada plataforma
         if (item)
         {
-            game->start();
+            item->setVidas(item->getVidas()-1);
+            if (item->getVidas()<=0){
+                game->setLevel(0);
+                game->menu();
+            }
+            else
+                game->start();
+        }
+        semilla * item2= dynamic_cast<semilla *>(i); //Con esto se hace la colision con cada plataforma
+        if (item2)
+        {
+            vidas--;
+            game->scene->removeItem(item2);
+            delete item2;
         }
     }
+    if (vidas<=0){
+        //eliminar el pajaro
+        game->scene->removeItem(this);
+        delete (this);
+    }
     posicion();
+}
+void pajaro::pew()
+{
+    semilla* pew=new semilla(posx,posy+70,0); //la pos en y se debe cambiar dependiendo del sprite
+    game->scene->addItem(pew);
 }
 void pajaro::posicion() //metodo (sobrecargado) llamado en el constructor para posicionar personaje
 {
