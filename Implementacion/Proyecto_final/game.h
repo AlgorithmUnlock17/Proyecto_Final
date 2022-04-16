@@ -33,9 +33,7 @@ public:
     void setLevel(int newLevel);
     void lev1();
     void lev2();
-    vector <platform *> Vplataformas;
-    vector <platform *> Vplataformas2;
-    QLCDNumber *levelnumber,*livesnumber;
+
 private:
     //bool juego; //esta variable servirá para notar si se está en sesión o no
     int level=0; //nivel donde está el jugador, se guardara
@@ -46,13 +44,13 @@ private:
     Button *Bmenu;
     QGraphicsTextItem *number;
     QGraphicsTextItem *level_display;
-    //vector <QGraphicsRectItem *> Vplataformas;
-    //vector <platform *> Vplataformas;
-
+    vector <QGraphicsRectItem *> Vplataformas;
+    QLCDNumber *levelnumber,*livesnumber;
     // mapas de cada level, divido la scena en cuadros de 50x50 px
     // el 1 representa plataforma inmovil, el 2 representa plataforma con movimiento
     // el 3 representa plataforma tipo resorte, como las plataformas son de 100 de ancho, es necesario dejar minimo un espacio
     // entre plataforma y plataforma
+    bool first=true;
     int MapLevel1[15][12]={
         {0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0},
@@ -65,8 +63,8 @@ private:
         {0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,1,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0},
-        {0,0,0,0,0,0,0,0,0,1,0,0},
-        {0,1,0,0,0,0,0,0,0,0,0,0},
+        {0,1,0,0,0,0,0,0,0,1,0,0},
+        {0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0},
         {1,0,1,0,1,0,1,0,1,0,1,0}};
     int MapLevel2[15][12]={
@@ -75,8 +73,8 @@ private:
         {0,1,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,1,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,1,0,0,0,0},
-        {0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,1,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0},

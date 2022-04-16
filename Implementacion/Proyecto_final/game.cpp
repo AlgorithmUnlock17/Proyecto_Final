@@ -22,14 +22,25 @@ Game::Game(QWidget *parent)
 
 }
 void Game::clearscene(QGraphicsScene *scene)
-{   
-    scene->clear();
-    //int VPsize=Vplataformas.size();
-    //for(int k=0;k<VPsize;k++)delete Vplataformas[k];
-
+{
+    if(first==true){
+        scene->clear();
+        first=false;
+    }
+    else{
+      scene->clear();
+      /*QList<QGraphicsItem*> itemsList = scene->items();
+      QList<QGraphicsItem*>::iterator iter = itemsList.begin();
+      QList<QGraphicsItem*>::iterator end = itemsList.end();
+      while(iter != end){
+         QGraphicsItem* item = (*iter); scene->removeItem(item);
+         iter++;
+      }*/
+      Vplataformas.clear();
+    }
 }
 void Game::menu()
-{        
+{    
     clearscene(scene);
     titleText = new QGraphicsTextItem(QString("Tico's Adventure")); // instancio la clase para poner titulo en el menu principal
     QFont titleFont("Times New Roman",50);
@@ -69,25 +80,6 @@ void Game::menu()
 }
 void Game::save_game()
 {   
-    /*
-    QFile file(":/save.txt"); //Se le da la ubicación a una variable qfile
-    qDebug()<<file.isWritable();
-    if (!file.exists()) { //parte del debug, cuando tenia problemas, revisa si existe el archivo donde se declara
-        qDebug() <<"no ex";
-    }
-    QString errMsg; //parte del debug
-    QFileDevice::FileError err = QFileDevice::NoError; //parte del debug
-    if (!file.open(QIODevice::ReadWrite | QIODevice::Text)){
-        errMsg = file.errorString(); //muestra el tipo de error que está pasando, solo cuando no abre
-        err = file.error();
-        qDebug() << "could not open it" << err << errMsg; //muestra en la consola lo que pasa
-        return; // con esta parte, si no se puede abrir, no se genera un error ni problemas de continuidad
-    }
-    QTextStream lvl(&file); //Se vincula un escritor de stream (string) con save, que es el archivo
-    lvl<<level; //se le indica a lvl escribir el nivel
-    qDebug() <<level; //debug para ver que este escribiendo bien lo que es
-    file.close(); //se cierra el archivo
-    */
     std::ofstream file;
     file.open("save.txt");
     file<<level;
@@ -95,25 +87,6 @@ void Game::save_game()
 }
 void Game::load_game()
 {
-    /*
-    qDebug()<<level; //para revisar el nivel que se tiene desde antes, suele ser un 0
-    QFile file(":/save.txt"); //Se le pone una variable Qfile al archivo
-    if (!file.exists()) { //parte del debug, para revisar si esta el archivo en la ubicacion puesta
-        qDebug() <<"no ex";
-    }
-    QString errMsg; //parte de un debug
-    QFileDevice::FileError err = QFileDevice::NoError; //parte de un debug
-    if (!file.open(QIODevice::ReadWrite | QIODevice::Text)){ //se abre el archivo como read only, si no se puede abrir se sigue el siguiente debug
-        errMsg = file.errorString(); //se guarda el tipo de error generado
-        err = file.error();
-        qDebug() << "could not open it" << err << errMsg; //se muestra el error en la consola
-        return;
-    }
-    QTextStream lvl(&file); //se guarda la informacion del archivo en lvl
-    lvl>>level; //se le asigna a level lo que aparece en lvl
-    qDebug()<<level; //se muestra en la consola para validar que esté funcionando bien
-    file.close(); //se cierra el archivo
-    */
     std::string line;
     std::ifstream file ("save.txt");
     getline (file,line);
@@ -130,9 +103,7 @@ void Game::setLevel(int newLevel)
 }
 void Game::start()
 {
-
     clearscene(scene);
-    Vplataformas.clear();
     Bmenu = new Button(40,40,QString("Menu"));
     int mxPos=560;
     int myPos=0;
@@ -153,26 +124,25 @@ void Game::start()
     QFont LivesText("Times New Roman",20);
     level_display=scene->addText("Vidas: ",LivesText);
     level_display->setPos(4,40);
-    //number=scene->addText(QString::number(level+1),levelText);
-    //number->setPos(56,0);
-    //Display para mostrar nivel
-    levelnumber=new QLCDNumber(1,this);
-    levelnumber->display(level+1);
-    levelnumber->move(72,10);
-    levelnumber->resize(20,20);
-    levelnumber->setPalette(Qt::green);
-    levelnumber->setFrameStyle(0);
-    levelnumber->setVisible(true);
+     //number=scene->addText(QString::number(level+1),levelText);
+     //number->setPos(56,0);
+     //Display para mostrar nivel
+     levelnumber=new QLCDNumber(1,this);
+     levelnumber->display(level+1);
+     levelnumber->move(72,10);
+     levelnumber->resize(20,20);
+     levelnumber->setPalette(Qt::green);
+     levelnumber->setFrameStyle(0);
+     levelnumber->setVisible(true);
 
-    // Display para mostrar vidas
-    livesnumber= new QLCDNumber(1,this);
-    livesnumber->display(tico->getVidas());
-    livesnumber->move(75,50);
-    livesnumber->resize(20,20);
-    livesnumber->setPalette(Qt::green);
-    livesnumber->setFrameStyle(0);
-    livesnumber->setVisible(true);
-
+     // Display para mostrar vidas
+     livesnumber= new QLCDNumber(1,this);
+     livesnumber->display(tico->getVidas());
+     livesnumber->move(75,50);
+     livesnumber->resize(20,20);
+     livesnumber->setPalette(Qt::green);
+     livesnumber->setFrameStyle(0);
+     livesnumber->setVisible(true);
     switch(level){ //Aqui se agregan los niveles
     case 0:
         lev1();
@@ -197,7 +167,7 @@ void Game::decero()
     delete playButton;
     delete quitButton;
     delete saveButton;
-    level=1; //para reiniciar el juego
+    level=0; //para reiniciar el juego
     start();
 }
 void Game::close() //slot para salir
@@ -212,7 +182,7 @@ void Game::close() //slot para salir
 }
 void Game::backMenu() //volver al menu pricipal
 {
-    //levelnumber->setVisible(false);
+    delete Bmenu;
     delete levelnumber;
     delete livesnumber;
     save_game();
@@ -252,46 +222,44 @@ void Game::lev1()
     for(int j=0;j<12;j++){
     if(MapLevel1[i][j]==1){
         Vplataformas.push_back(new platform(Px,Py));
-        Px+=50;}
+        Px+=50;
+    }
     else Px+=50;
     }
     Py+=50;
     }
 
     int VPsize=Vplataformas.size();
-    cout<<VPsize<<endl;
     for(int k=0;k<VPsize;k++)scene->addItem(Vplataformas[k]);
 }
 void Game::lev2()
-{   
+{
     tico->posicion(220,525);
     //platform *uno0= new platform(200,570);
     //platform *dos=new platform(30,600,30,300);
     //platform *tres=new platform(300,570,false);
     Bacteria *enemy=new Bacteria(300,300,100);
-    //pajaro *enemybird=new pajaro(100,100,400,100);
     int Py=0;
     for(int i=0;i<15;i++){
         int Px=0;
     for(int j=0;j<12;j++){
     if(MapLevel2[i][j]==1){
-        Vplataformas2.push_back(new platform(Px,Py));
+        Vplataformas.push_back(new platform(Px,Py));
         Px+=50;}
     if(MapLevel2[i][j]==2){
-        Vplataformas2.push_back(new platform(Px,Py,Px,Py-300));
+        Vplataformas.push_back(new platform(Px,Py,Px,Py-300));
         Px+=50;}
     if(MapLevel2[i][j]==3){
-        Vplataformas2.push_back(new platform(Px,Py,false));
+        Vplataformas.push_back(new platform(Px,Py,false));
         Px+=50;}
     else Px+=50;
     }
     Py+=50;
     }
-    int VPsize=Vplataformas2.size();
-    for(int k=0;k<VPsize;k++)scene->addItem(Vplataformas2[k]);
+    int VPsize=Vplataformas.size();
+    for(int k=0;k<VPsize;k++)scene->addItem(Vplataformas[k]);
     //scene->addItem(uno0);
     //scene->addItem(dos);
     //scene->addItem(tres);
     scene->addItem(enemy);
-    //scene->addItem(enemybird);
 }
