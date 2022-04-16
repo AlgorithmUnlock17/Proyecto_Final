@@ -38,6 +38,8 @@ void Game::clearscene(QGraphicsScene *scene)
                iter++;
             }
             Vplataformas.clear();
+            delete livesnumber;
+            delete levelnumber;
         }
         catch (...) {
           clearscene(scene);
@@ -152,7 +154,7 @@ void Game::start()
 
      // Display para mostrar vidas
      livesnumber= new QLCDNumber(1,this);
-     livesnumber->display(tico->getVidas());
+     livesnumber->display(tico_vidas);
      livesnumber->move(75,50);
      livesnumber->resize(20,20);
      livesnumber->setPalette(Qt::green);
@@ -277,4 +279,14 @@ void Game::lev2()
     //scene->addItem(dos);
     //scene->addItem(tres);
     scene->addItem(enemy);
+}
+
+int Game::getTico_vidas() const
+{
+    return tico_vidas;
+}
+
+void Game::setTico_vidas(int newTico_vidas)
+{
+    tico_vidas = newTico_vidas;
 }

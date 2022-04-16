@@ -34,6 +34,9 @@ public:
     void lev1();
     void lev2();
 
+    int getTico_vidas() const;
+    void setTico_vidas(int newTico_vidas);
+
 private:
     //bool juego; //esta variable servirá para notar si se está en sesión o no
     int level=0; //nivel donde está el jugador, se guardara
@@ -51,6 +54,7 @@ private:
     // el 3 representa plataforma tipo resorte, como las plataformas son de 100 de ancho, es necesario dejar minimo un espacio
     // entre plataforma y plataforma
     bool first=true;
+    int tico_vidas=5;
     int MapLevel1[15][12]={
         {0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0},

@@ -8,7 +8,6 @@ posx(x),posy(y),dir(dir) // Inicialización de variables heredadas con el constr
     connect(mov_timer,SIGNAL(timeout()),this,SLOT(mov())); // esta no se conecta porque es estática
     mov_timer->start(5);
 }
-
 void semilla::mov()
 {
     if (dir==0){ //esto es para que baje

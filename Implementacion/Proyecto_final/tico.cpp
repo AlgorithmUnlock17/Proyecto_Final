@@ -46,9 +46,10 @@ void Tico::movY() // salto con gravedad
     velY = velY+(DT*(-G));
     posY +=-velY*DT+(-G)*DT*DT*0.5;
     if (posY>710-tamanoY){
-        vidas--;
-        if (vidas<=0){
+        game->setTico_vidas(game->getTico_vidas()-1);
+        if (game->getTico_vidas()<=0){
             game->setLevel(0);
+            game->setTico_vidas(5);
             game->backMenu();
         }
         else
@@ -69,13 +70,14 @@ void Tico::movY() // salto con gravedad
         semilla * item2= dynamic_cast<semilla *>(i); //Con esto se hace la colision con cada plataforma
         if (item2)
         {
-            vidas--;
+            game->setTico_vidas(game->getTico_vidas()-1);
             game->scene->removeItem(item2);
             delete item2;
         }
     }
-    if (vidas<=0){
+    if (game->getTico_vidas()<=0){
         game->setLevel(0);
+        game->setTico_vidas(5);
         game->menu();
     }
     posicion();
@@ -137,14 +139,6 @@ float Tico::getVelY() const
 void Tico::setVelY(float newVelY)
 {
     velY = newVelY;
-}
-int Tico::getVidas() const
-{
-    return vidas;
-}
-void Tico::setVidas(int newVidas)
-{
-    vidas = newVidas;
 }
 int Tico::getTamanoX() const //Tamaño personaje en x(width)
 {

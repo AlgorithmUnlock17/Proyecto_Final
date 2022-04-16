@@ -22,8 +22,6 @@ public:
     void setVelX(float newVelX);
     float getVelY() const;
     void setVelY(float newVelY);
-    int getVidas() const;
-    void setVidas(int newVidas);
     int getTamanoX() const;
     int getTamanoY() const;
     void posicion();
@@ -46,7 +44,6 @@ private:
     float posY;
     float velX=14;
     float velY=0;
-    int vidas=5;
     QTimer *movY_timer;
     bool encima=true;
     bool salto;

@@ -53,9 +53,10 @@ void pajaro::mov()
         Tico * item= dynamic_cast<Tico *>(i); //Con esto se hace la colision con cada plataforma
         if (item)
         {
-            item->setVidas(item->getVidas()-1);
-            if (item->getVidas()<=0){
+            game->setTico_vidas(game->getTico_vidas()-1);
+            if (game->getTico_vidas()<=0){
                 game->setLevel(0);
+                game->setTico_vidas(5);
                 game->menu();
             }
             else
