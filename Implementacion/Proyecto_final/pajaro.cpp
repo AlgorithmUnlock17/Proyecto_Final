@@ -6,11 +6,12 @@ extern Game * game;
 pajaro::pajaro(float x,float y,float xf,float yf): //plataforma de mov simple
 posx(x),posy(y),ix(x),iy(y),fx(xf),fy(yf) // Inicialización de variables heredadas con el constructor de la clase base
 {
+    setPixmap(QPixmap(":/Sprites/enemy.png"));
     posicion(); // con posX y posY definidas en el constructor posiciono el personaje
     connect(movi_timer,SIGNAL(timeout()),this,SLOT(mov())); // esta no se conecta porque es estática
     movi_timer->start(10);
     connect(pew_timer,SIGNAL(timeout()),this,SLOT(pew()));
-    pew_timer->start(50);
+    pew_timer->start(2000);
 }
 void pajaro::mov()
 {

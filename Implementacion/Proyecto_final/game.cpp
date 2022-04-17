@@ -20,6 +20,22 @@ Game::Game(QWidget *parent)
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(600,700); //Estoy medianamente segura que esto es lo que hace que quede todo perfecto sin scroll,
 
+    //Qlcd para nivel
+    levelnumber=new QLCDNumber(1,this);
+    levelnumber->move(72,10);
+    levelnumber->resize(20,20);
+    levelnumber->setPalette(Qt::green);
+    levelnumber->setFrameStyle(0);
+    levelnumber->setVisible(false);// Con este comando controlo la visibilidad del display
+
+    // Qlcd para vidas
+    livesnumber= new QLCDNumber(1,this);
+    livesnumber->move(75,50);
+    livesnumber->resize(20,20);
+    livesnumber->setPalette(Qt::green);
+    livesnumber->setFrameStyle(0);
+    livesnumber->setVisible(false);
+
 }
 void Game::clearscene(QGraphicsScene *scene)
 {
@@ -38,8 +54,8 @@ void Game::clearscene(QGraphicsScene *scene)
                iter++;
             }
             Vplataformas.clear();
-            delete livesnumber;
-            delete levelnumber;
+            //delete livesnumber;
+            //delete levelnumber;
         }
         catch (...) {
           clearscene(scene);
@@ -139,26 +155,15 @@ void Game::start()
     level_display->setPos(4,0);
     //se crea label de vida
     QFont LivesText("Times New Roman",20);
-    level_display=scene->addText("Vidas: ",LivesText);
-    level_display->setPos(4,40);
-     //number=scene->addText(QString::number(level+1),levelText);
-     //number->setPos(56,0);
+    lives_display=scene->addText("Vidas: ",LivesText);
+    lives_display->setPos(4,40);
+
      //Display para mostrar nivel
-     levelnumber=new QLCDNumber(1,this);
+
      levelnumber->display(level+1);
-     levelnumber->move(72,10);
-     levelnumber->resize(20,20);
-     levelnumber->setPalette(Qt::green);
-     levelnumber->setFrameStyle(0);
      levelnumber->setVisible(true);
 
-     // Display para mostrar vidas
-     livesnumber= new QLCDNumber(1,this);
      livesnumber->display(tico_vidas);
-     livesnumber->move(75,50);
-     livesnumber->resize(20,20);
-     livesnumber->setPalette(Qt::green);
-     livesnumber->setFrameStyle(0);
      livesnumber->setVisible(true);
     switch(level){ //Aqui se agregan los niveles
     case 0:
@@ -184,7 +189,7 @@ void Game::decero()
     delete playButton;
     delete quitButton;
     delete saveButton;
-    level=0; //para reiniciar el juego
+    level=1; //para reiniciar el juego
     start();
 }
 void Game::close() //slot para salir
@@ -200,8 +205,11 @@ void Game::close() //slot para salir
 void Game::backMenu() //volver al menu pricipal
 {
     delete Bmenu;
-    delete levelnumber;
-    delete livesnumber;
+    levelnumber->setVisible(false);
+    livesnumber->setVisible(false);
+
+    //delete levelnumber;
+    //delete livesnumber;
     save_game();
     menu();
 }
@@ -256,6 +264,7 @@ void Game::lev2()
     //platform *dos=new platform(30,600,30,300);
     //platform *tres=new platform(300,570,false);
     Bacteria *enemy=new Bacteria(300,300,100);
+    pajaro *enemybird=new pajaro(100,100,500,100);
     int Py=0;
     for(int i=0;i<15;i++){
         int Px=0;
@@ -279,6 +288,7 @@ void Game::lev2()
     //scene->addItem(dos);
     //scene->addItem(tres);
     scene->addItem(enemy);
+    scene->addItem(enemybird);
 }
 
 int Game::getTico_vidas() const

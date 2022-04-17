@@ -3,7 +3,7 @@ extern Game * game;
 semilla::semilla(float x, float y, bool dir):
 posx(x),posy(y),dir(dir) // Inicialización de variables heredadas con el constructor de la clase base
 {
-    setPixmap(QPixmap(":/Sprites/Tico.png")); // Lectura de sprite
+    setPixmap(QPixmap(":/Sprites/semilla.png")); // Lectura de sprite
     posicion(); // con posX y posY definidas en el constructor, posiciono el personaje
     connect(mov_timer,SIGNAL(timeout()),this,SLOT(mov())); // esta no se conecta porque es estática
     mov_timer->start(5);

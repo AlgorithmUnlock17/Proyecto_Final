@@ -46,7 +46,7 @@ void Tico::movY() // salto con gravedad
     velY = velY+(DT*(-G));
     posY +=-velY*DT+(-G)*DT*DT*0.5;
     if (posY>710-tamanoY){
-        game->setTico_vidas(game->getTico_vidas()-1);
+        game->setTico_vidas((game->getTico_vidas())-1);
         if (game->getTico_vidas()<=0){
             game->setLevel(0);
             game->setTico_vidas(5);
@@ -65,13 +65,14 @@ void Tico::movY() // salto con gravedad
         salto=false;
         encima=false;
     }
-    foreach(QGraphicsItem * i , list) //es probable que tenga que mover esto a la parte de las plataformas, para que el mov de tico varie por plataforma
+    foreach(QGraphicsItem * i , list) // para todos los objetos con los que intersecte tico
     {
         semilla * item2= dynamic_cast<semilla *>(i); //Con esto se hace la colision con cada plataforma
         if (item2)
         {
             game->setTico_vidas(game->getTico_vidas()-1);
             game->scene->removeItem(item2);
+            game->livesnumber->display(game->getTico_vidas()); // muestro las vidas restantes
             delete item2;
         }
     }

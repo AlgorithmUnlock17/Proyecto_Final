@@ -1,12 +1,12 @@
 <RCC>
     <qresource prefix="/">
         <file>Sprites/Tico.png</file>
-        <file>Sprites/Sprite_Tico.png</file>
         <file>Sprites/Tico2.png</file>
         <file>Sprites/fondo.png</file>
         <file>save.txt</file>
         <file>Sprites/bacteria.png</file>
         <file>Sprites/trampolin.png</file>
-        <file>Sprites/pajaro.png</file>
+        <file>Sprites/semilla.png</file>
+        <file>Sprites/enemy.png</file>
     </qresource>
 </RCC>

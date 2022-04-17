@@ -141,9 +141,12 @@ compiler_rcc_clean:
 release/qrc_Resources.cpp: ../Proyecto_final/Resources.qrc \
 		C:/Qt/6.1.2/mingw81_64/bin/rcc.exe \
 		../Proyecto_final/save.txt \
+		../Proyecto_final/Sprites/enemy.png \
 		../Proyecto_final/Sprites/Tico.png \
 		../Proyecto_final/Sprites/Tico2.png \
-		../Proyecto_final/Sprites/Sprite_Tico.png \
+		../Proyecto_final/Sprites/trampolin.png \
+		../Proyecto_final/Sprites/bacteria.png \
+		../Proyecto_final/Sprites/semilla.png \
 		../Proyecto_final/Sprites/fondo.png
 	C:\Qt\6.1.2\mingw81_64\bin\rcc.exe -name Resources ..\Proyecto_final\Resources.qrc -o release\qrc_Resources.cpp
 
@@ -565,12 +568,17 @@ release/moc_game.cpp: ../Proyecto_final/game.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qgraphicssceneevent.h \
 		../Proyecto_final/platform.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/bacteria.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qmainwindow.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qicon.h \
+		../Proyecto_final/pajaro.h \
+		../Proyecto_final/game.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsTextItem \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QLCDNumber \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qlcdnumber.h \
 		release/moc_predefs.h \
 		C:/Qt/6.1.2/mingw81_64/bin/moc.exe
 	C:\Qt\6.1.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/Users/diego/OneDrive/Escritorio/Proyecto_final/Proyecto_Final/Implementacion/build-Proyecto_final-Desktop_Qt_6_1_2_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/6.1.2/mingw81_64/mkspecs/win32-g++ -IC:/Users/diego/OneDrive/Escritorio/Proyecto_final/Proyecto_Final/Implementacion/Proyecto_final -IC:/Qt/6.1.2/mingw81_64/include -IC:/Qt/6.1.2/mingw81_64/include/QtWidgets -IC:/Qt/6.1.2/mingw81_64/include/QtGui -IC:/Qt/6.1.2/mingw81_64/include/QtCore -I. -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include ..\Proyecto_final\game.h -o release\moc_game.cpp
@@ -735,8 +743,12 @@ release/moc_pajaro.cpp: ../Proyecto_final/pajaro.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qgraphicssceneevent.h \
 		../Proyecto_final/platform.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/bacteria.h \
+		../Proyecto_final/pajaro.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsTextItem \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QLCDNumber \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qlcdnumber.h \
 		release/moc_predefs.h \
 		C:/Qt/6.1.2/mingw81_64/bin/moc.exe
 	C:\Qt\6.1.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/Users/diego/OneDrive/Escritorio/Proyecto_final/Proyecto_Final/Implementacion/build-Proyecto_final-Desktop_Qt_6_1_2_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/6.1.2/mingw81_64/mkspecs/win32-g++ -IC:/Users/diego/OneDrive/Escritorio/Proyecto_final/Proyecto_Final/Implementacion/Proyecto_final -IC:/Qt/6.1.2/mingw81_64/include -IC:/Qt/6.1.2/mingw81_64/include/QtWidgets -IC:/Qt/6.1.2/mingw81_64/include/QtGui -IC:/Qt/6.1.2/mingw81_64/include/QtCore -I. -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include ..\Proyecto_final\pajaro.h -o release\moc_pajaro.cpp
@@ -857,6 +869,7 @@ release/moc_platform.cpp: ../Proyecto_final/platform.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qfontinfo.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qfont.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qfontmetrics.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/tico.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/QList \
@@ -1024,8 +1037,12 @@ release/moc_semilla.cpp: ../Proyecto_final/semilla.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qgraphicssceneevent.h \
 		../Proyecto_final/platform.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/bacteria.h \
+		../Proyecto_final/pajaro.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsTextItem \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QLCDNumber \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qlcdnumber.h \
 		release/moc_predefs.h \
 		C:/Qt/6.1.2/mingw81_64/bin/moc.exe
 	C:\Qt\6.1.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/Users/diego/OneDrive/Escritorio/Proyecto_final/Proyecto_Final/Implementacion/build-Proyecto_final-Desktop_Qt_6_1_2_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/6.1.2/mingw81_64/mkspecs/win32-g++ -IC:/Users/diego/OneDrive/Escritorio/Proyecto_final/Proyecto_Final/Implementacion/Proyecto_final -IC:/Qt/6.1.2/mingw81_64/include -IC:/Qt/6.1.2/mingw81_64/include/QtWidgets -IC:/Qt/6.1.2/mingw81_64/include/QtGui -IC:/Qt/6.1.2/mingw81_64/include/QtCore -I. -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include ..\Proyecto_final\semilla.h -o release\moc_semilla.cpp
@@ -1329,7 +1346,11 @@ release/bacteria.o: ../Proyecto_final/bacteria.cpp ../Proyecto_final/bacteria.h 
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qgraphicssceneevent.h \
 		../Proyecto_final/platform.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
+		../Proyecto_final/pajaro.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsTextItem \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QLCDNumber \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qlcdnumber.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\bacteria.o ..\Proyecto_final\bacteria.cpp
 
@@ -1598,14 +1619,17 @@ release/game.o: ../Proyecto_final/game.cpp ../Proyecto_final/game.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qgraphicssceneevent.h \
 		../Proyecto_final/platform.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/bacteria.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qmainwindow.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qicon.h \
+		../Proyecto_final/pajaro.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsTextItem \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QLCDNumber \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qlcdnumber.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/QBrush \
-		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/QDir \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/qdir.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/qfileinfo.h \
@@ -1777,7 +1801,11 @@ release/main.o: ../Proyecto_final/main.cpp ../Proyecto_final/mainwindow.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qgraphicssceneevent.h \
 		../Proyecto_final/platform.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/bacteria.h \
+		../Proyecto_final/pajaro.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QLCDNumber \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qlcdnumber.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QApplication \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qapplication.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/qcoreapplication.h \
@@ -1947,8 +1975,12 @@ release/pajaro.o: ../Proyecto_final/pajaro.cpp ../Proyecto_final/pajaro.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qgraphicssceneevent.h \
 		../Proyecto_final/platform.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/bacteria.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsTextItem \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QLCDNumber \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qlcdnumber.h \
+		../Proyecto_final/semilla.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\pajaro.o ..\Proyecto_final\pajaro.cpp
 
@@ -2068,6 +2100,7 @@ release/platform.o: ../Proyecto_final/platform.cpp ../Proyecto_final/platform.h 
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qfontinfo.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qfont.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qfontmetrics.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/tico.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/QList \
@@ -2234,8 +2267,12 @@ release/semilla.o: ../Proyecto_final/semilla.cpp ../Proyecto_final/semilla.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qgraphicssceneevent.h \
 		../Proyecto_final/platform.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/bacteria.h \
-		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsTextItem
+		../Proyecto_final/pajaro.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsTextItem \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QLCDNumber \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qlcdnumber.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\semilla.o ..\Proyecto_final\semilla.cpp
 
 release/tico.o: ../Proyecto_final/tico.cpp ../Proyecto_final/tico.h \
@@ -2395,12 +2432,17 @@ release/tico.o: ../Proyecto_final/tico.cpp ../Proyecto_final/tico.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qgraphicssceneevent.h \
 		../Proyecto_final/platform.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/bacteria.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qmainwindow.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qicon.h \
-		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsTextItem
+		../Proyecto_final/pajaro.h \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsTextItem \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QLCDNumber \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/qlcdnumber.h \
+		../Proyecto_final/semilla.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\tico.o ..\Proyecto_final\tico.cpp
 
 release/qrc_Resources.o: release/qrc_Resources.cpp 

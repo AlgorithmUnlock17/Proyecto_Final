@@ -23,6 +23,7 @@ public:
     Game(QWidget *parent = 0);
     QGraphicsScene *scene;
     Tico *tico;
+    QLCDNumber *levelnumber,*livesnumber;
     void clearscene(QGraphicsScene *scene);
     void menu();
     void clean_scene(); //metodo para limpiar escena
@@ -46,9 +47,9 @@ private:
     //boton para volver al menu
     Button *Bmenu;
     QGraphicsTextItem *number;
-    QGraphicsTextItem *level_display;
+    QGraphicsTextItem *level_display,*lives_display;
     vector <QGraphicsRectItem *> Vplataformas;
-    QLCDNumber *levelnumber,*livesnumber;
+
     // mapas de cada level, divido la scena en cuadros de 50x50 px
     // el 1 representa plataforma inmovil, el 2 representa plataforma con movimiento
     // el 3 representa plataforma tipo resorte, como las plataformas son de 100 de ancho, es necesario dejar minimo un espacio

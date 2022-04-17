@@ -12,7 +12,7 @@
 class semilla: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
-    semilla(float x,float y,bool dir); //Este es el constructor para las plataformas de mov simple
+    semilla(float x,float y,bool dir); //Este es el constructor
     void posicion();
     void posicion(int newX,int newY);
 private:
