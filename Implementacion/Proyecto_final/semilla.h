@@ -14,7 +14,7 @@ class semilla: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     semilla(float x,float y,bool dir); //Este es el constructor
-    ~semilla();
+    //~semilla();
     void posicion();
     void posicion(int newX,int newY);
     int getVerificador() const;

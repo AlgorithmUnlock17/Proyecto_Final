@@ -616,12 +616,12 @@ compiler_rcc_clean:
 qrc_Resources.cpp: ../Proyecto_final/Resources.qrc \
 		/Users/mariadelmar/Qt/6.2.1/macos/libexec/rcc \
 		../Proyecto_final/save.txt \
-		../Proyecto_final/Sprites/pajaro.png \
+		../Proyecto_final/Sprites/enemy.png \
 		../Proyecto_final/Sprites/Tico.png \
 		../Proyecto_final/Sprites/Tico2.png \
 		../Proyecto_final/Sprites/trampolin.png \
 		../Proyecto_final/Sprites/bacteria.png \
-		../Proyecto_final/Sprites/Sprite_Tico.png \
+		../Proyecto_final/Sprites/semilla.png \
 		../Proyecto_final/Sprites/fondo.png
 	/Users/mariadelmar/Qt/6.2.1/macos/libexec/rcc -name Resources ../Proyecto_final/Resources.qrc -o qrc_Resources.cpp
 
@@ -1005,6 +1005,7 @@ pajaro.o: ../Proyecto_final/pajaro.cpp ../Proyecto_final/pajaro.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLCDNumber \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
+		../Proyecto_final/semilla.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QDebug \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qdebug.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pajaro.o ../Proyecto_final/pajaro.cpp
@@ -1109,7 +1110,8 @@ tico.o: ../Proyecto_final/tico.cpp ../Proyecto_final/tico.h \
 		../Proyecto_final/pajaro.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLCDNumber \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
+		../Proyecto_final/semilla.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tico.o ../Proyecto_final/tico.cpp
 
 qrc_Resources.o: qrc_Resources.cpp 

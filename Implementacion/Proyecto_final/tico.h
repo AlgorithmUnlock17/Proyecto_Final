@@ -30,6 +30,8 @@ public:
     void setEncima(bool newEncima);
     bool getSalto() const;
     void setSalto(bool newSalto);
+    void start();
+    void stop();
 
 protected:
      void keyPressEvent(QKeyEvent *event); //Protegido para no generar conflictos

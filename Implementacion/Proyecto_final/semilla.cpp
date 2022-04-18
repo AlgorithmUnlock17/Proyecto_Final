@@ -10,11 +10,11 @@ posx(x),posy(y),dir(dir) // Inicialización de variables heredadas con el constr
     mov_timer->stop();
     mov_timer->start(5);
 }
-
+/*
 semilla::~semilla()
 {
    // delete (this);
-}
+}*/
 void semilla::mov()
 {
     if (dir==0){ //esto es para que baje
@@ -51,7 +51,8 @@ void semilla::mov()
                 delete (this);
                 //game->start();
             }
-    }}
+    }
+    }
 
     //tener en cuenta que las colisiones con los objetos se hacen desde los otros objetos, para facilitar el proceso de pérdida de vidas
 }
@@ -65,14 +66,11 @@ void semilla::posicion(int newX,int newY) // Actualizar posición con parametros
     posy=newY;
     setPos(posx,posy);
 }
-
 int semilla::getVerificador() const
 {
     return verificador;
 }
-
 void semilla::setVerificador(int newVerificador)
 {
     verificador = newVerificador;
 }
-

@@ -22,7 +22,6 @@ class Game: public QGraphicsView{
 public:
     Game(QWidget *parent = 0);
     QGraphicsScene *scene;
-    Tico *tico;
     QLCDNumber *levelnumber,*livesnumber;
     void clearscene(QGraphicsScene *scene);
     void menu();
@@ -42,6 +41,7 @@ public:
     void setFirst(bool newFirst);
 
 private:
+    Tico *tico=new Tico(50,650);;
     //bool juego; //esta variable servirá para notar si se está en sesión o no
     int level=0; //nivel donde está el jugador, se guardara
     QGraphicsTextItem * titleText; // Asigno un apuntador a item de texto para titulo de menu
@@ -52,6 +52,8 @@ private:
     QGraphicsTextItem *number;
     QGraphicsTextItem *level_display,*lives_display;
     vector <QGraphicsRectItem *> Vplataformas;
+    vector <QGraphicsItem *> Vbacterias;
+    vector <QGraphicsItem *> Vpajaros;
 
     // mapas de cada level, divido la scena en cuadros de 50x50 px
     // el 1 representa plataforma inmovil, el 2 representa plataforma con movimiento

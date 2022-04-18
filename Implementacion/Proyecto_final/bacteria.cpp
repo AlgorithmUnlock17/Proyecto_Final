@@ -37,8 +37,8 @@ void Bacteria::mov() //me esta funcionando jeje
             if (game->getTico_vidas()<=0){
                 //game->setLevel(0);
                 game->setTico_vidas(3);
-                game->backMenu();
                 movi_timer->stop();
+                game->backMenu();
             }
             else
                 game->start();
@@ -90,7 +90,8 @@ void Bacteria::mov2()
             if (game->getTico_vidas()<=0){
                 game->setLevel(0);
                 game->setTico_vidas(3);
-                game->menu();
+                movi2_timer->stop();
+                game->backMenu();
             }
             else
                 game->start();
@@ -98,8 +99,6 @@ void Bacteria::mov2()
     }
     posicion();
 }
-
-
 void Bacteria::posicion() //metodo (sobrecargado) llamado en el constructor para posicionar personaje
 {
     setPos(posx,posy);

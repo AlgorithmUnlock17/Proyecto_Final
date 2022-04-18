@@ -40,50 +40,38 @@ Game::Game(QWidget *parent)
 }
 void Game::clearscene(QGraphicsScene *scene)
 {
-    if(first==true){
-        scene->clear();
-        first=false;
-    }
-    else{
-        try {
-            QList<QGraphicsItem*> itemsList = scene->items();            
-            QList<QGraphicsItem*>::iterator iter = itemsList.begin();
-            QList<QGraphicsItem*>::iterator end = itemsList.end();
-            while(iter != end){
-               QGraphicsItem* item = (*iter); scene->removeItem(item);
-               delete(item);
-               iter++;
-            }
-            Vplataformas.clear();
-
-        }
-        catch (...) {
-          clearscene(scene);
-        }
-      /*else{
-      QList<QGraphicsItem*> itemsList = scene->items();
-      QList<QGraphicsItem*>::iterator iter = itemsList.begin();
-      QList<QGraphicsItem*>::iterator end = itemsList.end();
-      while(iter != end){
-         QGraphicsItem* item = (*iter); scene->removeItem(item);
-         delete(item);
-         iter++;
-      }
-      //scene->clear();
-
-      Vplataformas.clear();
-      delete livesnumber;
-      delete levelnumber;}*/
-    }
+    int size=Vplataformas.size();
+     for (int i=0;i<size;i++){
+         scene->removeItem(Vplataformas[i]);
+         delete Vplataformas[i];
+         Vplataformas[i]=0;
+     }
+     Vplataformas.clear();
+     size=Vbacterias.size();
+     for (int i=0;i<size;i++){
+         scene->removeItem(Vbacterias[i]);
+         delete Vbacterias[i];
+         Vbacterias[i]=0;
+     }
+     Vbacterias.clear();
+     size=Vpajaros.size();
+     for (int i=0;i<size;i++){
+         scene->removeItem(Vpajaros[i]);
+         delete Vpajaros[i];
+         Vpajaros[i]=0;
+     }
+     Vpajaros.clear();
+     tico->stop();
+     scene->removeItem(tico);
+     Vplataformas.clear();
+     scene->clear();
 }
 void Game::menu()
 {    
-
-    //clearscene(scene);
+    clearscene(scene);
     titleText = new QGraphicsTextItem(QString("Tico's Adventure")); // instancio la clase para poner titulo en el menu principal
     QFont titleFont("Times New Roman",50);
     titleText->setFont(titleFont);    
-
     int txPos = this->width()/2 - titleText->boundingRect().width()/2;
     int tyPos = 150;
     titleText->setPos(txPos,tyPos);
@@ -114,7 +102,6 @@ void Game::menu()
     quitButton->setPos(qxPos,qyPos);
     connect(quitButton,SIGNAL(clicked()),this,SLOT(close()));
     scene->addItem(quitButton);
-
 }
 void Game::save_game()
 {   
@@ -141,20 +128,19 @@ void Game::setLevel(int newLevel)
 }
 void Game::start()
 {
-
     clearscene(scene);
+    //delete livesnumber;
+    //delete levelnumber;
+    //scene->clear();
     Bmenu = new Button(40,40,QString("Menu"));
     int mxPos=560;
     int myPos=0;
     Bmenu->setPos(mxPos,myPos);
     connect(Bmenu,SIGNAL(clicked()),this,SLOT(backMenu()));
     scene->addItem(Bmenu);
-
     // crear el jugador    
-    tico = new Tico(50,650);
-    tico->setFlag(QGraphicsItem::ItemIsFocusable); //esto es para que el key press event se lea desde la misma clase (porque tiene focus)
-    tico->setFocus(); //Estos dos de focus son muy importantes porque sin ellos no lee el teclado
     scene->addItem(tico);
+    tico->start();
     //se crea una label del nivel
     QFont levelText("Times New Roman",20);
     level_display=scene->addText("Nivel: ",levelText);
@@ -196,7 +182,7 @@ void Game::decero()
     delete quitButton;
     delete saveButton;
     tico_vidas=3;
-    level=1; //para reiniciar el juego
+    level=0; //para reiniciar el juego
     start();
 }
 void Game::close() //slot para salir
@@ -211,7 +197,7 @@ void Game::close() //slot para salir
 }
 void Game::backMenu() //volver al menu pricipal
 {
-    qDebug() << first;
+    qDebug() << "first";
     delete Bmenu;
     delete level_display;
     delete lives_display;
@@ -235,15 +221,14 @@ void Game::lev1()
     }
     Py+=50;
     }
-
     int VPsize=Vplataformas.size();
-    for(int k=0;k<VPsize;k++)scene->addItem(Vplataformas[k]);
+    for(int k=0;k<VPsize;k++) scene->addItem(Vplataformas[k]);
 }
 void Game::lev2()
 {
 
     tico->posicion(220,600);
-    Bacteria *enemy=new Bacteria(300,300,100);
+    Vbacterias.push_back(new Bacteria(300,300,100));
     //pajaro *enemybird=new pajaro(100,100,500,100);
     int Py=0;
     for(int i=0;i<15;i++){
@@ -262,30 +247,23 @@ void Game::lev2()
     }
     Py+=50;
     }
-    int VPsize=Vplataformas.size();
-    for(int k=0;k<VPsize;k++)scene->addItem(Vplataformas[k]);
-    //scene->addItem(uno0);
-    //scene->addItem(dos);
-    //scene->addItem(tres);
-    scene->addItem(enemy);
-    //scene->addItem(enemybird);
+    int size=Vplataformas.size();
+    for(int k=0;k<size;k++)scene->addItem(Vplataformas[k]);
+    size=Vbacterias.size();
+    for(int k=0;k<size;k++)scene->addItem(Vbacterias[k]);    //scene->addItem(enemybird);
 }
-
 int Game::getTico_vidas() const
 {
     return tico_vidas;
 }
-
 void Game::setTico_vidas(int newTico_vidas)
 {
     tico_vidas = newTico_vidas;
 }
-
 bool Game::getFirst() const
 {
     return first;
 }
-
 void Game::setFirst(bool newFirst)
 {
     first = newFirst;

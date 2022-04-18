@@ -9,9 +9,9 @@ Tico::Tico(float posX_, float posY_):
 {
     setPixmap(QPixmap(":/Sprites/Tico.png")); // Lectura de sprite
     posicion(); // con posX y posY definidas en el constructor posiciono el personaje
+    setFlag(QGraphicsItem::ItemIsFocusable); //esto es para que el key press event se lea desde la misma clase (porque tiene focus)
     movY_timer=new QTimer(this); //Timer para salto
     connect(movY_timer,SIGNAL(timeout()),this,SLOT(movY()));
-    movY_timer->start(10);
 }
 void Tico::keyPressEvent(QKeyEvent *event) //Teclas
 {
@@ -49,20 +49,18 @@ void Tico::movY() // salto con gravedad
         game->setTico_vidas((game->getTico_vidas())-1);
         game->livesnumber->display(game->getTico_vidas());
         if (game->getTico_vidas()<=0){
-            //game->setLevel(0);
+            game->setLevel(0);
             game->setTico_vidas(3);
-            //movY_timer->stop();
-            //game->setFirst(true);
+            movY_timer->stop();
+            game->setFirst(true);
             game->backMenu();
 
         }
-        posicion(220,525);
-    }
         else{
-            //game->start();
+            game->start();
+        }
     }
     if (posY<0){
-        //game->scene->clear(); // diferenciar que ya supere el primer nivel
         game->setLevel(game->getLevel()+1); // si el salto supera el escenario pasa de nivel
         //delete (this);
         game->start();
@@ -102,6 +100,14 @@ bool Tico::getSalto() const
 void Tico::setSalto(bool newSalto)
 {
     salto = newSalto;
+}
+void Tico::start()
+{
+    movY_timer->start(10);
+}
+void Tico::stop()
+{
+    movY_timer->stop();
 }
 bool Tico::getEncima() const
 {
