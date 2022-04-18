@@ -9,6 +9,7 @@
 #include <QPainter>
 #include <QImage>
 #include "tico.h"
+#include "game.h"
 
 class platform: public QObject, public QGraphicsRectItem{
     Q_OBJECT

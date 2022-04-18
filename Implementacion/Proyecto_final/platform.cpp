@@ -1,7 +1,6 @@
 #include "platform.h"
 #include <QBrush>
 
-
 platform::platform(float x, float y):
 posx(x),posy(y) // Inicialización de variables heredadas con el constructor de la clase base
 {
@@ -68,7 +67,7 @@ int platform::getSizey() const
     return sizey;
 }
 void platform::mov()
-{
+{    
     QList<QGraphicsItem *> list = collidingItems();
     foreach(QGraphicsItem * i , list) //es probable que tenga que mover esto a la parte de las plataformas, para que el mov de tico varie por plataforma
     {

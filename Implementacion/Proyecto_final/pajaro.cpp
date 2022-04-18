@@ -15,6 +15,7 @@ posx(x),posy(y),ix(x),iy(y),fx(xf),fy(yf) // Inicialización de variables hereda
 }
 void pajaro::mov()
 {
+
     int finalx;
     int finaly;
     if (dir==0){
@@ -79,7 +80,8 @@ void pajaro::mov()
     posicion();
 }
 void pajaro::pew()
-{
+{    
+
     semilla* pew=new semilla(posx,posy+70,0); //la pos en y se debe cambiar dependiendo del sprite
     game->scene->addItem(pew);
 }

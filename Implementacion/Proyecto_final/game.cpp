@@ -7,6 +7,7 @@
 #include <fstream>
 #include <string>
 #include "button.h"
+#include <QDebug>
 Game::Game(QWidget *parent)
 {
     // crear la scena
@@ -45,7 +46,7 @@ void Game::clearscene(QGraphicsScene *scene)
     }
     else{
         try {
-            QList<QGraphicsItem*> itemsList = scene->items();
+            QList<QGraphicsItem*> itemsList = scene->items();            
             QList<QGraphicsItem*>::iterator iter = itemsList.begin();
             QList<QGraphicsItem*>::iterator end = itemsList.end();
             while(iter != end){
@@ -54,13 +55,13 @@ void Game::clearscene(QGraphicsScene *scene)
                iter++;
             }
             Vplataformas.clear();
-            //delete livesnumber;
-            //delete levelnumber;
+
         }
         catch (...) {
           clearscene(scene);
         }
-      /*QList<QGraphicsItem*> itemsList = scene->items();
+      /*else{
+      QList<QGraphicsItem*> itemsList = scene->items();
       QList<QGraphicsItem*>::iterator iter = itemsList.begin();
       QList<QGraphicsItem*>::iterator end = itemsList.end();
       while(iter != end){
@@ -69,12 +70,16 @@ void Game::clearscene(QGraphicsScene *scene)
          iter++;
       }
       //scene->clear();
-      Vplataformas.clear();*/
+
+      Vplataformas.clear();
+      delete livesnumber;
+      delete levelnumber;}*/
     }
 }
 void Game::menu()
 {    
-    clearscene(scene);
+
+    //clearscene(scene);
     titleText = new QGraphicsTextItem(QString("Tico's Adventure")); // instancio la clase para poner titulo en el menu principal
     QFont titleFont("Times New Roman",50);
     titleText->setFont(titleFont);    
@@ -136,6 +141,7 @@ void Game::setLevel(int newLevel)
 }
 void Game::start()
 {
+
     clearscene(scene);
     Bmenu = new Button(40,40,QString("Menu"));
     int mxPos=560;
@@ -144,7 +150,7 @@ void Game::start()
     connect(Bmenu,SIGNAL(clicked()),this,SLOT(backMenu()));
     scene->addItem(Bmenu);
 
-    // crear el jugador
+    // crear el jugador    
     tico = new Tico(50,650);
     tico->setFlag(QGraphicsItem::ItemIsFocusable); //esto es para que el key press event se lea desde la misma clase (porque tiene focus)
     tico->setFocus(); //Estos dos de focus son muy importantes porque sin ellos no lee el teclado
@@ -189,6 +195,7 @@ void Game::decero()
     delete playButton;
     delete quitButton;
     delete saveButton;
+    tico_vidas=3;
     level=1; //para reiniciar el juego
     start();
 }
@@ -204,43 +211,18 @@ void Game::close() //slot para salir
 }
 void Game::backMenu() //volver al menu pricipal
 {
+    qDebug() << first;
     delete Bmenu;
+    delete level_display;
+    delete lives_display;
     levelnumber->setVisible(false);
     livesnumber->setVisible(false);
-
-    //delete levelnumber;
-    //delete livesnumber;
     save_game();
     menu();
 }
 void Game::lev1()
 {
-    tico->posicion(50,650);
-    /*platform *uno= new platform(20,550);
-    platform *uno0= new platform(400,570);
-    platform *uno1= new platform(220,450);
-    platform *uno2= new platform(420,350);
-    platform *uno3= new platform(200,230);
-    platform *uno4= new platform(30,130);
-    platform *base1=new platform(0,700);
-    platform *base2=new platform(100,700);
-    platform *base3=new platform(200,700);
-    platform *base4=new platform(300,700);
-    platform *base5=new platform(400,700);
-    platform *base6=new platform(500,700);
-
-    scene->addItem(uno);
-    scene->addItem(uno0);
-    scene->addItem(uno1);
-    scene->addItem(uno2);
-    scene->addItem(uno3);
-    scene->addItem(uno4);
-    scene->addItem(base1);
-    scene->addItem(base2);
-    scene->addItem(base3);
-    scene->addItem(base4);
-    scene->addItem(base5);
-    scene->addItem(base6);*/
+    tico->posicion(50,650);   
     int Py=0;
     for(int i=0;i<15;i++){
         int Px=0;
@@ -259,12 +241,10 @@ void Game::lev1()
 }
 void Game::lev2()
 {
-    tico->posicion(220,525);
-    //platform *uno0= new platform(200,570);
-    //platform *dos=new platform(30,600,30,300);
-    //platform *tres=new platform(300,570,false);
+
+    tico->posicion(220,600);
     Bacteria *enemy=new Bacteria(300,300,100);
-    pajaro *enemybird=new pajaro(100,100,500,100);
+    //pajaro *enemybird=new pajaro(100,100,500,100);
     int Py=0;
     for(int i=0;i<15;i++){
         int Px=0;
@@ -288,7 +268,7 @@ void Game::lev2()
     //scene->addItem(dos);
     //scene->addItem(tres);
     scene->addItem(enemy);
-    scene->addItem(enemybird);
+    //scene->addItem(enemybird);
 }
 
 int Game::getTico_vidas() const
@@ -299,4 +279,14 @@ int Game::getTico_vidas() const
 void Game::setTico_vidas(int newTico_vidas)
 {
     tico_vidas = newTico_vidas;
+}
+
+bool Game::getFirst() const
+{
+    return first;
+}
+
+void Game::setFirst(bool newFirst)
+{
+    first = newFirst;
 }

@@ -17,7 +17,7 @@ posx(x),posy(y),ix(x),iy(y),fx(xf),fy(yf) // Inicialización de variables hereda
 {
     setPixmap(QPixmap(":/Sprites/bacteria.png")); // Lectura de sprite
     posicion(); // con posX y posY definidas en el constructor posiciono el personaje
-    connect(movi2_timer,SIGNAL(timeout()),this,SLOT(mov3())); // esta no se conecta porque es estática
+    connect(movi2_timer,SIGNAL(timeout()),this,SLOT(mov2())); // esta no se conecta porque es estática
     movi2_timer->start(10);
 }
 void Bacteria::mov() //me esta funcionando jeje
@@ -30,14 +30,15 @@ void Bacteria::mov() //me esta funcionando jeje
     QList<QGraphicsItem *> list = collidingItems();
     foreach(QGraphicsItem * i , list) //es probable que tenga que mover esto a la parte de las plataformas, para que el mov de tico varie por plataforma
     {
-        Tico * item= dynamic_cast<Tico *>(i); //Con esto se hace la colision con cada plataforma
+        Tico * item= dynamic_cast<Tico *>(i); //Con esto se hace la colision bacteria con tico
         if (item)
         {
             game->setTico_vidas(game->getTico_vidas()-1);
             if (game->getTico_vidas()<=0){
-                game->setLevel(0);
-                game->setTico_vidas(5);
-                game->menu();
+                //game->setLevel(0);
+                game->setTico_vidas(3);
+                game->backMenu();
+                movi_timer->stop();
             }
             else
                 game->start();
@@ -88,7 +89,7 @@ void Bacteria::mov2()
             game->setTico_vidas(game->getTico_vidas()-1);
             if (game->getTico_vidas()<=0){
                 game->setLevel(0);
-                game->setTico_vidas(5);
+                game->setTico_vidas(3);
                 game->menu();
             }
             else
@@ -97,6 +98,8 @@ void Bacteria::mov2()
     }
     posicion();
 }
+
+
 void Bacteria::posicion() //metodo (sobrecargado) llamado en el constructor para posicionar personaje
 {
     setPos(posx,posy);

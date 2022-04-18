@@ -34,6 +34,7 @@ private:
 public slots:
     void mov(); //movimiento circular
     void mov2(); //movimiento de un lado a otro
+
 };
 
 #endif // BACTERIA_H
