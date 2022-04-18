@@ -56,9 +56,10 @@ void Game::clearscene(QGraphicsScene *scene)
      Vbacterias.clear();
      size=Vpajaros.size();
      for (int i=0;i<size;i++){
+         if(Vpajaros[i]->scene() != nullptr){
          scene->removeItem(Vpajaros[i]);
          delete Vpajaros[i];
-         Vpajaros[i]=0;
+         Vpajaros[i]=0;}
      }
      Vpajaros.clear();
      if(tico->scene() != nullptr) // nullptr from C++ 11, else use NULL
@@ -297,7 +298,7 @@ void Game::lev4()
         Vplataformas.push_back(new platform(Px,Py));
         Px+=50;}
     if(MapLevel4[i][j]==2){
-        Vplataformas.push_back(new platform(Px,Py,Px,Py-500));
+        Vplataformas.push_back(new platform(Px,Py,Px,Py-400));
         Px+=50;}
     if(MapLevel4[i][j]==3){
         Vplataformas.push_back(new platform(Px,Py,false));
