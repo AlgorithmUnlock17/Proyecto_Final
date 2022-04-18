@@ -52,7 +52,6 @@ void Tico::movY() // salto con gravedad
             game->setLevel(0);
             game->setTico_vidas(3);
             movY_timer->stop();
-            game->setFirst(true);
             game->backMenu();
 
         }
@@ -107,6 +106,7 @@ void Tico::start()
 }
 void Tico::stop()
 {
+    velY=0;
     movY_timer->stop();
 }
 bool Tico::getEncima() const

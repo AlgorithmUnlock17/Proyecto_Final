@@ -61,8 +61,11 @@ void Game::clearscene(QGraphicsScene *scene)
          Vpajaros[i]=0;
      }
      Vpajaros.clear();
-     tico->stop();
-     scene->removeItem(tico);
+     if(tico->scene() != nullptr) // nullptr from C++ 11, else use NULL
+     {
+         tico->stop();
+         scene->removeItem(tico);
+     }
      Vplataformas.clear();
      scene->clear();
 }
@@ -164,6 +167,12 @@ void Game::start()
     case 1:
         lev2();
         break;
+    case 2:
+        lev3();
+        break;
+    case 3:
+        lev4();
+        break;
     }
 }
 void Game::reanudar()
@@ -197,7 +206,6 @@ void Game::close() //slot para salir
 }
 void Game::backMenu() //volver al menu pricipal
 {
-    qDebug() << "first";
     delete Bmenu;
     delete level_display;
     delete lives_display;
@@ -226,9 +234,8 @@ void Game::lev1()
 }
 void Game::lev2()
 {
-
-    tico->posicion(220,600);
-    Vbacterias.push_back(new Bacteria(300,300,100));
+    tico->posicion(160,600);
+    Vbacterias.push_back(new Bacteria(200,200,100));
     //pajaro *enemybird=new pajaro(100,100,500,100);
     int Py=0;
     for(int i=0;i<15;i++){
@@ -238,7 +245,7 @@ void Game::lev2()
         Vplataformas.push_back(new platform(Px,Py));
         Px+=50;}
     if(MapLevel2[i][j]==2){
-        Vplataformas.push_back(new platform(Px,Py,Px,Py-300));
+        Vplataformas.push_back(new platform(Px,Py,Px+300,Py));
         Px+=50;}
     if(MapLevel2[i][j]==3){
         Vplataformas.push_back(new platform(Px,Py,false));
@@ -252,6 +259,58 @@ void Game::lev2()
     size=Vbacterias.size();
     for(int k=0;k<size;k++)scene->addItem(Vbacterias[k]);    //scene->addItem(enemybird);
 }
+void Game::lev3()
+{
+    tico->posicion(100,600);
+    Vpajaros.push_back(new pajaro(100,100,500,100));
+    int Py=0;
+    for(int i=0;i<15;i++){
+        int Px=0;
+    for(int j=0;j<12;j++){
+    if(MapLevel3[i][j]==1){
+        Vplataformas.push_back(new platform(Px,Py));
+        Px+=50;}
+    if(MapLevel3[i][j]==2){
+        Vplataformas.push_back(new platform(Px,Py,Px,Py-200));
+        Px+=50;}
+    if(MapLevel3[i][j]==3){
+        Vplataformas.push_back(new platform(Px,Py,false));
+        Px+=50;}
+    else Px+=50;
+    }
+    Py+=50;
+    }
+    int size=Vplataformas.size();
+    for(int k=0;k<size;k++) scene->addItem(Vplataformas[k]);
+    size=Vpajaros.size();
+    for(int k=0;k<size;k++) scene->addItem(Vpajaros[k]);
+}
+void Game::lev4()
+{
+    tico->posicion(250,600);
+    Vpajaros.push_back(new pajaro(100,150,500,150));
+    int Py=0;
+    for(int i=0;i<15;i++){
+        int Px=0;
+    for(int j=0;j<12;j++){
+    if(MapLevel4[i][j]==1){
+        Vplataformas.push_back(new platform(Px,Py));
+        Px+=50;}
+    if(MapLevel4[i][j]==2){
+        Vplataformas.push_back(new platform(Px,Py,Px,Py-500));
+        Px+=50;}
+    if(MapLevel4[i][j]==3){
+        Vplataformas.push_back(new platform(Px,Py,false));
+        Px+=50;}
+    else Px+=50;
+    }
+    Py+=50;
+    }
+    int size=Vplataformas.size();
+    for(int k=0;k<size;k++) scene->addItem(Vplataformas[k]);
+    size=Vpajaros.size();
+    for(int k=0;k<size;k++) scene->addItem(Vpajaros[k]);
+}
 int Game::getTico_vidas() const
 {
     return tico_vidas;
@@ -259,12 +318,4 @@ int Game::getTico_vidas() const
 void Game::setTico_vidas(int newTico_vidas)
 {
     tico_vidas = newTico_vidas;
-}
-bool Game::getFirst() const
-{
-    return first;
-}
-void Game::setFirst(bool newFirst)
-{
-    first = newFirst;
 }
