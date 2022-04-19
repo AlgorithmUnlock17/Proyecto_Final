@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     bacteria.cpp \
     button.cpp \
+    dialog.cpp \
     game.cpp \
     main.cpp \
     pajaro.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
 HEADERS += \
     bacteria.h \
     button.h \
+    dialog.h \
     game.h \
     pajaro.h \
     platform.h \

@@ -1,4 +1,5 @@
 #include "game.h"
+#include <iterator>
 #include <QTimer>
 #include <QBrush>
 #include <QImage>
@@ -108,18 +109,17 @@ void Game::menu()
     scene->addItem(quitButton);
 }
 void Game::save_game()
-{   
+{
+    std::list<std::pair<std::string,int>>::iterator it = std::find_if(usuarios.begin(),
+                                                                      usuarios.end(),
+                                                                      [&]( const std::pair<std::string,int> v ){ return 0 == ( v.first==player); });
+    it->second=level;
     std::ofstream file;
     file.open("save.txt");
-    file<<level;
-    file.close();
-}
-void Game::load_game()
-{
-    std::string line;
-    std::ifstream file ("save.txt");
-    getline (file,line);
-    level=std::stoi(line);
+    std::list<std::pair<std::string,int>>::iterator it2;
+    for (it2 =usuarios.begin(); it2 !=usuarios.end(); it2++){
+        file<<(*it2).first<<','<<(*it2).second<<std::endl;
+    }
     file.close();
 }
 int Game::getLevel() const
@@ -182,7 +182,7 @@ void Game::reanudar()
     delete playButton;
     delete quitButton;
     delete saveButton;
-    load_game(); //Se carga que level sea lo que se leyo en el archivo
+    //load_game(); //Se carga que level sea lo que se leyo en el archivo
     start();
 }
 void Game::decero()
@@ -212,7 +212,7 @@ void Game::backMenu() //volver al menu pricipal
     delete lives_display;
     levelnumber->setVisible(false);
     livesnumber->setVisible(false);
-    save_game();
+    //save_game();
     menu();
 }
 void Game::lev1()
@@ -319,4 +319,12 @@ int Game::getTico_vidas() const
 void Game::setTico_vidas(int newTico_vidas)
 {
     tico_vidas = newTico_vidas;
+}
+void Game::setUsuarios(const std::list<std::pair<std::string, int> > &newUsuarios)
+{
+    usuarios = newUsuarios;
+}
+void Game::setPlayer(const std::string &newPlayer)
+{
+    player = newPlayer;
 }

@@ -6,13 +6,13 @@
 #include <QWidget>
 #include <stdlib.h>
 #include <stdio.h>
-#include <QFile>
 #include <QTextStream>
 #include "tico.h"
 #include "button.h"
 #include "platform.h"
 #include "bacteria.h"
 #include "pajaro.h"
+#include "dialog.h"
 #include <QGraphicsTextItem>
 #include <vector>
 #include <QLCDNumber>
@@ -25,9 +25,7 @@ public:
     QLCDNumber *levelnumber,*livesnumber;
     void clearscene(QGraphicsScene *scene);
     void menu();
-    void clean_scene(); //metodo para limpiar escena
     void save_game();
-    void load_game();
     //Aquí se van agregando escenarios (o en slots, dependiendo de lo que se necesite)
     int getLevel() const;
     void setLevel(int newLevel);
@@ -38,20 +36,21 @@ public:
     int getTico_vidas() const;
     void setTico_vidas(int newTico_vidas);
 
+    void setUsuarios(const std::list<std::pair<std::string, int> > &newUsuarios);
+
+    void setPlayer(const std::string &newPlayer);
+
 private:
     Tico *tico=new Tico(50,650);;
-    //bool juego; //esta variable servirá para notar si se está en sesión o no
-    int level=0; //nivel donde está el jugador, se guardara
-    QGraphicsTextItem * titleText; // Asigno un apuntador a item de texto para titulo de menu
-    // botones del menu principal
-    Button *playButton,*saveButton,*quitButton;
-    //boton para volver al menu
-    Button *Bmenu;
-    QGraphicsTextItem *number;
-    QGraphicsTextItem *level_display,*lives_display;
+    int level; //nivel donde está el jugador, se guardara
+    // botones del menu principal y otros
+    Button *playButton,*saveButton,*quitButton,*Bmenu;
+    std::list<std::pair<std::string,int>> usuarios;
+    std::string player;
+    //textos del juego
+    QGraphicsTextItem *number,*level_display,*lives_display,*titleText;
     vector <QGraphicsRectItem *> Vplataformas;
-    vector <QGraphicsItem *> Vbacterias;
-    vector <QGraphicsItem *> Vpajaros;
+    vector <QGraphicsItem *> Vbacterias,Vpajaros;
 
     // mapas de cada level, divido la scena en cuadros de 50x50 px
     // el 1 representa plataforma inmovil, el 2 representa plataforma con movimiento
