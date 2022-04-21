@@ -8,5 +8,7 @@
         <file>Sprites/trampolin.png</file>
         <file>Sprites/semilla.png</file>
         <file>Sprites/enemy.png</file>
+        <file>Sprites/bacteria2.png</file>
+        <file>Sprites/fondo1.png</file>
     </qresource>
 </RCC>

@@ -12,8 +12,8 @@
 Game::Game(QWidget *parent)
 {
     // crear la scena
-    QImage fondo(":/Sprites/fondo.png"); // ruta con imagen de fondo
-    QBrush Bfondo(fondo); // brush de fondo
+    QImage fondo(":/Sprites/fondo1.png"); // ruta con imagen de fondo
+    QBrush Bfondo(fondo); // brush de fondo    
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,600,700);
     setScene(scene);
@@ -80,14 +80,14 @@ void Game::menu()
     int txPos = this->width()/2 - titleText->boundingRect().width()/2;
     int tyPos = 150;
     titleText->setPos(txPos,tyPos);
-    scene->addItem(titleText);
+    //scene->addItem(titleText);
 
     // crear boton play
 
     //Button *playButton = new Button(QString("Jugar de cero"));
     playButton = new Button(QString("Jugar de cero"));
     int bxPos = this->width()/2 -playButton->boundingRect().width()/2;
-    int byPos = 275;
+    int byPos = 330;
     playButton->setPos(bxPos,byPos);
     scene->addItem(playButton);
     connect(playButton,SIGNAL(clicked()),this,SLOT(decero()));
@@ -95,7 +95,7 @@ void Game::menu()
     // crear boton reanudar desde carga
     saveButton = new Button(QString("Reanudar"));
     int sxPos = this->width()/2-saveButton->boundingRect().width()/2;
-    int syPos = 350;
+    int syPos = 390;
     saveButton->setPos(sxPos,syPos);
     connect(saveButton,SIGNAL(clicked()),this,SLOT(reanudar()));
     scene->addItem(saveButton);
@@ -103,7 +103,7 @@ void Game::menu()
     // crear boton salir
     quitButton = new Button(QString("Salir"));
     int qxPos = this->width()/2 -quitButton->boundingRect().width()/2;
-    int qyPos = 425;
+    int qyPos = 450;
     quitButton->setPos(qxPos,qyPos);
     connect(quitButton,SIGNAL(clicked()),this,SLOT(close()));
     scene->addItem(quitButton);
@@ -132,7 +132,10 @@ void Game::setLevel(int newLevel)
 }
 void Game::start()
 {
+    QImage fondo2(":/Sprites/fondo.png");
+    QBrush Bfondo2(fondo2);
     clearscene(scene);
+    scene->setBackgroundBrush(Bfondo2);
     //delete livesnumber;
     //delete levelnumber;
     //scene->clear();

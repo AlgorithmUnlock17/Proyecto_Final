@@ -1,5 +1,6 @@
 debug/bacteria.o
 debug/button.o
+debug/dialog.o
 debug/game.o
 debug/main.o
 debug/pajaro.o
@@ -9,6 +10,7 @@ debug/tico.o
 debug/qrc_Resources.o
 debug/moc_bacteria.o
 debug/moc_button.o
+debug/moc_dialog.o
 debug/moc_game.o
 debug/moc_pajaro.o
 debug/moc_platform.o

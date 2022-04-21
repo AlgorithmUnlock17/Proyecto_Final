@@ -1,5 +1,6 @@
 release/bacteria.o
 release/button.o
+release/dialog.o
 release/game.o
 release/main.o
 release/pajaro.o
@@ -9,6 +10,7 @@ release/tico.o
 release/qrc_Resources.o
 release/moc_bacteria.o
 release/moc_button.o
+release/moc_dialog.o
 release/moc_game.o
 release/moc_pajaro.o
 release/moc_platform.o

@@ -5,7 +5,7 @@ extern Game * game;
 Bacteria::Bacteria(float x, float y, float rad):
     cx(x),cy(y),rad(rad)
 {
-    setPixmap(QPixmap(":/Sprites/bacteria.png")); // Lectura de sprite
+    setPixmap(QPixmap(":/Sprites/bacteria2.png")); // Lectura de sprite
     posx=rad+cx;
     posy=cy;
     posicion(); // con posX y posY definidas en el constructor posiciono el personaje
