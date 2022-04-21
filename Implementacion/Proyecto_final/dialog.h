@@ -24,6 +24,7 @@ public slots:
     void finalizar();
     void uno();
     void dos();
+    bool revisar();
 
 private:
     QLabel *agregar;

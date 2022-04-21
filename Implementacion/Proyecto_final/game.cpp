@@ -298,7 +298,7 @@ void Game::lev4()
         Vplataformas.push_back(new platform(Px,Py));
         Px+=50;}
     if(MapLevel4[i][j]==2){
-        Vplataformas.push_back(new platform(Px,Py,Px,Py-400));
+        Vplataformas.push_back(new platform(Px,Py,Px,Py-300));
         Px+=50;}
     if(MapLevel4[i][j]==3){
         Vplataformas.push_back(new platform(Px,Py,false));

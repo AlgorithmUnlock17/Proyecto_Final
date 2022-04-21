@@ -79,6 +79,7 @@ void dialog::finalizar()
     if (agregarCheck->isChecked()){
         QString r=agregarLine->text();
         player=r.toStdString();
+        if (!revisar()) return;
         usuarios.push_back({player,0});
     }
     if (listaCheck->isChecked()){
@@ -102,6 +103,16 @@ void dialog::dos()
     if (!listaCheck->isChecked()){
         agregarCheck->setChecked(true);
     }
+}
+bool dialog::revisar()
+{
+    std::list<std::pair<std::string,int>>::iterator it;
+    for (it=usuarios.begin(); it!=usuarios.end(); it++){
+        if (((*it).first)==player){
+            return false;
+        }
+    }
+    return true;
 }
 void dialog::uno()
 {
