@@ -178,6 +178,18 @@ void Game::start()
     case 3:
         lev4();
         break;
+    case 4:
+        lev5();
+        break;
+    case 5:
+        lev6();
+        break;
+    case 6:
+        lev7();
+        break;
+    case 7:
+        lev8();
+        break;
     }
 }
 void Game::reanudar()
@@ -304,12 +316,12 @@ void Game::lev3()
 }
 void Game::lev4()
 {
-    tico->posicion(250,600);
+    tico->posicion(250,600);    
     QImage fondoL3(":/Sprites/fondoL4.png");
     QBrush BfondoL3(fondoL3);
     scene->setBackgroundBrush(BfondoL3);
     Vpajaros.push_back(new pajaro(100,150,500,150));
-    Vbacterias.push_back(new Bacteria(300,200,150));
+    Vbacterias.push_back(new Bacteria(200,200,100));
     int Py=0;
     for(int i=0;i<15;i++){
         int Px=0;
@@ -333,6 +345,114 @@ void Game::lev4()
     for(int k=0;k<size;k++) scene->addItem(Vpajaros[k]);
     size=Vbacterias.size();
     for(int k=0;k<size;k++) scene->addItem(Vbacterias[k]);
+}
+
+void Game::lev5()
+{
+    tico->posicion(250,600);
+    QImage fondoL4(":/Sprites/fondoL4.png");
+    QBrush BfondoL4(fondoL4);
+    scene->setBackgroundBrush(BfondoL4);
+    Vpajaros.push_back(new pajaro(100,150,500,150));
+    Vbacterias.push_back(new Bacteria(300,200,150));
+    int Py=0;
+    for(int i=0;i<15;i++){
+        int Px=0;
+    for(int j=0;j<12;j++){
+    if(MapLevel5[i][j]==1){
+        Vplataformas.push_back(new platform(Px,Py));
+        Px+=50;}
+    if(MapLevel5[i][j]==2){
+        Vplataformas.push_back(new platform(Px,Py,Px,Py-300));
+        Px+=50;}
+    if(MapLevel5[i][j]==3){
+        Vplataformas.push_back(new platform(Px,Py,false));
+        Px+=50;}
+    else Px+=50;
+    }
+    Py+=50;
+    }
+    int size=Vplataformas.size();
+    for(int k=0;k<size;k++) scene->addItem(Vplataformas[k]);
+    size=Vpajaros.size();
+    for(int k=0;k<size;k++) scene->addItem(Vpajaros[k]);
+    size=Vbacterias.size();
+    for(int k=0;k<size;k++) scene->addItem(Vbacterias[k]);
+}
+
+void Game::lev6()
+{
+    tico->posicion(250,600);
+    QImage fondoL6(":/Sprites/fondoL6.png");
+    QBrush BfondoL6(fondoL6);
+    scene->setBackgroundBrush(BfondoL6);
+    Vpajaros.push_back(new pajaro(100,150,500,150));
+    Vbacterias.push_back(new Bacteria(300,200,150));
+    int Py=0;
+    for(int i=0;i<15;i++){
+        int Px=0;
+    for(int j=0;j<12;j++){
+    if(MapLevel6[i][j]==1){
+        Vplataformas.push_back(new platform(Px,Py));
+        Px+=50;}
+    if(MapLevel6[i][j]==2){
+        Vplataformas.push_back(new platform(Px,Py,Px,Py-300));
+        Px+=50;}
+    if(MapLevel6[i][j]==3){
+        Vplataformas.push_back(new platform(Px,Py,false));
+        Px+=50;}
+    else Px+=50;
+    }
+    Py+=50;
+    }
+    int size=Vplataformas.size();
+    for(int k=0;k<size;k++) scene->addItem(Vplataformas[k]);
+    size=Vpajaros.size();
+    for(int k=0;k<size;k++) scene->addItem(Vpajaros[k]);
+    size=Vbacterias.size();
+    for(int k=0;k<size;k++) scene->addItem(Vbacterias[k]);
+}
+
+void Game::lev7()
+{
+    tico->posicion(250,600);
+    QImage fondoL7(":/Sprites/fondoL7.png");
+    QBrush BfondoL7(fondoL7);
+    scene->setBackgroundBrush(BfondoL7);
+    Vpajaros.push_back(new pajaro(100,150,500,150));
+    Vbacterias.push_back(new Bacteria(300,200,150));
+    int Py=0;
+    for(int i=0;i<15;i++){
+        int Px=0;
+    for(int j=0;j<12;j++){
+    if(MapLevel7[i][j]==1){
+        Vplataformas.push_back(new platform(Px,Py));
+        Px+=50;}
+    if(MapLevel7[i][j]==2){
+        Vplataformas.push_back(new platform(Px,Py,Px,Py-300));
+        Px+=50;}
+    if(MapLevel7[i][j]==3){
+        Vplataformas.push_back(new platform(Px,Py,false));
+        Px+=50;}
+    else Px+=50;
+    }
+    Py+=50;
+    }
+    int size=Vplataformas.size();
+    for(int k=0;k<size;k++) scene->addItem(Vplataformas[k]);
+    size=Vpajaros.size();
+    for(int k=0;k<size;k++) scene->addItem(Vpajaros[k]);
+    size=Vbacterias.size();
+    for(int k=0;k<size;k++) scene->addItem(Vbacterias[k]);
+}
+
+void Game::lev8()
+{
+    livesnumber->setVisible(false);
+    levelnumber->setVisible(false);
+    QImage final(":/Sprites/final.png");
+    QBrush Bfinal(final);
+    scene->setBackgroundBrush(Bfinal);
 }
 int Game::getTico_vidas() const
 {

@@ -154,10 +154,13 @@ debug/qrc_Resources.cpp: ../Proyecto_final/Resources.qrc \
 		../Proyecto_final/Sprites/bacteria2.png \
 		../Proyecto_final/Sprites/fondo1.png \
 		../Proyecto_final/Sprites/fondoL1.png \
-		../Proyecto_final/Sprites/fondoL3.png \
-		../Proyecto_final/Sprites/bacteria3.png \
 		../Proyecto_final/Sprites/rama1.png \
+		../Proyecto_final/Sprites/bacteria3.png \
+		../Proyecto_final/Sprites/fondoL3.png \
+		../Proyecto_final/Sprites/final.png \
+		../Proyecto_final/Sprites/fondoL6.png \
 		../Proyecto_final/Sprites/Tico.png \
+		../Proyecto_final/Sprites/fondoL7.png \
 		../Proyecto_final/Sprites/trampolin.png \
 		../Proyecto_final/Sprites/fondo.png
 	C:\Qt\6.1.2\mingw81_64\bin\rcc.exe -name Resources ..\Proyecto_final\Resources.qrc -o debug\qrc_Resources.cpp
@@ -1094,6 +1097,7 @@ debug/moc_platform.cpp: ../Proyecto_final/platform.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qimage.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qpixelformat.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsItem \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/QTimer \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/qtimer.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/qbasictimer.h \
@@ -1107,7 +1111,6 @@ debug/moc_platform.cpp: ../Proyecto_final/platform.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qfontmetrics.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/tico.h \
-		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/QList \
 		../Proyecto_final/game.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsView \
@@ -2748,6 +2751,7 @@ debug/platform.o: ../Proyecto_final/platform.cpp ../Proyecto_final/platform.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qimage.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qpixelformat.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsItem \
+		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/QTimer \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/qtimer.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/qbasictimer.h \
@@ -2761,7 +2765,6 @@ debug/platform.o: ../Proyecto_final/platform.cpp ../Proyecto_final/platform.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/qfontmetrics.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtGui/QImage \
 		../Proyecto_final/tico.h \
-		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/6.1.2/mingw81_64/include/QtCore/QList \
 		../Proyecto_final/game.h \
 		C:/Qt/6.1.2/mingw81_64/include/QtWidgets/QGraphicsView \

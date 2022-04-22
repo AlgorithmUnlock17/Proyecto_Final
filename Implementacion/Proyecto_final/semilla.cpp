@@ -41,7 +41,7 @@ void semilla::mov()
             game->livesnumber->display(game->getTico_vidas()); // muestro las vidas restantes
             if (game->getTico_vidas()<=0){
                 //game->setLevel(0);
-                game->setTico_vidas(5);
+                game->setTico_vidas(3);
                 mov_timer->stop();
                 delete (this);
                 game->backMenu();

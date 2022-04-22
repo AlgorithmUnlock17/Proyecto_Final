@@ -61,7 +61,7 @@ void Tico::movY() // salto con gravedad
     }
     if (posY<0){
         game->setLevel(game->getLevel()+1); // si el salto supera el escenario pasa de nivel
-        //delete (this);
+        if(game->getLevel()>4)game->setTico_vidas(game->getTico_vidas()+1);
         game->start();
     }    
     QList<QGraphicsItem *> list = collidingItems() ;
@@ -69,27 +69,7 @@ void Tico::movY() // salto con gravedad
         salto=false;
         encima=false;
     }
-    /*foreach(QGraphicsItem * i , list) // para todos los objetos con los que intersecte tico
-    {
-        semilla * item2= dynamic_cast<semilla *>(i); //Con esto se hace la colision con cada plataforma
-        if (item2)
-        {
-            game->setTico_vidas(game->getTico_vidas()-1);
-            game->scene->removeItem(item2);
-            game->livesnumber->display(game->getTico_vidas()); // muestro las vidas restantes
-            if (game->getTico_vidas()<=0){
-                game->setLevel(0);
-                game->setTico_vidas(5);
-                item2->setVerificador(1);
-                delete item2;
-                //game->menu();
-            }
-            else{
-            delete item2;
-            //game->start();
-            }
-        }
-    }*/
+    if(game->getLevel()==7) movY_timer->stop();
     posicion();
 }
 bool Tico::getSalto() const
