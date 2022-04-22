@@ -57,7 +57,10 @@ void Game::clearscene(QGraphicsScene *scene)
      Vbacterias.clear();
      size=Vpajaros.size();
      for (int i=0;i<size;i++){
-         if(Vpajaros[i]->scene() != nullptr){
+         //qDebug()<< Vpajaros[i];
+         //qDebug()<<Vpajaros[i]->scene();
+         if(Vpajaros[i]->scene() !=nullptr){
+         //qDebug()<<"se borra";
          scene->removeItem(Vpajaros[i]);
          delete Vpajaros[i];
          Vpajaros[i]=0;}
@@ -346,7 +349,6 @@ void Game::lev4()
     size=Vbacterias.size();
     for(int k=0;k<size;k++) scene->addItem(Vbacterias[k]);
 }
-
 void Game::lev5()
 {
     tico->posicion(250,600);
@@ -354,7 +356,8 @@ void Game::lev5()
     QBrush BfondoL4(fondoL4);
     scene->setBackgroundBrush(BfondoL4);
     Vpajaros.push_back(new pajaro(100,150,500,150));
-    Vbacterias.push_back(new Bacteria(300,200,150));
+    Vpajaros.push_back(new pajaro(100,450,500,450));
+    //Vbacterias.push_back(new Bacteria(300,200,150));
     int Py=0;
     for(int i=0;i<15;i++){
         int Px=0;
@@ -363,7 +366,7 @@ void Game::lev5()
         Vplataformas.push_back(new platform(Px,Py));
         Px+=50;}
     if(MapLevel5[i][j]==2){
-        Vplataformas.push_back(new platform(Px,Py,Px,Py-300));
+        Vplataformas.push_back(new platform(Px,Py,Px+400,Py));
         Px+=50;}
     if(MapLevel5[i][j]==3){
         Vplataformas.push_back(new platform(Px,Py,false));
@@ -379,15 +382,15 @@ void Game::lev5()
     size=Vbacterias.size();
     for(int k=0;k<size;k++) scene->addItem(Vbacterias[k]);
 }
-
 void Game::lev6()
 {
     tico->posicion(250,600);
     QImage fondoL6(":/Sprites/fondoL6.png");
     QBrush BfondoL6(fondoL6);
     scene->setBackgroundBrush(BfondoL6);
-    Vpajaros.push_back(new pajaro(100,150,500,150));
-    Vbacterias.push_back(new Bacteria(300,200,150));
+    Vpajaros.push_back(new pajaro(100,70,500,150));
+    Vbacterias.push_back(new Bacteria(250,600,100));
+    Vbacterias.push_back(new Bacteria(500,450,100));
     int Py=0;
     for(int i=0;i<15;i++){
         int Px=0;
@@ -412,15 +415,16 @@ void Game::lev6()
     size=Vbacterias.size();
     for(int k=0;k<size;k++) scene->addItem(Vbacterias[k]);
 }
-
 void Game::lev7()
 {
     tico->posicion(250,600);
     QImage fondoL7(":/Sprites/fondoL7.png");
     QBrush BfondoL7(fondoL7);
     scene->setBackgroundBrush(BfondoL7);
-    Vpajaros.push_back(new pajaro(100,150,500,150));
-    Vbacterias.push_back(new Bacteria(300,200,150));
+    Vpajaros.push_back(new pajaro(100,50,500,50));
+    Vpajaros.push_back(new pajaro(100,350,500,350));
+    Vbacterias.push_back(new Bacteria(300,150,100));
+    Vbacterias.push_back(new Bacteria(250,600,100));
     int Py=0;
     for(int i=0;i<15;i++){
         int Px=0;
@@ -429,7 +433,7 @@ void Game::lev7()
         Vplataformas.push_back(new platform(Px,Py));
         Px+=50;}
     if(MapLevel7[i][j]==2){
-        Vplataformas.push_back(new platform(Px,Py,Px,Py-300));
+        Vplataformas.push_back(new platform(Px,Py,Px+300,Py-300));
         Px+=50;}
     if(MapLevel7[i][j]==3){
         Vplataformas.push_back(new platform(Px,Py,false));
@@ -445,7 +449,6 @@ void Game::lev7()
     size=Vbacterias.size();
     for(int k=0;k<size;k++) scene->addItem(Vbacterias[k]);
 }
-
 void Game::lev8()
 {
     livesnumber->setVisible(false);

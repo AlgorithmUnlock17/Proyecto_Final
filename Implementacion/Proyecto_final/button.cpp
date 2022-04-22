@@ -8,7 +8,7 @@ Button::Button(QString name, QGraphicsItem *parent)
     setRect(0,0,200,50); //modificar para cambiar el tamano de los botones y el estilo
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::darkRed);
+    brush.setColor(Qt::darkGreen);
     setBrush(brush);
 
     // dibujar el texto
@@ -28,7 +28,7 @@ Button::Button(int sizex,int sizey,QString name, QGraphicsItem *parent)
     setRect(0,0,sizex,sizey); //modificar para cambiar el tamano de los botones y el estilo
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::darkRed);
+    brush.setColor(Qt::darkGreen);
     setBrush(brush);
     // dibujar el texto
     text = new QGraphicsTextItem(name,this);
@@ -46,13 +46,13 @@ void Button::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 {
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::red);
+    brush.setColor(Qt::green);
     setBrush(brush);
 }
 void Button::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
 {
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::darkRed);
+    brush.setColor(Qt::darkGreen);
     setBrush(brush);
 }

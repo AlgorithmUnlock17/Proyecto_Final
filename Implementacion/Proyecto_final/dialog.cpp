@@ -9,6 +9,12 @@ dialog::dialog(QWidget *parent)
     :QDialog(parent)
 {
     lectura();
+    //setStyleSheet( ":/Sprites/fondoL6.png" );
+    QImage fondoDial(":/Sprites/final.png");
+    QBrush Bfondo2(fondoDial);
+    QPalette palette =this->palette();
+    palette.setBrush(QPalette::Window, Bfondo2);
+    setPalette(palette);
     //esto es para agregar un usuario
     agregar = new QLabel(tr("Agregar usuario: "));
     agregarLine = new QLineEdit;

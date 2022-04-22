@@ -623,11 +623,20 @@ qrc_Resources.cpp: ../Proyecto_final/Resources.qrc \
 		/Users/mariadelmar/Qt/6.2.1/macos/libexec/rcc \
 		../Proyecto_final/save.txt \
 		../Proyecto_final/Sprites/enemy.png \
-		../Proyecto_final/Sprites/Tico.png \
+		../Proyecto_final/Sprites/fondoL4.png \
 		../Proyecto_final/Sprites/Tico2.png \
-		../Proyecto_final/Sprites/trampolin.png \
-		../Proyecto_final/Sprites/bacteria.png \
 		../Proyecto_final/Sprites/semilla.png \
+		../Proyecto_final/Sprites/bacteria2.png \
+		../Proyecto_final/Sprites/fondo1.png \
+		../Proyecto_final/Sprites/fondoL1.png \
+		../Proyecto_final/Sprites/rama1.png \
+		../Proyecto_final/Sprites/bacteria3.png \
+		../Proyecto_final/Sprites/fondoL3.png \
+		../Proyecto_final/Sprites/final.png \
+		../Proyecto_final/Sprites/fondoL6.png \
+		../Proyecto_final/Sprites/Tico.png \
+		../Proyecto_final/Sprites/fondoL7.png \
+		../Proyecto_final/Sprites/trampolin.png \
 		../Proyecto_final/Sprites/fondo.png
 	/Users/mariadelmar/Qt/6.2.1/macos/libexec/rcc -name Resources ../Proyecto_final/Resources.qrc -o qrc_Resources.cpp
 
@@ -670,8 +679,8 @@ moc_dialog.cpp: ../Proyecto_final/dialog.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QCheckBox \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QListView \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlistview.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QComboBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QPushButton \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialogButtonBox \
@@ -686,8 +695,6 @@ moc_game.cpp: ../Proyecto_final/game.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QFile \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qfile.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTextStream \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtextstream.h \
 		../Proyecto_final/tico.h \
@@ -714,6 +721,21 @@ moc_game.cpp: ../Proyecto_final/game.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../Proyecto_final/pajaro.h \
+		../Proyecto_final/dialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLineEdit \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QCheckBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QComboBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialogButtonBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLCDNumber \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
@@ -741,8 +763,6 @@ moc_pajaro.cpp: ../Proyecto_final/pajaro.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QFile \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qfile.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTextStream \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtextstream.h \
 		../Proyecto_final/tico.h \
@@ -755,6 +775,21 @@ moc_pajaro.cpp: ../Proyecto_final/pajaro.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qimage.h \
 		../Proyecto_final/bacteria.h \
 		../Proyecto_final/pajaro.h \
+		../Proyecto_final/dialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLineEdit \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QCheckBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QComboBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialogButtonBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLCDNumber \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
@@ -767,6 +802,7 @@ moc_platform.cpp: ../Proyecto_final/platform.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTimer \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QPainter \
@@ -774,7 +810,6 @@ moc_platform.cpp: ../Proyecto_final/platform.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QImage \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qimage.h \
 		../Proyecto_final/tico.h \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QList \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qlist.h \
 		../Proyecto_final/game.h \
@@ -784,8 +819,6 @@ moc_platform.cpp: ../Proyecto_final/platform.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QFile \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qfile.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTextStream \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtextstream.h \
 		../Proyecto_final/button.h \
@@ -796,6 +829,21 @@ moc_platform.cpp: ../Proyecto_final/platform.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../Proyecto_final/pajaro.h \
+		../Proyecto_final/dialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLineEdit \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QCheckBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QComboBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialogButtonBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLCDNumber \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
@@ -823,8 +871,6 @@ moc_semilla.cpp: ../Proyecto_final/semilla.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QFile \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qfile.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTextStream \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtextstream.h \
 		../Proyecto_final/tico.h \
@@ -837,6 +883,21 @@ moc_semilla.cpp: ../Proyecto_final/semilla.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qimage.h \
 		../Proyecto_final/bacteria.h \
 		../Proyecto_final/pajaro.h \
+		../Proyecto_final/dialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLineEdit \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QCheckBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QComboBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialogButtonBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLCDNumber \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
@@ -897,8 +958,6 @@ bacteria.o: ../Proyecto_final/bacteria.cpp ../Proyecto_final/bacteria.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QFile \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qfile.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTextStream \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtextstream.h \
 		../Proyecto_final/tico.h \
@@ -910,6 +969,21 @@ bacteria.o: ../Proyecto_final/bacteria.cpp ../Proyecto_final/bacteria.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QImage \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qimage.h \
 		../Proyecto_final/pajaro.h \
+		../Proyecto_final/dialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLineEdit \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QCheckBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QComboBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialogButtonBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLCDNumber \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
@@ -938,12 +1012,47 @@ dialog.o: ../Proyecto_final/dialog.cpp ../Proyecto_final/dialog.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QCheckBox \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QListView \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlistview.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QComboBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QPushButton \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialogButtonBox \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
+		../Proyecto_final/game.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsView \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsview.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTextStream \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtextstream.h \
+		../Proyecto_final/tico.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTimer \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QPainter \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qpainter.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QList \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qlist.h \
+		../Proyecto_final/button.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneMouseEvent \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
+		../Proyecto_final/platform.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qimage.h \
+		../Proyecto_final/bacteria.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../Proyecto_final/pajaro.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLCDNumber \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QDebug \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qdebug.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qboxlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dialog.o ../Proyecto_final/dialog.cpp
@@ -955,8 +1064,6 @@ game.o: ../Proyecto_final/game.cpp ../Proyecto_final/game.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QFile \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qfile.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTextStream \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtextstream.h \
 		../Proyecto_final/tico.h \
@@ -982,6 +1089,21 @@ game.o: ../Proyecto_final/game.cpp ../Proyecto_final/game.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../Proyecto_final/pajaro.h \
+		../Proyecto_final/dialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLineEdit \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QCheckBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QComboBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialogButtonBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLCDNumber \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
@@ -1021,8 +1143,6 @@ main.o: ../Proyecto_final/main.cpp ../Proyecto_final/mainwindow.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsview.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QFile \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qfile.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTextStream \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtextstream.h \
 		../Proyecto_final/button.h \
@@ -1033,8 +1153,6 @@ main.o: ../Proyecto_final/main.cpp ../Proyecto_final/mainwindow.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qimage.h \
 		../Proyecto_final/bacteria.h \
 		../Proyecto_final/pajaro.h \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLCDNumber \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
 		../Proyecto_final/dialog.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
@@ -1044,12 +1162,14 @@ main.o: ../Proyecto_final/main.cpp ../Proyecto_final/mainwindow.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QCheckBox \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QListView \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlistview.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QComboBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QPushButton \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialogButtonBox \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLCDNumber \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Proyecto_final/main.cpp
@@ -1075,8 +1195,6 @@ pajaro.o: ../Proyecto_final/pajaro.cpp ../Proyecto_final/pajaro.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QFile \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qfile.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTextStream \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtextstream.h \
 		../Proyecto_final/tico.h \
@@ -1088,6 +1206,21 @@ pajaro.o: ../Proyecto_final/pajaro.cpp ../Proyecto_final/pajaro.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QImage \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qimage.h \
 		../Proyecto_final/bacteria.h \
+		../Proyecto_final/dialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLineEdit \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QCheckBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QComboBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialogButtonBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLCDNumber \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
@@ -1102,6 +1235,7 @@ platform.o: ../Proyecto_final/platform.cpp ../Proyecto_final/platform.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTimer \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QPainter \
@@ -1109,7 +1243,6 @@ platform.o: ../Proyecto_final/platform.cpp ../Proyecto_final/platform.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QImage \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qimage.h \
 		../Proyecto_final/tico.h \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QList \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qlist.h \
 		../Proyecto_final/game.h \
@@ -1119,8 +1252,6 @@ platform.o: ../Proyecto_final/platform.cpp ../Proyecto_final/platform.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QFile \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qfile.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTextStream \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtextstream.h \
 		../Proyecto_final/button.h \
@@ -1130,6 +1261,21 @@ platform.o: ../Proyecto_final/platform.cpp ../Proyecto_final/platform.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../Proyecto_final/pajaro.h \
+		../Proyecto_final/dialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLineEdit \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QCheckBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QComboBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialogButtonBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLCDNumber \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \
@@ -1158,8 +1304,6 @@ semilla.o: ../Proyecto_final/semilla.cpp ../Proyecto_final/semilla.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QFile \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qfile.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTextStream \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtextstream.h \
 		../Proyecto_final/tico.h \
@@ -1172,6 +1316,21 @@ semilla.o: ../Proyecto_final/semilla.cpp ../Proyecto_final/semilla.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qimage.h \
 		../Proyecto_final/bacteria.h \
 		../Proyecto_final/pajaro.h \
+		../Proyecto_final/dialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLineEdit \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QCheckBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QComboBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialogButtonBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLCDNumber \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h
@@ -1200,8 +1359,6 @@ tico.o: ../Proyecto_final/tico.cpp ../Proyecto_final/tico.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QFile \
-		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qfile.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTextStream \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtextstream.h \
 		../Proyecto_final/button.h \
@@ -1215,6 +1372,21 @@ tico.o: ../Proyecto_final/tico.cpp ../Proyecto_final/tico.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../Proyecto_final/pajaro.h \
+		../Proyecto_final/dialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLineEdit \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QCheckBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QComboBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QDialogButtonBox \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qdialogbuttonbox.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QLCDNumber \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qlcdnumber.h \

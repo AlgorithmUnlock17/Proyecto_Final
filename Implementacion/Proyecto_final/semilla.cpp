@@ -10,11 +10,6 @@ posx(x),posy(y),dir(dir) // Inicialización de variables heredadas con el constr
     mov_timer->stop();
     mov_timer->start(5);
 }
-/*
-semilla::~semilla()
-{
-   // delete (this);
-}*/
 void semilla::mov()
 {
     if (dir==0){ //esto es para que baje
@@ -40,7 +35,7 @@ void semilla::mov()
             game->scene->removeItem(this);
             game->livesnumber->display(game->getTico_vidas()); // muestro las vidas restantes
             if (game->getTico_vidas()<=0){
-                //game->setLevel(0);
+                game->setLevel(0);
                 game->setTico_vidas(3);
                 mov_timer->stop();
                 delete (this);

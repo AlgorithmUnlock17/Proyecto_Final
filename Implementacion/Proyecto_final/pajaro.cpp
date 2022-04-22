@@ -58,7 +58,7 @@ void pajaro::mov()
             game->setTico_vidas(game->getTico_vidas()-1);
             if (game->getTico_vidas()<=0){
                 game->setLevel(0);
-                game->setTico_vidas(5);
+                game->setTico_vidas(3);
                 movi_timer->stop();
                 pew_timer->stop();
                 game->backMenu();
@@ -79,7 +79,7 @@ void pajaro::mov()
         movi_timer->stop();
         pew_timer->stop();
         game->scene->removeItem(this);
-        delete (this);
+        //delete (this);
     }
     posicion();
 }

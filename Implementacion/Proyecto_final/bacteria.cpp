@@ -35,7 +35,7 @@ void Bacteria::mov() //me esta funcionando jeje
         {
             game->setTico_vidas(game->getTico_vidas()-1);
             if (game->getTico_vidas()<=0){
-                //game->setLevel(0);
+                game->setLevel(0);
                 game->setTico_vidas(3);
                 movi_timer->stop();
                 game->backMenu();
