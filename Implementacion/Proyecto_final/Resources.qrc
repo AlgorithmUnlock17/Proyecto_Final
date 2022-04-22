@@ -10,5 +10,8 @@
         <file>Sprites/enemy.png</file>
         <file>Sprites/bacteria2.png</file>
         <file>Sprites/fondo1.png</file>
+        <file>Sprites/fondoL1.png</file>
+        <file>Sprites/bacteria3.png</file>
+        <file>Sprites/fondoL3.png</file>
     </qresource>
 </RCC>

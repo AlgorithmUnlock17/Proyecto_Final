@@ -152,6 +152,9 @@ release/qrc_Resources.cpp: ../Proyecto_final/Resources.qrc \
 		../Proyecto_final/Sprites/semilla.png \
 		../Proyecto_final/Sprites/bacteria2.png \
 		../Proyecto_final/Sprites/fondo1.png \
+		../Proyecto_final/Sprites/fondoL1.png \
+		../Proyecto_final/Sprites/fondoL3.png \
+		../Proyecto_final/Sprites/bacteria3.png \
 		../Proyecto_final/Sprites/Tico.png \
 		../Proyecto_final/Sprites/trampolin.png \
 		../Proyecto_final/Sprites/bacteria.png \

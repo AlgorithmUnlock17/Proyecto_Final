@@ -89,6 +89,7 @@ void Game::menu()
     int bxPos = this->width()/2 -playButton->boundingRect().width()/2;
     int byPos = 330;
     playButton->setPos(bxPos,byPos);
+    playButton->setBrush(Qt::darkGreen);
     scene->addItem(playButton);
     connect(playButton,SIGNAL(clicked()),this,SLOT(decero()));
 
@@ -97,6 +98,7 @@ void Game::menu()
     int sxPos = this->width()/2-saveButton->boundingRect().width()/2;
     int syPos = 390;
     saveButton->setPos(sxPos,syPos);
+    saveButton->setBrush(Qt::darkGreen);
     connect(saveButton,SIGNAL(clicked()),this,SLOT(reanudar()));
     scene->addItem(saveButton);
 
@@ -105,6 +107,7 @@ void Game::menu()
     int qxPos = this->width()/2 -quitButton->boundingRect().width()/2;
     int qyPos = 450;
     quitButton->setPos(qxPos,qyPos);
+    quitButton->setBrush(Qt::darkGreen);
     connect(quitButton,SIGNAL(clicked()),this,SLOT(close()));
     scene->addItem(quitButton);
 }
@@ -132,10 +135,7 @@ void Game::setLevel(int newLevel)
 }
 void Game::start()
 {
-    QImage fondo2(":/Sprites/fondo.png");
-    QBrush Bfondo2(fondo2);
-    clearscene(scene);
-    scene->setBackgroundBrush(Bfondo2);
+    clearscene(scene);    
     //delete livesnumber;
     //delete levelnumber;
     //scene->clear();
@@ -143,6 +143,7 @@ void Game::start()
     int mxPos=560;
     int myPos=0;
     Bmenu->setPos(mxPos,myPos);
+    Bmenu->setBrush(Qt::darkGreen);
     connect(Bmenu,SIGNAL(clicked()),this,SLOT(backMenu()));
     scene->addItem(Bmenu);
     // crear el jugador    
@@ -215,12 +216,18 @@ void Game::backMenu() //volver al menu pricipal
     delete lives_display;
     levelnumber->setVisible(false);
     livesnumber->setVisible(false);
+    QImage fondo(":/Sprites/fondo1.png");
+    QBrush Bfondo(fondo);
+    scene->setBackgroundBrush(Bfondo);
     //save_game();
     menu();
 }
 void Game::lev1()
 {
     tico->posicion(50,650);   
+    QImage fondo2(":/Sprites/fondoL1.png");
+    QBrush Bfondo2(fondo2);
+    scene->setBackgroundBrush(Bfondo2);
     int Py=0;
     for(int i=0;i<15;i++){
         int Px=0;
@@ -239,6 +246,9 @@ void Game::lev1()
 void Game::lev2()
 {
     tico->posicion(160,600);
+    QImage fondoL2(":/Sprites/fondo.png");
+    QBrush Bfondo2(fondoL2);
+    scene->setBackgroundBrush(Bfondo2);
     Vbacterias.push_back(new Bacteria(200,200,100));
     //pajaro *enemybird=new pajaro(100,100,500,100);
     int Py=0;
@@ -266,6 +276,9 @@ void Game::lev2()
 void Game::lev3()
 {
     tico->posicion(100,600);
+    QImage fondoL3(":/Sprites/fondoL3.png");
+    QBrush BfondoL3(fondoL3);
+    scene->setBackgroundBrush(BfondoL3);
     Vpajaros.push_back(new pajaro(100,100,500,100));
     int Py=0;
     for(int i=0;i<15;i++){
@@ -292,6 +305,9 @@ void Game::lev3()
 void Game::lev4()
 {
     tico->posicion(250,600);
+    QImage fondoL3(":/Sprites/fondoL3.png");
+    QBrush BfondoL3(fondoL3);
+    scene->setBackgroundBrush(BfondoL3);
     Vpajaros.push_back(new pajaro(100,150,500,150));
     int Py=0;
     for(int i=0;i<15;i++){
