@@ -5,6 +5,7 @@
 #include <QObject>
 #include <QGraphicsRectItem>
 #include <QGraphicsItem>
+#include <QGraphicsPixmapItem>
 #include <QTimer>
 #include <QPainter>
 #include <QImage>

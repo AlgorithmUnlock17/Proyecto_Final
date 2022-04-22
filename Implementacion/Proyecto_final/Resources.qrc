@@ -4,7 +4,6 @@
         <file>Sprites/Tico2.png</file>
         <file>Sprites/fondo.png</file>
         <file>save.txt</file>
-        <file>Sprites/bacteria.png</file>
         <file>Sprites/trampolin.png</file>
         <file>Sprites/semilla.png</file>
         <file>Sprites/enemy.png</file>
@@ -13,5 +12,7 @@
         <file>Sprites/fondoL1.png</file>
         <file>Sprites/bacteria3.png</file>
         <file>Sprites/fondoL3.png</file>
+        <file>Sprites/fondoL4.png</file>
+        <file>Sprites/rama1.png</file>
     </qresource>
 </RCC>

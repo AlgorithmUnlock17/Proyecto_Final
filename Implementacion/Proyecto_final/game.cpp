@@ -249,7 +249,7 @@ void Game::lev2()
     QImage fondoL2(":/Sprites/fondo.png");
     QBrush Bfondo2(fondoL2);
     scene->setBackgroundBrush(Bfondo2);
-    Vbacterias.push_back(new Bacteria(200,200,100));
+    Vbacterias.push_back(new Bacteria(200,200,60));
     //pajaro *enemybird=new pajaro(100,100,500,100);
     int Py=0;
     for(int i=0;i<15;i++){
@@ -305,10 +305,11 @@ void Game::lev3()
 void Game::lev4()
 {
     tico->posicion(250,600);
-    QImage fondoL3(":/Sprites/fondoL3.png");
+    QImage fondoL3(":/Sprites/fondoL4.png");
     QBrush BfondoL3(fondoL3);
     scene->setBackgroundBrush(BfondoL3);
     Vpajaros.push_back(new pajaro(100,150,500,150));
+    Vbacterias.push_back(new Bacteria(300,200,150));
     int Py=0;
     for(int i=0;i<15;i++){
         int Px=0;
@@ -330,6 +331,8 @@ void Game::lev4()
     for(int k=0;k<size;k++) scene->addItem(Vplataformas[k]);
     size=Vpajaros.size();
     for(int k=0;k<size;k++) scene->addItem(Vpajaros[k]);
+    size=Vbacterias.size();
+    for(int k=0;k<size;k++) scene->addItem(Vbacterias[k]);
 }
 int Game::getTico_vidas() const
 {

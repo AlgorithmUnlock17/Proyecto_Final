@@ -148,13 +148,18 @@ release/qrc_Resources.cpp: ../Proyecto_final/Resources.qrc \
 		C:/Qt/6.1.2/mingw81_64/bin/rcc.exe \
 		../Proyecto_final/save.txt \
 		../Proyecto_final/Sprites/enemy.png \
-		../Proyecto_final/Sprites/Tico.png \
+		../Proyecto_final/Sprites/fondoL4.png \
 		../Proyecto_final/Sprites/Tico2.png \
-		../Proyecto_final/Sprites/trampolin.png \
-		../Proyecto_final/Sprites/bacteria.png \
 		../Proyecto_final/Sprites/semilla.png \
-		../Proyecto_final/Sprites/fondo.png \
-		../Proyecto_final/Sprites/bacteria2.png
+		../Proyecto_final/Sprites/bacteria2.png \
+		../Proyecto_final/Sprites/fondo1.png \
+		../Proyecto_final/Sprites/fondoL1.png \
+		../Proyecto_final/Sprites/fondoL3.png \
+		../Proyecto_final/Sprites/bacteria3.png \
+		../Proyecto_final/Sprites/rama1.png \
+		../Proyecto_final/Sprites/Tico.png \
+		../Proyecto_final/Sprites/trampolin.png \
+		../Proyecto_final/Sprites/fondo.png
 	C:\Qt\6.1.2\mingw81_64\bin\rcc.exe -name Resources ..\Proyecto_final\Resources.qrc -o release\qrc_Resources.cpp
 
 compiler_moc_predefs_make_all: release/moc_predefs.h

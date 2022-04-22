@@ -18,7 +18,7 @@ void Tico::keyPressEvent(QKeyEvent *event) //Teclas
     salto=false;
     if (event->key()==Qt::Key_Space && encima){
         salto=true;
-        velY=40;
+        velY=35; //Capacidad de salto
     }
     if (event->key()==Qt::Key_W || event->key()==Qt::Key_Up){
         semilla* pew=new semilla(posX+tamanoX/2,posY-70,1);

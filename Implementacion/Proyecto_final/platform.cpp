@@ -1,15 +1,19 @@
 #include "platform.h"
 #include <QBrush>
 
+
 platform::platform(float x, float y):
 posx(x),posy(y) // Inicialización de variables heredadas con el constructor de la clase base
 {
     setRect(0,0,sizex,sizey);
+    QImage rama(":/Sprites/rama1.png");
+    QPen pen(Qt::transparent);
     posicion(); // con posX y posY definidas en el constructor posiciono el personaje
-    QBrush brush;
-    brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::yellow);
+    QBrush brush(rama);
+    brush.setColor(Qt::transparent);
     setBrush(brush);
+    setPen(pen);
+
     connect(mov_timer1,SIGNAL(timeout()),this,SLOT(mov())); // esta no se conecta porque es estática
     mov_timer1->start(1);
 }
@@ -18,9 +22,10 @@ posx(x),posy(y),ix(x),iy(y),fx(xf),fy(yf) // Inicialización de variables hereda
 {
     setRect(0,0,sizex,sizey);
     posicion(); // con posX y posY definidas en el constructor posiciono el personaje
-    QBrush brush;
-    brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::green);
+    QImage rama(":/Sprites/rama1.png");
+    QPen pen(Qt::transparent);
+    QBrush brush(rama);
+    setPen(pen);
     setBrush(brush);
     connect(mov_timer2,SIGNAL(timeout()),this,SLOT(mov3())); // esta no se conecta porque es estática
     mov_timer2->start(10);
