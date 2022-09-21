@@ -39,9 +39,7 @@ public:
     void lev8();
     int getTico_vidas() const;
     void setTico_vidas(int newTico_vidas);
-
     void setUsuarios(const std::list<std::pair<std::string, int> > &newUsuarios);
-
     void setPlayer(const std::string &newPlayer);
 
 private:
@@ -174,7 +172,6 @@ private:
         {0,2,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,1,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0}};
-
 
 public slots:
     void start();
